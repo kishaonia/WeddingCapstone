@@ -1,34 +1,109 @@
-h1{
-    font: 2.8333333333333em/1.3em "La Luxes Serif W00 Regular";   
-}
-
-.navigation-bar {
+h1 {
+    font: 2.8333333333333em/1.3em "La Luxes Serif W00 Regular";
+  }
+  
+  .navigation-bar {
     display: flex;
-    height: 75px;
+    height: 79px;
     width: 1707px;
     background-color: #f7f6f3;
     margin-top: -6px;
     margin-left: -6px;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
-    align-items: stretch;
+    align-items: center;
     justify-content: space-between;
+    padding-top: -3px;
   }
-
-  .middle-navigation-bar{
+  
+  .middle-navigation-bar {
     display: flex;
   }
-
-.left-navigation-bar{
+  
+  .left-navigation-bar {
     display: flex;
-}
-
-.right-navigation-bar{
+  }
+  
+  .right-navigation-bar {
     display: flex;
-}
-.fa.fa-user{
+  }
+  
+  .fa.fa-user {
     font-size: 25px;
     display: flex;
-}
-.profile-button{
+  }
+  
+  .profile-button {
     display: flex;
-}
+    margin-right: 27px;
+  }
+  
+  .logo-for-proj {
+    position: relative;
+  }
+  
+  .drop-down-menu-middle {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100vw;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #f7f6f3;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .logo-for-proj:hover .drop-down-menu-middle {
+    display: block;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 768px) {
+    /* Styles for screens up to 768px */
+    .navigation-bar {
+      height: 60px;
+      width: 100%;
+    }
+  
+    .middle-navigation-bar {
+      display: none;
+    }
+  
+    .right-navigation-bar {
+      margin-right: 15px;
+    }
+  
+    .fa.fa-user {
+      font-size: 20px;
+    }
+  
+    .profile-button {
+      margin-right: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    /* Styles for screens up to 480px */
+    .navigation-bar {
+      height: 50px;
+    }
+  
+    .left-navigation-bar {
+      display: none;
+    }
+  
+    .right-navigation-bar {
+      margin-right: 10px;
+    }
+  
+    .fa.fa-user {
+      font-size: 16px;
+    }
+  
+    .profile-button {
+      margin-right: 5px;
+    }
+  }
+  

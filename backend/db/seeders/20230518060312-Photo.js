@@ -72,7 +72,7 @@ module.exports = {
             "I love this!",
             "Do you think its too much",
             "Is it ok",
-          ],
+          ]
         },
       },
       {}

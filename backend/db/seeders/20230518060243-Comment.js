@@ -66,14 +66,8 @@ module.exports = {
     return queryInterface.bulkDelete(
       options,
       {
-        comment: {
-          [Op.in]: [
-            "Congratulations!",
-            "She remembers it all too well",
-            "Nice!",
-            "cool",
-            "I love it!",
-          ],
+        userId: {
+          [Op.in]: [1,2,3,4,5]
         },
       },
       {}

@@ -67,8 +67,8 @@ module.exports = {
             "https://www.akc.org/wp-content/uploads/2017/11/Rottweiler-puppy-6-weeks-old-sitting-on-a-white-background.jpg",
             "https://cdn.britannica.com/70/234470-050-F25D5205/Rottweiler-dog.jpg",
             "https://usserviceanimals.org/blog/wp-content/uploads/2021/06/an-obedient-rottweiler.jpg",
-          ],
-        },
+          ]
+        }
       },
       {}
     );
