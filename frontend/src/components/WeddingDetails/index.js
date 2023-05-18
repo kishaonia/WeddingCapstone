@@ -4,6 +4,7 @@ import weddingdetailsbg from "../../assets/weddingdetailsbg.jpg";
 
 const WeddingDetails = () => {
   return (
+    <div className="wedding-details">
     <div className="wedding-details-header">
       <img src={weddingdetailsbg} height="800px" width="1700px" alt="Wedding Background" />
       <div className="overlay-wedding-details-header">
@@ -15,8 +16,10 @@ const WeddingDetails = () => {
       </div>
       
     </div>
-   <div className="lol">lol
-   </div>
+    <div className="lol">lol</div>
+    <i class='fas fa-church'></i>
+    <i class='fas fa-dove'></i>
+    </div>
   );
 };
 
