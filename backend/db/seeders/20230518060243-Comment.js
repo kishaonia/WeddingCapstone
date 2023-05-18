@@ -63,8 +63,20 @@ module.exports = {
      */
     options.tableName = 'Comments';
     const Op = Sequelize.Op;
-    return queryInterface.bulkDelete(options, {
-      userId: { [Op.in]: [1, 2, 3, 4, 5] }
-    }, {});
+    return queryInterface.bulkDelete(
+      options,
+      {
+        comment: {
+          [Op.in]: [
+            "Congratulations!",
+            "She remembers it all too well",
+            "Nice!",
+            "cool",
+            "I love it!",
+          ],
+        },
+      },
+      {}
+    );
   }
 };

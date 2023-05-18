@@ -60,11 +60,12 @@ function Navigation({ isLoaded }) {
         <div className="search-bar">
 			< SearchBar />
 		</div>
+        </div>
     <div className="middle-navigation-bar">
-    <div className="logo-for-proj">
+      <div className="logo-for-proj">
           <img src={logoproj1} height="75px" width="150px" alt="Logo" />
        
-        </div>
+       
             <ul className="drop-down-menu-middle">
                 <li>Home</li>
                 <li>Wedding Details</li>
@@ -73,9 +74,11 @@ function Navigation({ isLoaded }) {
                 <li>Song Request</li>
                 <li>Guestlist</li>
             </ul>
+            </div>
     </div>
-</div>
+
 <div className="right-navigation-bar">
+    <div className="profile-button"><i class="fa fa-user"></i></div>
 
 </div>
     </div>

@@ -62,8 +62,20 @@ module.exports = {
      */
     options.tableName = 'Photos';
     const Op = Sequelize.Op;
-    return queryInterface.bulkDelete(options, {
-      userId: { [Op.in]: [1, 2, 3, 4, 5] }
-    }, {});
+    return queryInterface.bulkDelete(
+      options,
+      {
+        description: {
+          [Op.in]: [
+            "Do I look cute enough",
+            "I am excited",
+            "I love this!",
+            "Do you think its too much",
+            "Is it ok",
+          ],
+        },
+      },
+      {}
+    );
   }
 };

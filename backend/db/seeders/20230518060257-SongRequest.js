@@ -62,8 +62,12 @@ module.exports = {
      */
     options.tableName = 'SongRequests';
     const Op = Sequelize.Op;
-    return queryInterface.bulkDelete(options, {
-      userId: { [Op.in]: [1, 2, 3, 4, 5] }
-    }, {});
+    return queryInterface.bulkDelete(
+      options,
+      {
+        artist: { [Op.in]: ["Taylor Swift", "Taylor Swift", "Taylor Swift", "Adele", "Adele"] },
+      },
+      {}
+    );
   }
 };

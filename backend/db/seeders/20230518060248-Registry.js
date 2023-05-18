@@ -57,8 +57,20 @@ module.exports = {
      */
     options.tableName = 'Registries';
     const Op = Sequelize.Op;
-    return queryInterface.bulkDelete(options, {
-      userId: { [Op.in]: [1, 2, 3, 4, 5] }
-    }, {});
+    return queryInterface.bulkDelete(
+      options,
+      {
+        url: {
+          [Op.in]: [
+            "https://iheartdogs.com/wp-content/uploads/2023/03/rottweiler-g54bbf41ab_1280.jpg",
+            "https://1.bp.blogspot.com/-J0Fhz8cbrJU/VjWHoWn5b9I/AAAAAAAABSw/cm4E9aY8lhc/s1600/rottweiler-dog-close-up.jpg",
+            "https://www.akc.org/wp-content/uploads/2017/11/Rottweiler-puppy-6-weeks-old-sitting-on-a-white-background.jpg",
+            "https://cdn.britannica.com/70/234470-050-F25D5205/Rottweiler-dog.jpg",
+            "https://usserviceanimals.org/blog/wp-content/uploads/2021/06/an-obedient-rottweiler.jpg",
+          ],
+        },
+      },
+      {}
+    );
   }
 };
