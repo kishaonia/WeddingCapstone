@@ -1,0 +1,14 @@
+h1{
+    font: 2.8333333333333em/1.3em "La Luxes Serif W00 Regular";   
+}
+
+.navigation-bar {
+    display: flex;
+    height: 105px;
+    width: 1707px;
+    background-color: #f7f6f3;
+    margin-top: -6px;
+    margin-left: -6px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+  }
+  
