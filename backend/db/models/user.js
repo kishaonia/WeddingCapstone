@@ -31,8 +31,8 @@ const {
     }
   }
   User.init({
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
+    FirstName: DataTypes.STRING,
+    LastName: DataTypes.STRING,
     username: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING
