@@ -78,7 +78,7 @@ function Navigation({ isLoaded }) {
     </div>
 
 <div className="right-navigation-bar">
-    <div className="profile-button"><i class="fa fa-user"></i></div>
+    <div className="profile-button"><i className="fa fa-user"></i></div>
 
 </div>
     </div>

@@ -10,6 +10,8 @@ h1{
     margin-top: -6px;
     margin-left: -6px;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+    align-items: stretch;
+    justify-content: space-between;
   }
 
   .middle-navigation-bar{
@@ -17,5 +19,16 @@ h1{
   }
 
 .left-navigation-bar{
+    display: flex;
+}
+
+.right-navigation-bar{
+    display: flex;
+}
+.fa.fa-user{
+    font-size: 25px;
+    display: flex;
+}
+.profile-button{
     display: flex;
 }
