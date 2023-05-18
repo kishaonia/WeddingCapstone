@@ -16,9 +16,15 @@ const WeddingDetails = () => {
       </div>
       
     </div>
-    <div className="lol">lol</div>
-    <i class='fas fa-church'></i>
-    <i class='fas fa-dove'></i>
+    <div className="ceremony-reception">
+        <div className="ceremony-text"><i class='fas fa-dove'></i> Ceremony</div>
+    <div className="reception-text">
+    <i class='fas fa-cocktail'></i>Reception
+    </div>
+   
+    </div>
+  
+   
     </div>
   );
 };

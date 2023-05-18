@@ -64,7 +64,9 @@ function Navigation({ isLoaded }) {
         </div>
         <div className="middle-navigation-bar">
       <div className="logo-for-proj">
+      <a href="/">
           <img src={logoproj1} height="75px" width="150px" alt="Logo" />
+          </a>
             <ul className="drop-down-menu-middle">
                 <li>Home </li>
                 

@@ -33,4 +33,20 @@
   .text-on-overlay-wedding-details-header p {
     font-size: 18px;
   }
-  
+  .ceremony-reception{
+    display: flex;
+    font-size: 50px;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 100px;
+  }
+.ceremony-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.reception-text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
