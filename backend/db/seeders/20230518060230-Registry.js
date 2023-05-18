@@ -58,16 +58,10 @@ module.exports = {
      */
     options.tableName = 'Registries';
     const Op = Sequelize.Op;
-    return queryInterface.bulkDelete(
-      options,
-      {
-        userId: {
-          [Op.in]: [
-           1,2,3,4,5
-          ]
-        }
-      },
-      {}
-    );
+    return queryInterface.bulkDelete(options, {
+      userId: { [Op.in]: ['1', '2', '3', '4', '5'] }
+    }, {});
+    
   }
 };
+

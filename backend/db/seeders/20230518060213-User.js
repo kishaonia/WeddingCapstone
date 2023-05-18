@@ -49,7 +49,7 @@ module.exports = {
 
         FirstName:"Kim",
         LastName:"Ong",
-        username:"kimgong",
+        username:"kimong",
         email:"kim@aa.io",
         password:"password"
         
@@ -76,7 +76,7 @@ module.exports = {
     options.tableName = 'Users';
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete(options, {
-      username: { [Op.in]: ['kishaonia', 'demouser', 'kristineonia', 'kimgong', 'britneytherottie'] }
+      username: { [Op.in]: ['kishaonia', 'demouser', 'kristineonia', 'kimong', 'britneytherottie'] }
     }, {});
   }
 };
