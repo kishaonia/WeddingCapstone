@@ -15,19 +15,12 @@ module.exports = (sequelize, DataTypes) => {
 
      Comment.belongsTo(
        models.User,
-       {
-         foreignKey: 'userId',
-
-
-       }
+      
      );
+    
     Comment.belongsTo(
      models.Registry,
-       {
-         foreignKey: 'registryId',
-
-
-       }
+      
     )
       
    }
