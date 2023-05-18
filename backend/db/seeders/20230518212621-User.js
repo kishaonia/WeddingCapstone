@@ -23,50 +23,46 @@ module.exports = {
    options.tableName = 'Users';
    return queryInterface.bulkInsert(options, [
      {
-       FirstName:"Kisha",
-       LastName:"Onia",
+       firstName:"Kisha",
+       lastName:"Onia",
        username:"kishaonia",
        email:"kishaonia@aa.io",
        password:"password"
+       
      },
      {
 
 
-       FirstName:"Demo",
-       LastName:"User",
-       username:"demouser",
-       email:"demouser@aa.io",
-       password:"password"
-    
+      firstName:"Demo",
+      lastName:"User",
+      username:"kishaonia",
+      email:"demouser@aa.io",
+      password:"password"
+      
    },
      {
 
-
-       FirstName:"Kristine",
-       LastName:"Onia",
-       username:"kristineonia",
-       email:"kristine@aa.io",
-       password:"password"
-    
-     },
-     {
-
-
-       FirstName:"Kim",
-       LastName:"Ong",
-       username:"kimong",
-       email:"kim@aa.io",
-       password:"password"
+      firstName:"Kristine",
+      lastName:"Onia",
+      username:"kristineonia",
+      email:"kristine@aa.io",
+      password:"password"
       
      },
      {
-
-
-       FirstName:"Britney",
-       LastName:"Ong-Onia",
-       username:"britneytherottie",
-       email:"britney@aa.io",
-       password:"password"
+      firstName:"Kim",
+      lastName:"Ong",
+      username:"kimong",
+      email:"kim@aa.io",
+      password:"password"
+      
+     },
+     {
+      firstName:"Britney",
+      lastName:"The Rottie",
+      username:"britneytherottie",
+      email:"britney@aa.io",
+      password:"password"
       
      }
    ], {});

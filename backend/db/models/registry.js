@@ -1,41 +1,30 @@
 'use strict';
 const {
- Model
+  Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
- class Registry extends Model {
-   /**
-    * Helper method for defining associations.
-    * This method is not a part of Sequelize lifecycle.
-    * The `models/index` file will call this method automatically.
-    */
-   static associate(models) {
-     // define association here
-   
-     Registry.belongsTo(
-       models.User,
-       {
-         foreignKey: 'userId',
-       }
-     );
+  class Registry extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+        Registry.belongsTo(models.User);
 
-
-     Registry.hasOne(
-       models.Comment,
-       {
-         foreignKey: 'registryId', onDelete: 'CASCADE', hooks: true
-        }
-     );
-    
-   }
- }
+        Registry.hasOne(models.Comment, {
+          foreignKey: 'registryId'
+        })
+      // define association here
+    }
+  }
   Registry.init({
-   userId: DataTypes.INTEGER,
-   registryItem: DataTypes.STRING,
-   url: DataTypes.STRING
- }, {
-   sequelize,
-   modelName: 'Registry',
- });
- return Registry;
+    userId: DataTypes.INTEGER,
+    registryItem: DataTypes.STRING,
+    url: DataTypes.STRING
+  }, {
+    sequelize,
+    modelName: 'Registry',
+  });
+  return Registry;
 };
