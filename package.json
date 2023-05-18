@@ -1,5 +1,6 @@
+
 {
-  "name": "weddingcapstone",
+  "name": "wedding-clone",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,12 +14,21 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kishaonia/WeddingCapstone.git"
+    "url": "https://github.com/kishaonia/WeddingCapstone.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/kishaonia/WeddingCapstone/issues"
   },
-  "homepage": "https://github.com/kishaonia/WeddingCapstone#readme"
+  "homepage": "https://github.com/kishaonia/WeddingCapstone#readme",
+  "dependencies": {
+    "js-cookie": "^3.0.1"
+  }
 }
+
+
+
+
+
