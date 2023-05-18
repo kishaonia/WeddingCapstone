@@ -66,7 +66,8 @@ function Navigation({ isLoaded }) {
       <div className="logo-for-proj">
           <img src={logoproj1} height="75px" width="150px" alt="Logo" />
             <ul className="drop-down-menu-middle">
-                <li>Home</li>
+                <li>Home </li>
+                
                 <li>Wedding Details</li>
                 <li>Registry</li>
                 <li>Gallery</li>

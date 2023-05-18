@@ -42,7 +42,7 @@ module.exports = {
     }, options);
   },
   async down(queryInterface, Sequelize) {
-      options.tableName = "Comments";
-    await queryInterface.dropTable('Photos');
+      options.tableName = "Photos";
+    await queryInterface.dropTable(options);
   }
 };
