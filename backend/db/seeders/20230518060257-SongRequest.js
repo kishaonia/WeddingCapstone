@@ -65,7 +65,7 @@ module.exports = {
     return queryInterface.bulkDelete(
       options,
       {
-        artist: { [Op.in]: ["Taylor Swift", "Taylor Swift", "Taylor Swift", "Adele", "Adele"] }
+        userId: { [Op.in]: [1,2,3,4,5] }
       },
       {}
     );

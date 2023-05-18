@@ -65,14 +65,8 @@ module.exports = {
     return queryInterface.bulkDelete(
       options,
       {
-        description: {
-          [Op.in]: [
-            "Do I look cute enough",
-            "I am excited",
-            "I love this!",
-            "Do you think its too much",
-            "Is it ok",
-          ]
+        userId: {
+          [Op.in]: [1,2,3,4,5]
         },
       },
       {}
