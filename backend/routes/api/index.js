@@ -4,6 +4,11 @@ const { User } = require("../../db/models");
 const sessionRouter = require('./session.js');
 const usersRouter = require('./users.js');
 const { restoreUser } = require("../../utils/auth.js");
+const commentsRouter = require ('./comments.js')
+const registryRouter = require ("./registry.js")
+const photoRouter = require('./photo.js')
+const songrequestRouter = require('./songrequest.js')
+
 
 // Connect restoreUser middleware to the API router
 // If current user session is valid, set req.user to the user in the database
@@ -12,7 +17,10 @@ router.use(restoreUser);
 
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
-
+router.use('/comments', commentsRouter)
+router.use('/registry',registryRouter)
+router.use('/photo',photoRouter)
+router.use('/songrequest',songrequestRouter)
 
 router.post('/test', (req, res) => {
     res.json({ requestBody: req.body });
