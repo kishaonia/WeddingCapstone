@@ -5,6 +5,7 @@ import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation"
 import WeddingDetails from "./components/WeddingDetails";
+import Registries from "./components/Registries";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,7 +23,11 @@ function App() {
       </Route> */}
       <Route exact path="/">
               <WeddingDetails />
-            </Route>
+      </Route>
+      <Route exact path="/">
+  <Registries />
+</Route>
+      
     </Switch>
    )}
    </>

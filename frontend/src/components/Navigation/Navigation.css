@@ -1,47 +1,49 @@
-h1{
-    font: 2.8333333333333em/1.3em "La Luxes Serif W00 Regular";  
- }
- 
- 
- .navigation-bar {
+h1 {
+    font: 2.8333333333333em/1.3em "La Luxes Serif W00 Regular";
+  }
+  
+  .navigation-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
     height: 79px;
-    width: 1707px;
+    width: 100%;
     background-color: #f7f6f3;
-    margin-top: -6px;
-    margin-left: -6px;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
     align-items: center;
     justify-content: space-between;
     padding-top: -3px;
+    z-index: 999; /* Set a high z-index value to ensure it stays on top */
   }
- 
- 
-  .middle-navigation-bar{
+  
+  .middle-navigation-bar {
     display: flex;
   }
- 
- 
- .left-navigation-bar{
+  
+  .left-navigation-bar {
     display: flex;
- }
- 
- 
- .right-navigation-bar{
+  }
+  
+  .right-navigation-bar {
     display: flex;
- }
- .fa.fa-user{
+  }
+  
+  .fa.fa-user {
     font-size: 25px;
     display: flex;
- }
- .profile-button{
+  }
+  
+  .profile-button {
     display: flex;
     margin-right: 27px;
- }
- .logo-for-proj {
+  }
+  
+  .logo-for-proj {
     position: relative;
   }
-   .drop-down-menu-middle {
+  
+  .drop-down-menu-middle {
     display: none;
     position: absolute;
     top: 100%;
@@ -50,30 +52,31 @@ h1{
     padding: 0;
     margin: 0;
     background-color: #f7f6f3;
-   
     border-radius: 4px;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
     z-index: 1;
   }
-   .drop-down-menu-middle li {
+  
+  .drop-down-menu-middle li {
     padding: 10px;
     transition: background-color 0.3s;
   }
-   .drop-down-menu-middle li:hover {
+  
+  .drop-down-menu-middle li:hover {
     background-color: #e0e0e0;
   }
-   .drop-down-menu-middle li:first-child {
+  
+  .drop-down-menu-middle li:first-child {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
   }
-   .drop-down-menu-middle li:last-child {
+  
+  .drop-down-menu-middle li:last-child {
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
   }
-   .logo-for-proj:hover .drop-down-menu-middle {
+  
+  .logo-for-proj:hover .drop-down-menu-middle {
     display: block;
   }
-   .logo-for-proj:hover .drop-down-menu-middle {
-    display: block;
-  }
- 
+  
