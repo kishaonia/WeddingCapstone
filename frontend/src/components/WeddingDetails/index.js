@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import weddingdetailsbg from "../../assets/weddingdetailsbg.jpg";
 import Registry from "../Registries";
+import CreateRegistry from "../Registries/CreateRegistry";
 
 
 
@@ -78,7 +79,9 @@ dispatch(getUsers())
           <Registry user={user}/>
         </div>
       )}
+       <div className="registry-list-style-form">Create a registry?<CreateRegistry/></div>
     </div>
+    
     </div>
     
   );

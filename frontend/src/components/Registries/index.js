@@ -19,7 +19,7 @@ const Registry = ({ user }) => {
     </div>
     
   );
-  <CreateRegistry/>
+ 
 };
 
 export default Registry;

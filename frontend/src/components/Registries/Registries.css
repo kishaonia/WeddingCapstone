@@ -23,7 +23,7 @@
 
 .registry-list-style{
   display: flex;
-  overflow-x: auto; /* Enable horizontal scrolling */
+   overflow-x: auto; /* Enable horizontal scrolling */
 }
 .registry-name{
 display: flex;

@@ -13,8 +13,10 @@ module.exports = (sequelize, DataTypes) => {
         Registry.belongsTo(models.User);
 
         Registry.hasOne(models.Comment, {
-          foreignKey: 'registryId'
-        })
+          foreignKey: "registryId",
+          onDelete: "CASCADE",
+          hooks: true,
+        });
       // define association here
     }
   }

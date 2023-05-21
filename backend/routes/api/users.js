@@ -37,6 +37,7 @@ router.get('/', requireAuth, async (req, res, next) => {
         include: [
             {
                 model: Registry,
+                attributes: ['id', 'registryItem', 'url'],
                
                 include: 
                     {

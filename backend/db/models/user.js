@@ -12,10 +12,13 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       User.hasOne(models.Comment, {
         foreignKey: "userId",
+        onDelete: "CASCADE",
+        hooks: true,
       });
       User.hasOne(models.Registry, {
         foreignKey: "userId",
-  
+        onDelete: "CASCADE",
+        hooks: true,
       });
       User.hasMany(models.songRequest, {
         foreignKey: "userId",
