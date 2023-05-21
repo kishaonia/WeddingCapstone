@@ -4,7 +4,9 @@ import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation"
+import LoginFormModal from "./components/LoginFormModal";
 import WeddingDetails from "./components/WeddingDetails";
+import ProfileButton from "./components/Navigation/ProfileButton";
 
 
 function App() {
@@ -21,7 +23,10 @@ function App() {
       {/* <Route exact path="/">
         <Home />
       </Route> */}
-      <Route exact path="/">
+    <Route exact path="/">
+      <LoginFormModal/>
+    </Route>
+      <Route exact path="/weddingdetails">
               <WeddingDetails />
       </Route>
       

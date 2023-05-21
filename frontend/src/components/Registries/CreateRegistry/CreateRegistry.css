@@ -1,0 +1,37 @@
+.registry-form-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.registry-form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.registry-form label {
+  margin-bottom: 5px;
+}
+
+.registry-form input {
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.registry-form button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.registry-form button:hover {
+  background-color: #0056b3;
+}

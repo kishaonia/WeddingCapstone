@@ -1,51 +1,54 @@
 import React from "react";
 import "./Navigation.css";
 import SearchBar from "./SearchBar";
-import logoproj1 from "../../assets/logoproj1.jpg"
-
-
-
+import logoproj1 from "../../assets/logoproj1.jpg";
+import SignupFormModal from "../SignupFormModal";
+import OpenModalMenuItem from "./OpenModalMenuItem";
+import LoginFormModal from "../LoginFormModal";
+import "./Navigation.css";
+import ProfileButton from "./ProfileButton";
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 
 function Navigation({ isLoaded }) {
+  const sessionUser = useSelector((state) => state?.session?.user);
 
+  let sessionLinks;
+  if (sessionUser) {
+    sessionLinks = (
+      <>
+        <li>
+          
+        </li>
+      </>
+    );
+  } 
 
+  return (
+    <div className="navigation-bar">
+      <div className="logo-for-proj">
+        <img src={logoproj1} height="75px" width="150px" alt="Logo" />
 
- return (
- 
-  
-   <div className="navigation-bar">
-     
-   <div className="left-navigation-bar">
-       <div className="search-bar">
-           < SearchBar />
-       </div>
-       </div>
-       <div className="middle-navigation-bar">
-     <div className="logo-for-proj">
-     <a href="/">
-         <img src={logoproj1} height="75px" width="150px" alt="Logo" />
-         </a>
-           <ul className="drop-down-menu-middle">
-               <li>Home </li>
-              
-               <li>Wedding Details</li>
-               <li>Registry</li>
-               <li>Gallery</li>
-               <li>Song Request</li>
-               <li>Guestlist</li>
-           </ul>  
-       </div>
-   </div>
-
-
-<div className="right-navigation-bar">
-   <div className="profile-button"><i className="fa fa-user"></i></div>
-
-
-</div>
-   </div>
- );
+        <ul className="drop-down-menu-middle">
+          {sessionLinks}
+          {sessionUser && (
+            <>
+            <div className="search-bar">
+            <SearchBar />
+          </div>
+              <li>Wedding Details</li>
+              <li>Registry</li>
+              <li>Gallery</li>
+              <li>Song Request</li>
+              <li>Guestlist</li>
+              <li><ProfileButton user={sessionUser} /></li>
+            </>
+          )}
+        </ul>
+        
+      </div>
+    </div>
+  );
 }
-
 
 export default Navigation;

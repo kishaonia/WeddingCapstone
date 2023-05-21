@@ -1,0 +1,90 @@
+.login-h1 {
+        font-size: 28px;
+        text-align: center;
+        color: #836868;
+        margin-bottom: 20px;
+        padding-top: 265px;
+    
+  }
+  
+  .login-form {
+    width: 265px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .login-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+  }
+  
+  .login-form input[type="text-login"],
+  .login-form input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  
+  .login-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #e5dbdb;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 15px;
+  }
+  
+  .login-form button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  #demo-user-button {
+    background-color: #5d5d5d;
+  }
+  
+ 
+  
+  .login-form li {
+    color: #f4a9a9;
+    margin-bottom: 10px;
+  }
+  
+  .signup-button-home {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    list-style: none;
+    text-decoration: none;
+  }
+  
+  .signup-button-home button {
+    width: 100%;
+    padding: 10px;
+    background-color: #ffffff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    list-style: none;
+  }
+  
+  .signup-button-home button:hover {
+    background-color: #fefefe;
+  }
+  
+  li{
+    list-style: none;
+  }
+

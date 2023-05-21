@@ -37,7 +37,7 @@ router.post(
             }
         });
 
-        if (!user || !bcrypt.compareSync(password, user.hashedPassword.toString())) {
+        if (!user || (password !== user.password)) {
             const err = new Error('Login failed');
             err.status = 401;
             err.title = 'Login failed';

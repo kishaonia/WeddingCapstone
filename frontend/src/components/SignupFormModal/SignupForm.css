@@ -1,0 +1,20 @@
+h1.signup-h1 {
+    display: flex;
+    justify-content: center;
+
+}
+form.signup-form{
+    display: flex;
+    width: 500px;
+    height: 400px;
+    flex-direction: column;
+    align-content: space-around;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.signup-form li {
+    color: red;
+    list-style-type: none;
+}

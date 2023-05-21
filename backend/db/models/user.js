@@ -22,6 +22,11 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: "CASCADE",
         hooks: true,
       });
+      User.hasMany(models.Photo, {
+        foreignKey: "userId",
+        onDelete: "CASCADE",
+        hooks: true,
+      });
       // define association here
     }
   }

@@ -1,8 +1,33 @@
 import React from "react";
 import "./WeddingDetails.css";
+import { getUsers } from "../../store/users";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import weddingdetailsbg from "../../assets/weddingdetailsbg.jpg";
+import Registry from "../Registries";
+
+
 
 const WeddingDetails = () => {
+const users = useSelector(state => state?.users)
+const currentUser = useSelector(state => state.session.user)
+const history = useHistory()
+const usersVal = Object?.values(users)
+console.log('Users', usersVal)
+const dispatch = useDispatch()
+
+if (!currentUser) {
+  history.push('/')
+}
+
+useEffect(() => {
+
+dispatch(getUsers())
+
+}, [dispatch, JSON.stringify(usersVal)])
+
 
   return (
     <div className="wedding-details">
@@ -41,11 +66,21 @@ const WeddingDetails = () => {
             <i className="fas fa-gamepad"></i>
             <i className="fas fa-gamepad"></i> more...
           </div>
+          
         </div>
+       
       </div>
       </div>
-    
+      <h1>Registries</h1>
+      <div className="registry-list-style">
+      {usersVal?.map(user => 
+        <div className="registry-list" key={user?.id} >
+          <Registry user={user}/>
+        </div>
+      )}
     </div>
+    </div>
+    
   );
 };
 

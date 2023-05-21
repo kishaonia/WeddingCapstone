@@ -1,48 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory, useParams } from "react-router-dom";
 import "./Registries.css";
+import CreateRegistry from "./CreateRegistry";
 
-const Registries = () => {
-  const registryItems = [
-    {
-      id: 1,
-      name: "KitchenAid Stand Mixer",
-      price: "$299.99",
-      description: "A powerful stand mixer for all your baking needs.",
-      image: "https://example.com/kitchenaid-stand-mixer.jpg",
-    },
-    {
-      id: 2,
-      name: "Le Creuset Dutch Oven",
-      price: "$249.99",
-      description: "A versatile and durable enameled cast iron Dutch oven.",
-      image: "https://example.com/le-creuset-dutch-oven.jpg",
-    },
-    {
-      id: 3,
-      name: "Instant Pot Pressure Cooker",
-      price: "$99.99",
-      description: "A multi-functional electric pressure cooker for quick and easy meals.",
-      image: "https://example.com/instant-pot-pressure-cooker.jpg",
-    },
-  ];
+const Registry = ({ user }) => {
+  const dispatch = useDispatch();
 
   return (
-    <div className="registry">
-      <div className="registry-header">Registry</div>
-      <div className="photos">
-        {registryItems.map((item) => (
-          <div key={item.id} className="registry-item">
-            <img src={item.image} alt={item.name} className="item-image" />
-            <div className="item-details">
-              <h3 className="item-name">{item.name}</h3>
-              <p className="item-price">{item.price}</p>
-              <p className="item-description">{item.description}</p>
-            </div>
-          </div>
-        ))}
+    <div className="registry-container">
+      <div className="registry-slideshow">
+        <p className="registry-name">
+          {user?.firstName} {user?.lastName}
+        </p>
+        <h2 className="registry-item-title">{user?.Registry?.registryItem}</h2>
+        <img src={user?.Registry?.url} alt="User Registry" />
       </div>
     </div>
+    
   );
+  <CreateRegistry/>
 };
 
-export default Registries;
+export default Registry;
