@@ -35,17 +35,7 @@ const validateSignup = [
 router.get('/', requireAuth, async (req, res, next) => {
     let users = await User.findAll({
         include: [
-            {
-                model: Registry,
-                attributes: ['id', 'registryItem', 'url'],
-               
-                include: 
-                    {
-                    model: Comment,
-                    attributes:['id', 'comment']
-                    },
-                   
-            },
+           
             {
                 model: songRequest,
                 attributes:['id', 'artist', 'songName']
@@ -75,6 +65,9 @@ router.get('/', requireAuth, async (req, res, next) => {
   res.json({Users})
 
 } )
+
+//list of registries
+
 
 //Creating a registry for a logged in User
 router.post('/:id/registries', requireAuth, async(req, res, next) => {

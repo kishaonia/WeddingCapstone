@@ -33,6 +33,14 @@ const deleteRegistry = (registryId) => {
     }
 }
 
+export const getRegstries = () => async (dispatch) => {
+ 
+  const res = await csrfFetch(`/api/registries`);
+  if (res.ok) {
+    const list = await res.json();
+    dispatch(getRegistry(list));
+  }
+};
 
 export const createOneRegistry = (registry, userId) => async dispatch => {
     const response = await csrfFetch(`/api/users/${userId}/registries`, {
@@ -80,6 +88,12 @@ export const deleteOneRegistry = (registryId) => async dispatch => {
 const registryReducer = (prevState = {}, action) => {
   let nextState;
   switch (action.type) {
+    case GET_REGISTRIES:
+    nextState = {}
+    action.registries.Registries.forEach(registry => {
+      nextState[registry.id] = registry
+    })
+    return nextState
     case CREATE_REGISTRY:
     nextState = {...prevState}
     nextState[action.registry.id] = action.registry
@@ -87,10 +101,11 @@ const registryReducer = (prevState = {}, action) => {
     case UPDATE_REGISTRY:
     nextState = {...prevState}
     nextState[action.registry.id] = action.registry
+    return nextState;
     case DELETE_REGISTRY:
     nextState = {...prevState}
     delete nextState[action.registryId]
-    return nextState
+    return nextState;
     default:
       return prevState;
   }

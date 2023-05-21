@@ -18,7 +18,7 @@ router.use(restoreUser);
 router.use('/session', sessionRouter);
 router.use('/users', usersRouter);
 router.use('/comments', commentsRouter)
-router.use('/registry', registryRouter)
+router.use('/registries', registryRouter)
 router.use('/photo',photoRouter)
 router.use('/songrequest',songrequestRouter)
 

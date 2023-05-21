@@ -9,8 +9,9 @@
 
 .registry-slideshow {
   margin-right: 20px; /* Added margin to create spacing between slideshow and box */
-  border: 2px solid black;
+  border: 2px solid #ab9999;
   padding: 20px;
+  border-radius: 20px;
 }
 
 
@@ -19,6 +20,7 @@
   max-width: 400px;
   height: auto;
   object-fit: cover;
+  border-radius: 10px;
 }
 
 .registry-list-style{
@@ -27,9 +29,82 @@
 }
 .registry-name{
 display: flex;
-margin: -13px
+margin: -13px;
+justify-content: center;
+color: rgb(127, 103, 107);
+
+
 }
 .registry-item-title{
   display: flex;
   margin-bottom: 2px;
+  justify-content: center;
+  color: #635f5f;
+}
+
+.big-title-header-regsitry-details{
+  font-weight: bold;
+    text-align: center;
+    font-family: 'Constantine', sans-serif;
+    font-size: 50px;
+    color: white;
+    background-color: #bea2a29c;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-top: -5px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.form-title-for-registry{
+  font-size: 30px;
+}
+
+.registry-list-style-form{
+  padding: 20px;
+  border-radius: 20px;
+  padding-right: 92px;
+  margin-left: 30px;
+  margin-right: 10px;
+  height: 210px;
+  margin-top: 20px;
+  background-color: #ab9999;
+  color: white;
+  display: flex;
+  align-items: center;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+.registry-form-pop-up{
+  display: flex;
+}
+.registry-form{
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  align-items: center;
+  justify-content: center;
+  width: 700px;
+  background-color: #ab9999;
+  border-radius: 10px;
+  color: #f4f2f2;
+  font-family: 'Constantine', sans-serif;
+  font-size: 30px;
+  
+}
+
+.submit-registries {
+  background-color: transparent;
+  border-color: transparent;
+  color: #f4f2f2;
+  font-size: 15px;
+}
+
+.submit-registries:hover {
+ border-radius: 5px;
+  background-color: #f4f2f2;
+  border: 1px solid #f4f2f2;
+  color: #a7a2a2; 
 }

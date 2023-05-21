@@ -1,22 +1,31 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector} from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import "./Registries.css";
 import CreateRegistry from "./CreateRegistry";
+import DeleteRegistry from "./DeleteRegistry";
+import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 
-const Registry = ({ user }) => {
-  const dispatch = useDispatch();
-
+const Registry = ({ registry }) => {
+ const currentUser = useSelector(state => state.session.user)
+ 
   return (
+            
+
     <div className="registry-container">
       <div className="registry-slideshow">
-        <p className="registry-name">
-          {user?.firstName} {user?.lastName}
-        </p>
-        <h2 className="registry-item-title">{user?.Registry?.registryItem}</h2>
-        <img src={user?.Registry?.url} alt="User Registry" />
+        <h4 className="registry-name">
+          {registry?.User?.firstName} {registry?.User?.lastName}
+        </h4>
+        <p className="registry-item-title">{registry?.registryItem}</p>
+        <img src={registry?.url} alt="User Registry" />
+      {currentUser?.id === registry?.User?.id ? <OpenModalMenuItem itemText="Delete" modalComponent={<DeleteRegistry registryId={registry?.id}/>}/>:<></>}
       </div>
+    
+
     </div>
+
+    
     
   );
  

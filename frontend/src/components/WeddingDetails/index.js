@@ -1,39 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./WeddingDetails.css";
 import { getUsers } from "../../store/users";
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { getRegstries } from "../../store/registries";
 import weddingdetailsbg from "../../assets/weddingdetailsbg.jpg";
 import Registry from "../Registries";
 import CreateRegistry from "../Registries/CreateRegistry";
-
-
+import detailsforwedding from "../../assets/detailsforwedding.jpg";
+import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 
 const WeddingDetails = () => {
-const users = useSelector(state => state?.users)
-const currentUser = useSelector(state => state.session.user)
-const history = useHistory()
-const usersVal = Object?.values(users)
-console.log('Users', usersVal)
-const dispatch = useDispatch()
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const users = useSelector((state) => state?.users);
+  const registries = useSelector((state) => state?.registries);
+  const currentUser = useSelector((state) => state.session.user);
+  const history = useHistory();
+  const registriesVal = Object?.values(registries);
+  const usersVal = Object?.values(users);
+  const dispatch = useDispatch();
+  
 
-if (!currentUser) {
-  history.push('/')
-}
+  if (!currentUser) {
+    history.push("/");
+  }
 
-useEffect(() => {
+  useEffect(() => {
+    dispatch(getUsers());
+    dispatch(getRegstries());
+  }, [dispatch, JSON.stringify(usersVal), JSON.stringify(registriesVal)]);
 
-dispatch(getUsers())
-
-}, [dispatch, JSON.stringify(usersVal)])
-
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
 
   return (
     <div className="wedding-details">
       <div className="wedding-details-header">
-        <img src={weddingdetailsbg} />
+        <img src={weddingdetailsbg} alt="Wedding Details Background" />
         <div className="overlay-wedding-details-header">
           <div className="text-on-overlay-wedding-details-header">
             <h2>Our Wedding</h2>
@@ -42,48 +46,65 @@ dispatch(getUsers())
           </div>
         </div>
       </div>
-      <div className="big-title-header-wedding-details">Wedding Details</div>
-      <div className="ceremony-reception">
-        <div className="ceremony-text">
-          <i className="fas fa-dove"></i> Ceremony
+      <div className="dropdown-big-title-wedding-details">
+        <div className="big-title-header-wedding-details"
+          onClick={toggleDropdown}
+        >
+          Wedding Details
         </div>
-        <div className="reception-text">
-          <i className="fas fa-cocktail"></i> Reception
-        </div>
-        <div className="small-svg-details">
-        <div className="first-three-wedding-details">
-          <div className="unitedstatestomanilaplane">
-            <i className="fas fa-plane-departure"></i> Manila International
-            Airport
-          </div>
-          <div className="dresscodewedding">
-            <i className="fas fa-user-tie"></i> Dress Code
-          </div>
-          <div className="wheretogoweddingdetail">
-            <i className="fas fa-shoe-prints"></i> Where to go
-          </div>
-          <div className="willreplacenoideayet">
-            <i className="fas fa-gamepad"></i>
-            <i className="fas fa-gamepad"></i>
-            <i className="fas fa-gamepad"></i> more...
-          </div>
-          
-        </div>
-       
+        {isDropdownOpen && (
+
+
+<div className="ceremony-reception">
+<img className="img-details" src={detailsforwedding}  />
+{/* <div className="ceremony-text">
+  <i className="fas fa-dove"></i>
+  <h4>Ceremony</h4>
+  <i className="fas fa-cocktail"></i>
+  <h4>Reception</h4>
+</div>
+<br />
+<div className="small-svg-details">
+  <div className="first-three-wedding-details">
+    <div>
+      <i className="fas fa-plane-departure"></i> Manila International Airport
+    </div>
+    <div>
+      <i className="fas fa-user-tie"></i> Dress Code
+    </div>
+    <div>
+      <i className="fas fa-shoe-prints"></i> Where to go
+    </div>
+    <div>
+      <i className="fas fa-gamepad"></i>
+      <i className="fas fa-gamepad"></i>
+      <i className="fas fa-gamepad"></i> more...
+    </div>
+  </div>
+</div> */}
+</div>
+        )}
       </div>
-      </div>
-      <h1>Registries</h1>
+      
+      <div className="big-title-header-wedding-details" onClick={toggleDropdown}>
+          Registries
+        </div>
       <div className="registry-list-style">
-      {usersVal?.map(user => 
-        <div className="registry-list" key={user?.id} >
-          <Registry user={user}/>
+        {registriesVal?.map((registry) => (
+          <div className="registry-list" key={registry?.id}>
+            <Registry registry={registry} />
+          </div>
+        ))}
+        <div className="registry-list-style-form">
+          <OpenModalMenuItem 
+            className="create-a-registry-modal"
+            itemText="Create A Registry"
+            modalComponent={<CreateRegistry />}
+          />
         </div>
-      )}
-       <div className="registry-list-style-form">Create a registry?<CreateRegistry/></div>
+      </div>
+      
     </div>
-    
-    </div>
-    
   );
 };
 

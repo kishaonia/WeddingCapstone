@@ -8,7 +8,40 @@ const { setTokenCookie, requireAuth } = require("../../utils/auth");
 const { User, Comment, songRequest, Registry, Photo} = require("../../db/models");
 
 
+router.get('/', requireAuth, async(req, res, next) => {
 
+  let registryList = await Registry.findAll({
+
+    include: [
+      {
+      model: Comment,
+      attributes: ["id", "comment"]
+      },
+      {
+        model: User,
+        attributes: ['id', 'lastName', 'firstName']
+      }
+    ],
+
+
+  });
+
+
+  if (!registryList){
+    return res.json({
+      message: "List of registries couldn't be found",
+      statusCode: 404,
+    });
+  }
+
+  let Registries = []
+
+  registryList.forEach(registry => {
+    Registries.push(registry.toJSON())
+  })
+
+  res.json({Registries})
+})
 
 
 

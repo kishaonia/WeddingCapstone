@@ -10,7 +10,7 @@ import { createOneRegistry } from "../../../store/registries";
 const CreateRegistry = () => {
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
-    const userId = user.id 
+    const userId = user?.id 
     const [registryItem, setRegistryItem] = useState("")
     const [url, setUrl] = useState("")
 
@@ -24,12 +24,13 @@ const CreateRegistry = () => {
      const success = await dispatch(createOneRegistry(newRegistry, userId))
         if (success) {
             setUrl('')
-            setRegistryItem()
+            setRegistryItem('')
         }
     }
 
 
     return (
+        <div className="registry-form-pop-up">
             <form className="registry-form" onSubmit={onSubmit}>
                 <label className="registry-item-item"></label>
                 Registry item
@@ -40,6 +41,7 @@ const CreateRegistry = () => {
                 onChange={e => setRegistryItem(e.target.value)}
                 required
                 />   
+                <br></br>
                 <label className="registry-item-url"></label>
                 Photo URL
                 <input
@@ -49,8 +51,10 @@ const CreateRegistry = () => {
                 onChange={e => setUrl(e.target.value)}
                 required
                 />   
-            <button type='submit'>Submit</button>
+                <br></br>
+            <button className='submit-registries'>Submit</button>
             </form>
+            </div>
 
     )
 }

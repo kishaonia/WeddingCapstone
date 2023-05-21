@@ -7,7 +7,7 @@ import registryReducer from "./registries";
 const rootReducer = combineReducers({
     session: sessionReducer,
     users: userReducer,
-    registry: registryReducer
+    registries: registryReducer
 });
 
 let enhancer;

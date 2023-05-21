@@ -27,7 +27,7 @@ function App() {
       <LoginFormModal/>
     </Route>
       <Route exact path="/weddingdetails">
-              <WeddingDetails />
+      <WeddingDetails />
       </Route>
       
     </Switch>
