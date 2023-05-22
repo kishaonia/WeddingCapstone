@@ -40,13 +40,16 @@
   .text-on-overlay-wedding-details-header h2 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
+    font-family: 'Hattinand', sans-serif;
+                                                
 
   }
   
   .text-on-overlay-wedding-details-header p {
     font-size: 1.2rem;
     margin-bottom: 0.2rem;
-
+    font-family: 'TT Rationalist Trl', sans-serif;
+                                                
   }
   
   
@@ -190,8 +193,13 @@
   font-size: 20px;
   margin-bottom: -10px;
   font-weight: bold;
+  font-family: 'Utendo', sans-serif;
+                                                
 }
 
 .gallery-description{
   color: black;
+  font-size: 20px;
+  font-family: 'Utendo', sans-serif;
+                                                
 }

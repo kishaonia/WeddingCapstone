@@ -32,6 +32,8 @@ display: flex;
 margin: -13px;
 justify-content: center;
 color: rgb(127, 103, 107);
+font-family: 'Utendo', sans-serif;
+                                                
 
 
 }
@@ -40,6 +42,8 @@ color: rgb(127, 103, 107);
   margin-bottom: 2px;
   justify-content: center;
   color: #635f5f;
+  font-family: 'Utendo', sans-serif;
+                                                
 }
 
 .big-title-header-regsitry-details{
