@@ -137,3 +137,61 @@
     }
   }
   
+
+  .big-title-header-gallery{
+    font-weight: bold;
+    text-align: center;
+    font-family: 'Constantine', sans-serif;
+    font-size: 50px;
+    color: white;
+    background-color: #bea2a29c;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -10px;
+    margin-right: -10px;
+    margin-top: -5px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+  }
+
+
+  .photos-slideshow {
+    border: 1px solid black;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+  }
+  
+  
+  .photos5 {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-top: 30px;
+   
+  }
+  
+  .photos {
+    max-height: 300px;
+    max-width: 500px;
+    scroll-snap-align: start;
+  }
+  
+.update-delete{
+  display: flex;
+  justify-content: space-around;
+  color: rgb(150, 126, 97);
+}
+
+.gallery-name {
+  color: black;
+  font-size: 20px;
+  margin-bottom: -10px;
+  font-weight: bold;
+}
+
+.gallery-description{
+  color: black;
+}

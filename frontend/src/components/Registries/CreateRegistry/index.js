@@ -28,12 +28,11 @@ const CreateRegistry = () => {
         }
     }
 
-
     return (
         <div className="registry-form-pop-up">
             <form className="registry-form" onSubmit={onSubmit}>
                 <label className="registry-item-item"></label>
-                Registry item
+                Want to post a registry?
                 <input
                 type="text"
                 placeholder="Registry Item"

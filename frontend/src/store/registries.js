@@ -1,4 +1,3 @@
-
 import { csrfFetch } from "./csrf";
 
 const CREATE_REGISTRY = 'registries/createRegistry'

@@ -43,7 +43,7 @@ router.get('/', requireAuth, async (req, res, next) => {
             },
             {
                 model: Photo,
-                attributes: ['id', 'url']
+                attributes: ['id', 'url', 'description']
                
             },
            
@@ -101,6 +101,40 @@ router.post('/:id/registries', requireAuth, async(req, res, next) => {
   });
 
   res.json(newRegistry);
+}
+)
+//Creating Photo for Logged in User
+router.post('/:id/photos', requireAuth, async(req, res, next) => {
+  let newPhoto;
+  const { url, description } = req.body;
+
+  let findUser = await User.findByPk(req.user.id);
+
+  if (!findUser) {
+    return res.json({
+      message: "User couldn't be found",
+    });
+  }
+
+  let findPhoto = await Photo.findOne({
+    where: {
+      userId: req.user.id,
+    },
+  });
+
+  if (findPhoto) {
+    return res.json({
+      message: "User already created a photo",
+    });
+  }
+
+  newPhoto = await findUser.createPhoto({
+    userId: req.user.id,
+    url,
+    description,
+  });
+
+  res.json(newPhoto);
 }
 )
 

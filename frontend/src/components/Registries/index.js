@@ -5,6 +5,8 @@ import "./Registries.css";
 import CreateRegistry from "./CreateRegistry";
 import DeleteRegistry from "./DeleteRegistry";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
+import UpdateRegistry from "./EditRegistry";
+
 
 const Registry = ({ registry }) => {
  const currentUser = useSelector(state => state.session.user)
@@ -19,10 +21,11 @@ const Registry = ({ registry }) => {
         </h4>
         <p className="registry-item-title">{registry?.registryItem}</p>
         <img src={registry?.url} alt="User Registry" />
+        <div className="update-delete">
       {currentUser?.id === registry?.User?.id ? <OpenModalMenuItem itemText="Delete" modalComponent={<DeleteRegistry registryId={registry?.id}/>}/>:<></>}
+      {currentUser?.id === registry?.User?.id ? <OpenModalMenuItem itemText="Update" modalComponent={<UpdateRegistry registry={registry}/>}/>:<></>}
       </div>
-    
-
+      </div>
     </div>
 
     

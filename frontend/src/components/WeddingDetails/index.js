@@ -9,6 +9,10 @@ import Registry from "../Registries";
 import CreateRegistry from "../Registries/CreateRegistry";
 import detailsforwedding from "../../assets/detailsforwedding.jpg";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
+import Photos from "../Photo";
+import CreatePhoto from "../Photo/PhotoForm";
+
+
 
 const WeddingDetails = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -84,9 +88,11 @@ const WeddingDetails = () => {
 </div> */}
 </div>
         )}
+
+
       </div>
       
-      <div className="big-title-header-wedding-details" onClick={toggleDropdown}>
+      <div className="big-title-header-wedding-details">
           Registries
         </div>
       <div className="registry-list-style">
@@ -94,16 +100,23 @@ const WeddingDetails = () => {
           <div className="registry-list" key={registry?.id}>
             <Registry registry={registry} />
           </div>
-        ))}
-        <div className="registry-list-style-form">
-          <OpenModalMenuItem 
-            className="create-a-registry-modal"
-            itemText="Create A Registry"
-            modalComponent={<CreateRegistry />}
-          />
-        </div>
+        )) }
+        <div className="registry-list-style-form"> 
+        
+        </div><CreateRegistry />
       </div>
-      
+      <div className="big-title-header-gallery">
+          Gallery
+        </div>
+      <div className="photos5">
+  {users && Object.values(users).map(user => (
+    <Photos key={user?.id} user={user}
+     />
+  ))}
+  <CreatePhoto/>
+</div>
+
+
     </div>
   );
 };

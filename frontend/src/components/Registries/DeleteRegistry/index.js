@@ -6,12 +6,9 @@ import { useState } from "react";
 import { useModal } from "../../../context/Modal";
 import { useSelector } from "react-redux";
 
-
-
 const DeleteRegistry = ({registryId}) => {
     const dispatch = useDispatch()
 const {closeModal} = useModal()
-
 
 const onDelete = async(e) => {
     e.preventDefault()
