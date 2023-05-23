@@ -11,6 +11,7 @@ import detailsforwedding from "../../assets/detailsforwedding.jpg";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import Photos from "../Photo";
 import CreatePhoto from "../Photo/PhotoForm";
+import { fetchPhotos } from "../../store/photos";
 
 const WeddingDetails = () => {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
@@ -31,7 +32,10 @@ const WeddingDetails = () => {
   useEffect(() => {
     dispatch(getUsers());
     dispatch(getRegstries());
+    
   }, [dispatch, JSON.stringify(usersVal), JSON.stringify(registriesVal)]);
+
+  
 
   const toggleDetailsDropdown = () => {
     setIsDetailsOpen(!isDetailsOpen);

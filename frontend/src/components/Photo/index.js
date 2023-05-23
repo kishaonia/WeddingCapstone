@@ -8,10 +8,12 @@ import DeletePhoto from "./DeletePhoto";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import UpdatePhoto from "./UpdatePhoto";
 
+
 const Photos = ({ user }) => {
   const currentUser = useSelector((state) => state.session.user);
   const history = useHistory();
   const dispatch = useDispatch();
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,10 +21,11 @@ const Photos = ({ user }) => {
         history.push("/");
       }
     };
-
+    
     fetchData();
   }, [currentUser, history]);
 
+  
   return (
     <>
   
@@ -38,7 +41,7 @@ const Photos = ({ user }) => {
           style={{ maxHeight: '200px', maxWidth: '400px' }}
         />
      
-        <p className="gallery-name">{user?.firstName} {user.lastName}</p>
+        <p className="gallery-name">{user?.firstName} {user?.lastName}</p>
         <p className="gallery-description">{photo?.description}</p>
         
         <div className="update-delete"> 
