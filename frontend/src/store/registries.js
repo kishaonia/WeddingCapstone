@@ -51,6 +51,7 @@ export const createOneRegistry = (registry, userId) => async dispatch => {
 
     if (response.ok) {
      const success = await response.json()
+     success.userId = userId;
      dispatch(createRegistry(success))
      return success
     }
