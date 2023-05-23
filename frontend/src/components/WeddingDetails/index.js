@@ -112,7 +112,9 @@ const WeddingDetails = () => {
   {users && Object.values(users).map(user => (
     <Photos key={user?.id} user={user}
      />
+     
   ))}
+  
   <CreatePhoto/>
 </div>
 

@@ -20,7 +20,8 @@ function SearchBar() {
                     }
                 }}
             />
-            <button className="search-button" onClick={handleSearch}><i className="fa">&#xf002;</i></button>
+            <button className="search-button" onClick={handleSearch} placeholder='Bonus Feature'><i className="fa">&#xf002;</i></button> 
+            {/* Add A placeholder */}
 
         </div>
     );

@@ -36,11 +36,11 @@ function Navigation({ isLoaded }) {
             <div className="search-bar">
             <SearchBar />
           </div>
-              <li>Wedding Details</li>
-              <li>Registry</li>
-              <li>Gallery</li>
-              <li>Song Request</li>
-              <li>Guestlist</li>
+              <li  onClick={() => alert("Feature coming soon!")}>Wedding Details</li>
+              <li  onClick={() => alert("Feature coming soon!")}>Registry</li>
+              <li  onClick={() => alert("Feature coming soon!")}>Gallery</li>
+              <li onClick={() => alert("Feature coming soon!")}>Song Request</li>
+              <li onClick={() => alert("Feature coming soon!")}>Guestlist</li>
               <li><ProfileButton user={sessionUser} /></li>
             </>
           )}

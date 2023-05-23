@@ -37,14 +37,15 @@ const Photos = ({ user }) => {
           style={{ maxHeight: '300px', maxWidth: '500px' }}
         />
      
-        <p className="gallery-name">{user.firstName} {user.lastName}</p>
-        <p className="gallery-description">{user.description}</p>
-        {currentUser?.id === photo?.User?.id ? <OpenModalMenuItem itemText="Delete" modalComponent={<DeletePhoto photoId={photo?.id}/>}/>:<></>}
-        {photo.description && <p>{photo.description}</p>}
-      
+        <p className="gallery-name">{user?.firstName} {user.lastName}</p>
+        <p className="gallery-description">{user?.description}</p>
+        
+        {photo?.description && <p>{photo?.description}</p>}
+        {currentUser?.id === photo?.userId ? <OpenModalMenuItem itemText="Delete" modalComponent={<DeletePhoto photoId={photo?.id}/>}/>:<></>}
       </div>
     ))
   )}
+  
 </div>
 
 

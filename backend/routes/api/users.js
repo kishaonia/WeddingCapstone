@@ -43,7 +43,7 @@ router.get('/', requireAuth, async (req, res, next) => {
             },
             {
                 model: Photo,
-                attributes: ['id', 'url', 'description']
+                // attributes: ['id', 'url', 'description']
                
             },
            

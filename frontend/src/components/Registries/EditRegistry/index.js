@@ -71,7 +71,7 @@ const registryId = registry?.id
           <button className="submit-registries" type="submit">Submit</button>
         </form>
       </div>
-      <button onClick={onCancel}>Cancel</button>
+ 
     </>
   );
 };

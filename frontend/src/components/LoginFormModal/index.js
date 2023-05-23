@@ -7,8 +7,11 @@ import { useHistory } from "react-router-dom";
 import "./LoginForm.css";
 import SignupFormModal from "../SignupFormModal";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
+import { useSelector } from "react-redux";
 
 function LoginFormModal() {
+  const currentUser = useSelector(state =>
+    state?.session?.user)
   const history = useHistory()
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
@@ -42,6 +45,10 @@ function LoginFormModal() {
     }
   };
   
+  if (currentUser) {
+    history.push('/weddingdetails')
+  }
+
   return (
     <>
       <h1 className="login-h1">Log In</h1>
