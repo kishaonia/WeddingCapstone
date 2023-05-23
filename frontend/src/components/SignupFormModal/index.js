@@ -44,6 +44,7 @@ function SignupFormModal() {
 
   return (
     <>
+      
       <h1 className="signup-h1">Sign Up</h1>
       <form className="signup-form" onSubmit={handleSubmit}>
         {errors?.map((error, idx) => (

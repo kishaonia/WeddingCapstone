@@ -15,6 +15,7 @@ import CreatePhoto from "../Photo/PhotoForm";
 const WeddingDetails = () => {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
   const [isRegistriesOpen, setIsRegistriesOpen] = useState(false);
+  const [isGalleriesOpen, setIsGalleriesOpen] = useState(false);
   const users = useSelector((state) => state?.users);
   const registries = useSelector((state) => state?.registries);
   const currentUser = useSelector((state) => state.session.user);
@@ -38,6 +39,10 @@ const WeddingDetails = () => {
 
   const toggleRegistriesDropdown = () => {
     setIsRegistriesOpen(!isRegistriesOpen);
+  };
+
+  const toggleGalleriesDropdown = () => {
+    setIsGalleriesOpen(!isGalleriesOpen);
   };
 
   return (
@@ -86,20 +91,24 @@ const WeddingDetails = () => {
         )}
       </div>
 
-      <div className="big-title-header-gallery">Gallery</div>
-      <div className="photos5">
-        {/* {users &&
-          Object.values(users).map((user) => (
-            <Photos key={user?.id} user={user} />
-          ))} */}
-
+      <div className="dropdown-big-title-wedding-details">
+        <div
+          className="big-title-header-wedding-details"
+          onClick={toggleGalleriesDropdown}
+        >
+          Gallery
+        </div>
+        {isGalleriesOpen && (
+          <div className="photos5">
             {users &&
               Object?.values(users)?.map((photo) => (
                 <Photos key={photo?.id} user={photo} />
               ))}
-        <div className="create-list">
-          <CreatePhoto />
-        </div>
+            <div className="create-list">
+              <CreatePhoto />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

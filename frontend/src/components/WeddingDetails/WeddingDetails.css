@@ -173,8 +173,28 @@
     justify-content: flex-start;
     overflow-x: auto;
     padding-top: 30px;
+    padding-bottom: 10px;
    
   }
+
+  .photos5::-webkit-scrollbar {
+    width: 10px; 
+  }
+  
+  .photos5::-webkit-scrollbar-track {
+    background-color: #f1f1f1; 
+    border-radius: 10px;
+  }
+  
+  .photos5::-webkit-scrollbar-thumb {
+    background-color: #c1a1a1; 
+    border-radius: 10px; 
+  }
+  
+  .photos5::-webkit-scrollbar-thumb:hover {
+    background-color: #7b5c5c; 
+  }
+  
   
   .photos {
     max-height: 300px;
