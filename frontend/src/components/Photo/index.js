@@ -6,6 +6,7 @@ import { csrfFetch } from "../../store/csrf";
 import CreatePhoto from "./PhotoForm";
 import DeletePhoto from "./DeletePhoto";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
+import UpdatePhoto from "./UpdatePhoto";
 
 const Photos = ({ user }) => {
   const currentUser = useSelector((state) => state.session.user);
@@ -41,7 +42,10 @@ const Photos = ({ user }) => {
         <p className="gallery-description">{user?.description}</p>
         
         {photo?.description && <p>{photo?.description}</p>}
+        <div className="update-delete"> 
         {currentUser?.id === photo?.userId ? <OpenModalMenuItem itemText="Delete" modalComponent={<DeletePhoto photoId={photo?.id}/>}/>:<></>}
+        {currentUser?.id === photo?.userId ? <OpenModalMenuItem itemText="Update" modalComponent={<UpdatePhoto photo={photo}/>}/>:<></>}
+        </div>
       </div>
     ))
   )}

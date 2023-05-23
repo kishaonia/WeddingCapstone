@@ -30,6 +30,7 @@ module.exports = {
             model: "Registries",
             key: "id",
           },
+          onDelete: "CASCADE",
         },
         comment: {
           type: Sequelize.STRING,

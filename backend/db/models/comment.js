@@ -11,9 +11,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Comment.belongsTo(
-        models.Registry
+        models.Registry,{
+          foreignKey: 'registryId',
+        }
       )
-       Comment.belongsTo(models.User);
+       Comment.belongsTo(models.User, {
+        foreignKey: 'userId',
+      });
       // define association here
     }
   }

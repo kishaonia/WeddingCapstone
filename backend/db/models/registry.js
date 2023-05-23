@@ -10,7 +10,10 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-        Registry.belongsTo(models.User);
+        Registry.belongsTo(models.User,
+          {
+          foreignKey: 'userId',
+        });
 
         Registry.hasOne(models.Comment, {
           foreignKey: "registryId",

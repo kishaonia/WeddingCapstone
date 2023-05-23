@@ -17,11 +17,6 @@ const registryId = registry?.id
   const [error, setError] = useState({});
 
   
-//   useEffect(() => {
-//     setRegistryItem(registryItem?.registryItem);
-//     setUrl(registryItem?.url);
-//   }, [registryId]);
-
   const onSubmit = async (e) => {
     e.preventDefault();
     if (!registryItem) {

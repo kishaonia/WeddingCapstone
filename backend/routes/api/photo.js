@@ -7,8 +7,11 @@ const { handleValidationErrors } = require("../../utils/validation");
 const { setTokenCookie, requireAuth } = require("../../utils/auth");
 const { User, Comment, songRequest, Registry, Photo } = require("../../db/models");
 
+
 router.get('/', requireAuth, async (req, res, next) => {
+
   let description = await Photo.findAll({
+    
     include: [
       {
         model: User,

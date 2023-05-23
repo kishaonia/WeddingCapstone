@@ -51,19 +51,19 @@ export const createPhotoRequest = (photo, userId) => async (dispatch) => {
   }
 };
 
-export const updatePhotoRequest = (photoData, photoId) => async (dispatch) => {
+export const updatePhotoRequest = (photo, photoId) => async (dispatch) => {
   const response = await csrfFetch(`/api/photos/${photoId}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(photoData),
+    body: JSON.stringify(photo),
   });
 
   if (response.ok) {
-    const updatedPhoto = await response.json();
-    dispatch(updatePhoto(updatedPhoto));
-    return updatedPhoto;
+    const updated = await response.json();
+    dispatch(updatePhoto(updated));
+    return updated;
   }
 };
 
