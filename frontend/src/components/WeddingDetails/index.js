@@ -12,10 +12,10 @@ import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import Photos from "../Photo";
 import CreatePhoto from "../Photo/PhotoForm";
 
-
-
 const WeddingDetails = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isDetailsOpen, setIsDetailsOpen] = useState(false);
+  const [isRegistriesOpen, setIsRegistriesOpen] = useState(false);
+  const [isGalleryOpen, setIsGalleryOpen] = useState(false);
   const users = useSelector((state) => state?.users);
   const registries = useSelector((state) => state?.registries);
   const currentUser = useSelector((state) => state.session.user);
@@ -23,7 +23,6 @@ const WeddingDetails = () => {
   const registriesVal = Object?.values(registries);
   const usersVal = Object?.values(users);
   const dispatch = useDispatch();
-  
 
   if (!currentUser) {
     history.push("/");
@@ -34,8 +33,16 @@ const WeddingDetails = () => {
     dispatch(getRegstries());
   }, [dispatch, JSON.stringify(usersVal), JSON.stringify(registriesVal)]);
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
+  const toggleDetailsDropdown = () => {
+    setIsDetailsOpen(!isDetailsOpen);
+  };
+
+  const toggleRegistriesDropdown = () => {
+    setIsRegistriesOpen(!isRegistriesOpen);
+  };
+
+  const toggleGalleryDropdown = () => {
+    setIsGalleryOpen(!isGalleryOpen);
   };
 
   return (
@@ -50,51 +57,59 @@ const WeddingDetails = () => {
           </div>
         </div>
       </div>
+
       <div className="dropdown-big-title-wedding-details">
-        <div className="big-title-header-wedding-details"
-          onClick={toggleDropdown}
+        <div
+          className="big-title-header-wedding-details"
+          onClick={toggleDetailsDropdown}
         >
           Wedding Details
         </div>
-        {isDropdownOpen && (
-
-
-<div className="ceremony-reception">
-<img className="img-details" src={detailsforwedding}  />
-</div>
+        {isDetailsOpen && (
+          <div className="ceremony-reception">
+            <img className="img-details" src={detailsforwedding} />
+          </div>
         )}
       </div>
-      
-      <div className="big-title-header-wedding-details">
+
+      <div className="dropdown-big-title-wedding-details">
+        <div
+          className="big-title-header-wedding-details"
+          onClick={toggleRegistriesDropdown}
+        >
           Registries
         </div>
-      <div className="registry-list-style">
-        {registriesVal?.map((registry) => (
-          <div className="registry-list" key={registry?.id}>
-            <Registry registry={registry} />
+        {isRegistriesOpen && (
+          <div className="registry-list-style">
+            {registriesVal?.map((registry) => (
+              <div className="registry-list" key={registry?.id}>
+                <Registry registry={registry} />
+              </div>
+            ))}
+            <CreateRegistry />
           </div>
-        )) }
-        {/* <div className="registry-list-style-form"> 
-        
-        </div> */}
-        <CreateRegistry />
+        )}
       </div>
-      <div className="big-title-header-gallery">
+
+      <div className="dropdown-big-title-wedding-details">
+        <div
+          className="big-title-header-gallery"
+          onClick={toggleGalleryDropdown}
+        >
           Gallery
         </div>
-      <div className="photos5">
-  {users && Object.values(users).map(user => (
-    <Photos key={user?.id} user={user}
-     />
-     
-  ))}
-  <div className="create-list" >
-            <CreatePhoto  />
+        {isGalleryOpen && (
+          <div className="photos5">
+            {users &&
+              Object.values(users).map((user) => (
+                <Photos key={user?.id} user={user} />
+              ))}
+            <div className="create-list">
+              <CreatePhoto />
+            </div>
           </div>
-
-</div>
-
-
+        )}
+      </div>
     </div>
   );
 };
