@@ -61,35 +61,8 @@ const WeddingDetails = () => {
 
 <div className="ceremony-reception">
 <img className="img-details" src={detailsforwedding}  />
-{/* <div className="ceremony-text">
-  <i className="fas fa-dove"></i>
-  <h4>Ceremony</h4>
-  <i className="fas fa-cocktail"></i>
-  <h4>Reception</h4>
-</div>
-<br />
-<div className="small-svg-details">
-  <div className="first-three-wedding-details">
-    <div>
-      <i className="fas fa-plane-departure"></i> Manila International Airport
-    </div>
-    <div>
-      <i className="fas fa-user-tie"></i> Dress Code
-    </div>
-    <div>
-      <i className="fas fa-shoe-prints"></i> Where to go
-    </div>
-    <div>
-      <i className="fas fa-gamepad"></i>
-      <i className="fas fa-gamepad"></i>
-      <i className="fas fa-gamepad"></i> more...
-    </div>
-  </div>
-</div> */}
 </div>
         )}
-
-
       </div>
       
       <div className="big-title-header-wedding-details">
@@ -101,9 +74,10 @@ const WeddingDetails = () => {
             <Registry registry={registry} />
           </div>
         )) }
-        <div className="registry-list-style-form"> 
+        {/* <div className="registry-list-style-form"> 
         
-        </div><CreateRegistry />
+        </div> */}
+        <CreateRegistry />
       </div>
       <div className="big-title-header-gallery">
           Gallery
@@ -114,8 +88,10 @@ const WeddingDetails = () => {
      />
      
   ))}
-  
-  <CreatePhoto/>
+  <div className="create-list" >
+            <CreatePhoto  />
+          </div>
+
 </div>
 
 

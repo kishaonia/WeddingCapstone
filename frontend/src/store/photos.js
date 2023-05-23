@@ -5,30 +5,34 @@ const UPDATE_PHOTO = 'photos/updatePhoto';
 const DELETE_PHOTO = 'photos/deletePhoto';
 const GET_PHOTOS = 'photos/getPhotos';
 
-
-const getPhotos = (photos) => ({
+const getPhotos = (photos) => {
+  return {
   type: GET_PHOTOS,
   photos
-});
-
- const createPhoto = (photo) => ({
+  }
+}
+ const createPhoto = (photo) => {
+  return {
   type: CREATE_PHOTO,
   photo
-});
-
- const updatePhoto = (photo) => ({
+}
+ };
+const updatePhoto = (photo) => {
+  return{
   type: UPDATE_PHOTO,
   photo
-});
-
- const deletePhoto = (photoId) => ({
+}
+};
+ const deletePhoto = (photoId) => {
+  return {
   type: DELETE_PHOTO,
   photoId
-});
+}
+ };
 
 // Thunks
 export const fetchPhotos = () => async (dispatch) => {
-  const res = await csrfFetch('/api/photos');
+  const res = await csrfFetch(`/api/photos`);
   if (res.ok) {
     const photos = await res.json();
     dispatch(getPhotos(photos));
@@ -52,7 +56,7 @@ export const createPhotoRequest = (photo, userId) => async (dispatch) => {
 };
 
 export const updatePhotoRequest = (photo, photoId) => async (dispatch) => {
-  const response = await csrfFetch(`/api/photos/${photoId}`, {
+  const response = await csrfFetch(`/api/photo/${photoId}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',

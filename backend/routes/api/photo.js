@@ -11,7 +11,6 @@ const { User, Comment, songRequest, Registry, Photo } = require("../../db/models
 router.get('/', requireAuth, async (req, res, next) => {
 
   let description = await Photo.findAll({
-    
     include: [
       {
         model: User,
@@ -22,7 +21,7 @@ router.get('/', requireAuth, async (req, res, next) => {
 
   if (!description) {
     return res.json({
-      message: "Photos couldn't be found",
+      message: "Description couldn't be found",
       statusCode: 404,
     });
   }

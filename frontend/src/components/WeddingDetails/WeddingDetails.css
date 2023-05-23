@@ -190,7 +190,7 @@
 
 .gallery-name {
   color: black;
-  font-size: 20px;
+  font-size: 15px;
   margin-bottom: -10px;
   font-weight: bold;
   font-family: 'Utendo', sans-serif;
@@ -199,7 +199,7 @@
 
 .gallery-description{
   color: black;
-  font-size: 20px;
+  font-size: 13px;
   font-family: 'Utendo', sans-serif;
                                                 
 }
@@ -217,3 +217,4 @@
   font-family: 'Constantine', sans-serif;
   font-size: 30px;
 }
+

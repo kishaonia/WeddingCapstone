@@ -33,7 +33,6 @@ const deleteRegistry = (registryId) => {
 }
 
 export const getRegstries = () => async (dispatch) => {
- 
   const res = await csrfFetch(`/api/registries`);
   if (res.ok) {
     const list = await res.json();

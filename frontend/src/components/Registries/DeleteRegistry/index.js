@@ -22,10 +22,12 @@ const onCancel = (e) => {
 
     return (
       <>
-        <form onSubmit={onDelete}>
-          <button type="submit">Delete</button>
+        <form className="delete-modal" onSubmit={onDelete}>
+          Are you sure you want to delete this post?
+          <button className="delete-form-button" type="submit">Delete</button>
+          <button className="cancel-form-button" onClick={onCancel}>Cancel</button>
         </form>
-        <button onClick={onCancel}>Cancel</button>
+       
       </>
     );
 }
