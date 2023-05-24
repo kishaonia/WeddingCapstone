@@ -5,9 +5,8 @@ import * as sessionActions from "../../store/session";
 import { useHistory } from "react-router-dom";
 import "./SignupForm.css";
 
-
 function SignupFormModal() {
-  const history = useHistory()
+  const history = useHistory();
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -18,8 +17,19 @@ function SignupFormModal() {
   const [errors, setErrors] = useState([]);
   const { closeModal } = useModal();
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (password.length < 6) {
+      setErrors(["Password should be longer than 6 characters."]);
+      return;
+    }
+
+    if (username.length < 4) {
+      setErrors(["Username should be longer than 4 characters."]);
+      return;
+    }
+
     if (password === confirmPassword) {
       setErrors([]);
       return dispatch(
@@ -34,24 +44,24 @@ function SignupFormModal() {
         .then(closeModal)
         .catch(async (res) => {
           const data = await res.json();
-          if (data && data?.errors) setErrors(data?.errors);
-        }).then(history.push('/weddingdetails'))
+          if (data && data.errors) setErrors(data.errors);
+        })
+        .then(history.push("/weddingdetails"));
     }
-    return setErrors([
-      "Confirm Password field must be the same as the Password field",
-    ])
+
+    setErrors(["Confirm Password field must be the same as the Password field."]);
   };
 
   return (
     <>
-      
       <h1 className="signup-h1">Sign Up</h1>
       <form className="signup-form" onSubmit={handleSubmit}>
         {errors?.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}
         <label>
-          Email:<br></br>
+          Email:
+          <br />
           <input
             type="text-signup"
             value={email}
@@ -60,7 +70,8 @@ function SignupFormModal() {
           />
         </label>
         <label>
-          Username:<br></br>
+          Username:
+          <br />
           <input
             type="text-signup"
             value={username}
@@ -69,7 +80,8 @@ function SignupFormModal() {
           />
         </label>
         <label>
-          First Name:<br></br>
+          First Name:
+          <br />
           <input
             type="text-signup"
             value={firstName}
@@ -78,7 +90,8 @@ function SignupFormModal() {
           />
         </label>
         <label>
-          Last Name:<br></br>
+          Last Name:
+          <br />
           <input
             type="text-signup"
             value={lastName}
@@ -87,7 +100,8 @@ function SignupFormModal() {
           />
         </label>
         <label>
-          Password:<br></br>
+          Password:
+          <br />
           <input
             type="password"
             value={password}
@@ -97,7 +111,7 @@ function SignupFormModal() {
         </label>
         <label>
           Confirm Password:
-          <br></br>
+          <br />
           <input
             type="password"
             value={confirmPassword}
@@ -113,13 +127,10 @@ function SignupFormModal() {
             !lastName ||
             !firstName ||
             !email
-              ? true
-              : false
           }
           type="submit"
           className="button-submit"
         >
-          
           Sign Up
         </button>
       </form>
@@ -127,4 +138,4 @@ function SignupFormModal() {
   );
 }
 
-export default SignupFormModal;
+export default SignupFormModal

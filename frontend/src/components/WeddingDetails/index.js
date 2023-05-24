@@ -26,16 +26,15 @@ const WeddingDetails = () => {
   const dispatch = useDispatch();
 
   if (!currentUser) {
-    history.push("/");
+    history?.push("/");
   }
 
   useEffect(() => {
     dispatch(getUsers());
     dispatch(getRegstries());
-    
-  }, [dispatch, JSON.stringify(usersVal), JSON.stringify(registriesVal)]);
+  }, [dispatch, JSON?.stringify(usersVal), JSON?.stringify(registriesVal)]);
 
-  
+  const hasUserPosted = usersVal.some((user) => user?.id === currentUser?.id);
 
   const toggleDetailsDropdown = () => {
     setIsDetailsOpen(!isDetailsOpen);
@@ -90,7 +89,7 @@ const WeddingDetails = () => {
                 <Registry registry={registry} />
               </div>
             ))}
-            <CreateRegistry />
+            {hasUserPosted ? null : <CreateRegistry />}
           </div>
         )}
       </div>
@@ -108,9 +107,11 @@ const WeddingDetails = () => {
               Object?.values(users)?.map((photo) => (
                 <Photos key={photo?.id} user={photo} />
               ))}
-            <div className="create-list">
-              <CreatePhoto />
-            </div>
+            {hasUserPosted ? null : (
+              <div className="create-list">
+                <CreatePhoto />
+              </div>
+            )}
           </div>
         )}
       </div>
