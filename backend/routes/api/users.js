@@ -46,6 +46,10 @@ router.get('/', requireAuth, async (req, res, next) => {
                 // attributes: ['id', 'url', 'description']
                
             },
+            {
+              model: Registry,
+              attributes:['id']
+            }
            
         ]
     })
@@ -60,6 +64,14 @@ router.get('/', requireAuth, async (req, res, next) => {
     let Users = [];
     users.forEach( user => {
         Users.push(user.toJSON())
+    })
+
+    Users.forEach(user => {
+      user.Photos.forEach(photo => {
+        if (photo) {
+          user.photoId = photo.userId
+        }
+      })
     })
 
   res.json({Users})

@@ -19,22 +19,32 @@ const WeddingDetails = () => {
   const [isGalleriesOpen, setIsGalleriesOpen] = useState(false);
   const users = useSelector((state) => state?.users);
   const registries = useSelector((state) => state?.registries);
-  const currentUser = useSelector((state) => state.session.user);
+  const currentUser = useSelector((state) => state?.session?.user);
+  const currentUserId = currentUser?.id
   const history = useHistory();
   const registriesVal = Object?.values(registries);
   const usersVal = Object?.values(users);
   const dispatch = useDispatch();
+  const findRegistry = registriesVal?.find(({userId}) => userId == currentUserId)
+  const findPhoto = Object?.values(users)?.find(({photoId}) => photoId === currentUserId)
+  console.log('Find Photo', findPhoto)
+  
+  console.log('Find Registry', findRegistry)
+  
+
+
 
   if (!currentUser) {
-    history?.push("/");
+    history.push("/");
   }
 
   useEffect(() => {
     dispatch(getUsers());
     dispatch(getRegstries());
-  }, [dispatch, JSON?.stringify(usersVal), JSON?.stringify(registriesVal)]);
+    
+  }, [dispatch, JSON.stringify(currentUser), JSON.stringify(usersVal), JSON.stringify(registriesVal)]);
 
-  const hasUserPosted = usersVal.some((user) => user?.id === currentUser?.id);
+  
 
   const toggleDetailsDropdown = () => {
     setIsDetailsOpen(!isDetailsOpen);
@@ -85,11 +95,12 @@ const WeddingDetails = () => {
         {isRegistriesOpen && (
           <div className="registry-list-style">
             {registriesVal?.map((registry) => (
+              
               <div className="registry-list" key={registry?.id}>
                 <Registry registry={registry} />
               </div>
             ))}
-            {hasUserPosted ? null : <CreateRegistry />}
+            {!findRegistry ? <CreateRegistry/>:<></>}
           </div>
         )}
       </div>
@@ -105,13 +116,13 @@ const WeddingDetails = () => {
           <div className="photos5">
             {users &&
               Object?.values(users)?.map((photo) => (
+          
+                // const findPhoto = photo.find({userId} => userId === currentUserId)
                 <Photos key={photo?.id} user={photo} />
               ))}
-            {hasUserPosted ? null : (
-              <div className="create-list">
-                <CreatePhoto />
-              </div>
-            )}
+            <div className="create-list">
+              { !findPhoto ? <CreatePhoto/>:<></>}
+            </div>
           </div>
         )}
       </div>
