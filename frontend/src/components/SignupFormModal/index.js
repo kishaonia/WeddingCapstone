@@ -16,7 +16,12 @@ function SignupFormModal() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const { closeModal } = useModal();
-
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+.[^\s@]+$/;
+    return re.test(email);
+    };
+    
+    
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -24,12 +29,17 @@ function SignupFormModal() {
       setErrors(["Password should be longer than 6 characters."]);
       return;
     }
+    if (!validateEmail(email)) {
+      setErrors(["Enter a valid email."]);
+      return;
+    }
+    
 
     if (username.length < 4) {
       setErrors(["Username should be longer than 4 characters."]);
       return;
     }
-
+    setErrors([]);
     if (password === confirmPassword) {
       setErrors([]);
       return dispatch(
@@ -50,6 +60,7 @@ function SignupFormModal() {
     }
 
     setErrors(["Confirm Password field must be the same as the Password field."]);
+    setErrors(["Enter a valid email."]);
   };
 
   return (
@@ -120,14 +131,14 @@ function SignupFormModal() {
           />
         </label>
         <button
-          disabled={
-            password.length < 6 ||
-            username.length < 4 ||
-            password !== confirmPassword ||
-            !lastName ||
-            !firstName ||
-            !email
-          }
+          // disabled={
+          //   password.length < 6 ||
+          //   username.length < 4 ||
+          //   password !== confirmPassword ||
+          //   !lastName ||
+          //   !firstName ||
+          //   !email
+          // }
           type="submit"
           className="button-submit"
         >

@@ -153,13 +153,15 @@ router.post('/:id/photos', requireAuth, async(req, res, next) => {
 router.post(
     '/', validateSignup,
     async (req, res) => {
-        const { email, username, password } = req.body;
-        const user = await User.create({ email, username, password });
+        const {firstName, lastName, email, username, password } = req.body;
+        const user = await User.create({ firstName, lastName, email, username, password });
 
         const safeUser = {
-            id: user.id,
-            email: user.email,
-            username: user.username,
+          id: user.id,
+          email: user.email,
+          username: user.username,
+          firstName: user.firstName,
+          lastName: user.lastName,
         };
 
         await setTokenCookie(res, safeUser);

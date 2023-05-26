@@ -25,7 +25,7 @@ module.exports = {
      {
        firstName:"Kisha",
        lastName:"Onia",
-       username:"kishaonia",
+       username:"kishaoni",
        email:"kishaonia@aa.io",
        password:"password"
        

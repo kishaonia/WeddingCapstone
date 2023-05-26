@@ -30,9 +30,9 @@ function Navigation({ isLoaded }) {
         {sessionLinks}
         {sessionUser && (
           <ul className="drop-down-menu-middle">
-            <div className="search-bar">
+            {/* <div className="search-bar">
               <SearchBar />
-            </div>
+            </div> */}
             <li onClick={() => alert("Feature coming soon!")}>
               Wedding Details
             </li>

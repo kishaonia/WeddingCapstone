@@ -11,7 +11,7 @@ const isProduction = environment === 'production';
 
 // backend/app.js
 // ...
-const { ValidationError } = require('sequelize');
+
 
 const app = express();
 
@@ -58,7 +58,7 @@ app.use((_req, _res, next) => {
     err.status = 404;
     next(err);
 });
-
+const { ValidationError } = require("sequelize");
 app.use((err, _req, _res, next) => {
     // check if error is a Sequelize error:
     if (err instanceof ValidationError) {
