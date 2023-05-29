@@ -32,7 +32,7 @@ const updatePhoto = (photo) => {
 
 // Thunks
 export const fetchPhotos = () => async (dispatch) => {
-  const res = await csrfFetch(`/api/photos`);
+  const res = await fetch(`/api/photos`);
   if (res.ok) {
     const photos = await res.json();
     dispatch(getPhotos(photos));
@@ -56,7 +56,7 @@ export const createPhotoRequest = (photo, userId) => async (dispatch) => {
 };
 
 export const updatePhotoRequest = (photo, photoId) => async (dispatch) => {
-  const response = await csrfFetch(`/api/photo/${photoId}`, {
+  const response = await csrfFetch(`/api/photos/${photoId}`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -72,7 +72,7 @@ export const updatePhotoRequest = (photo, photoId) => async (dispatch) => {
 };
 
 export const deletePhotoRequest = (photoId) => async (dispatch) => {
-  const response = await csrfFetch(`/api/photo/${photoId}`, {
+  const response = await csrfFetch(`/api/photos/${photoId}`, {
     method: 'DELETE',
   });
 

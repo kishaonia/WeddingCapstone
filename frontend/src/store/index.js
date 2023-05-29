@@ -3,11 +3,13 @@ import thunk from "redux-thunk";
 import sessionReducer from './session';
 import userReducer from "./users";
 import registryReducer from "./registries";
+import photoReducer from './photos.js'
 
 const rootReducer = combineReducers({
     session: sessionReducer,
     users: userReducer,
-    registries: registryReducer
+    registries: registryReducer,
+    photos: photoReducer
 });
 
 let enhancer;

@@ -18,7 +18,8 @@ export const getUsers = () => async (dispatch) => {
         const usersList = await users.json();
         dispatch(getUsersInfo(usersList)); // Dispatch the action with the usersList data
       }
-    } catch (error) {
+    }
+     catch (error) {
       console.error('Error fetching users:', error);
     }
   };

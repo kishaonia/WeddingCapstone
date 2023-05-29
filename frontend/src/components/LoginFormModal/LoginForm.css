@@ -4,6 +4,7 @@
         color: #836868;
         margin-bottom: 20px;
         padding-top: 265px;
+        font-family: 'Constantine', sans-serif;
     
   }
   
@@ -11,6 +12,7 @@
     width: 265px;
     margin: 0 auto;
     text-align: center;
+    font-family: 'Utendo', sans-serif;
   }
   
   .login-form label {
@@ -26,7 +28,7 @@
     width: 100%;
     padding: 8px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 23px;
     font-size: 16px;
     margin-bottom: 15px;
     text-align: center;
@@ -42,6 +44,7 @@
     font-size: 16px;
     cursor: pointer;
     margin-bottom: 15px;
+    margin-top: 50px;
   }
   
   .login-form button:disabled {
@@ -86,5 +89,7 @@
   
   li{
     list-style: none;
+    cursor: pointer;
   }
+
 

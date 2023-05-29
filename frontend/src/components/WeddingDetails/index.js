@@ -25,8 +25,10 @@ const WeddingDetails = () => {
   const registriesVal = Object?.values(registries);
   const usersVal = Object?.values(users);
   const dispatch = useDispatch();
+  const photos = useSelector((state) => state?.photos)
+  const photosVal = Object?.values(photos)
   const findRegistry = registriesVal?.find(({userId}) => userId == currentUserId)
-  const findPhoto = Object?.values(users)?.find(({photoId}) => photoId === currentUserId)
+  const findPhoto = Object?.values(photos)?.find(({userId}) => userId === currentUserId)
   console.log('Find Photo', findPhoto)
   
   console.log('Find Registry', findRegistry)
@@ -39,10 +41,11 @@ const WeddingDetails = () => {
   }
 
   useEffect(() => {
-    dispatch(getUsers());
+   
     dispatch(getRegstries());
+    dispatch(fetchPhotos())
     
-  }, [dispatch, JSON.stringify(currentUser), JSON.stringify(usersVal), JSON.stringify(registriesVal)]);
+  }, [dispatch, JSON.stringify(currentUser), JSON.stringify(registriesVal), JSON.stringify(photosVal)]);
 
   
 
@@ -105,6 +108,14 @@ const WeddingDetails = () => {
         )}
       </div>
 
+
+
+
+
+
+
+
+
       <div className="dropdown-big-title-wedding-details">
         <div
           className="big-title-header-wedding-details"
@@ -114,11 +125,10 @@ const WeddingDetails = () => {
         </div>
         {isGalleriesOpen && (
           <div className="photos5">
-            {users &&
-              Object?.values(users)?.map((photo) => (
-          
+            {currentUser &&
+              photosVal?.map((photo) => (
                 // const findPhoto = photo.find({userId} => userId === currentUserId)
-                <Photos key={photo?.id} user={photo} />
+                <Photos key={photo?.id} photo={photo} />
               ))}
             <div className="create-list">
               { !findPhoto ? <CreatePhoto/>:<></>}
@@ -126,6 +136,9 @@ const WeddingDetails = () => {
           </div>
         )}
       </div>
+
+
+      
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import { csrfFetch } from "./csrf";
+                                                                        import { csrfFetch } from "./csrf";
 
 const CREATE_REGISTRY = 'registries/createRegistry'
 const UPDATE_REGISTRY = 'registries/updateRegistry'
@@ -33,7 +33,7 @@ const deleteRegistry = (registryId) => {
 }
 
 export const getRegstries = () => async (dispatch) => {
-  const res = await csrfFetch(`/api/registries`);
+  const res = await fetch(`/api/registries`);
   if (res.ok) {
     const list = await res.json();
     dispatch(getRegistry(list));

@@ -65,15 +65,17 @@ function SignupFormModal() {
 
   return (
     <>
-      <h1 className="signup-h1">Sign Up</h1>
+     
       <form className="signup-form" onSubmit={handleSubmit}>
         {errors?.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}
+         <h1 className="signup-h1">Sign Up</h1>
         <label>
           Email:
           <br />
           <input
+          className="input-for-signup"
             type="text-signup"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -84,6 +86,7 @@ function SignupFormModal() {
           Username:
           <br />
           <input
+              className="input-for-signup"
             type="text-signup"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -94,6 +97,7 @@ function SignupFormModal() {
           First Name:
           <br />
           <input
+              className="input-for-signup"
             type="text-signup"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
@@ -104,6 +108,7 @@ function SignupFormModal() {
           Last Name:
           <br />
           <input
+              className="input-for-signup"
             type="text-signup"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
@@ -114,6 +119,7 @@ function SignupFormModal() {
           Password:
           <br />
           <input
+              className="input-for-signup"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -121,9 +127,10 @@ function SignupFormModal() {
           />
         </label>
         <label>
-          Confirm Password:
+          Confirm Password
           <br />
           <input
+              className="input-for-signup"
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
@@ -131,6 +138,7 @@ function SignupFormModal() {
           />
         </label>
         <button
+        
           // disabled={
           //   password.length < 6 ||
           //   username.length < 4 ||

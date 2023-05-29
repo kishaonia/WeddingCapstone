@@ -6,13 +6,26 @@ import SignupFormModal from "../SignupFormModal";
 import OpenModalMenuItem from "./OpenModalMenuItem";
 import LoginFormModal from "../LoginFormModal";
 import ProfileButton from "./ProfileButton";
+import * as sessionActions from "../../store/session";
+import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import WeddingDetails from "../WeddingDetails";
 
 
+
 function Navigation({ isLoaded }) {
+  const dispatch = useDispatch()
+  const history = useHistory()
   const sessionUser = useSelector((state) => state?.session?.user);
+
+    const logout = (e) => {
+      e.preventDefault();
+      dispatch(sessionActions.logout());
+      // closeMenu();
+      history.push("/");
+    };
 
   let sessionLinks;
   if (sessionUser) {
@@ -40,8 +53,12 @@ function Navigation({ isLoaded }) {
             <li onClick={() => alert("Feature coming soon!")}>Gallery</li>
             <li onClick={() => alert("Feature coming soon!")}>Song Request</li>
             <li onClick={() => alert("Feature coming soon!")}>Guestlist</li>
+            <li> <button className="button-logout" onClick={logout}>
+                Log Out
+              </button>
+            </li>
             <li>
-              <ProfileButton user={sessionUser} />
+              {/* <ProfileButton user={sessionUser} /> */}
             </li>
           </ul>
         )}

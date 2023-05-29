@@ -9,21 +9,23 @@ import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import UpdatePhoto from "./UpdatePhoto";
 
 
-const Photos = ({ user }) => {
+const Photos = ({ photo }) => {
   const currentUser = useSelector((state) => state.session.user);
   const history = useHistory();
   const dispatch = useDispatch();
   
-
-  useEffect(() => {
-    const fetchData = async () => {
-      if (!currentUser) {
-        history.push("/");
-      }
-    };
+if(!currentUser){
+  history.push('/')
+}
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     if (!currentUser) {
+  //       history.push("/");
+  //     }
+  //   };
     
-    fetchData();
-  }, [currentUser, history]);
+  //   fetchData();
+  // }, [currentUser, history]);
 
   
   return (
@@ -32,8 +34,6 @@ const Photos = ({ user }) => {
    
   <div className="photos-slideshow">
   
-  {user?.Photos && (
-    user?.Photos?.map((photo) => (
       <div key={photo?.id}>
         <img
           className="photos"
@@ -41,7 +41,7 @@ const Photos = ({ user }) => {
           style={{ maxHeight: '200px', maxWidth: '400px' }}
         />
      
-        <p className="gallery-name">{user?.firstName} {user?.lastName}</p>
+        <p className="gallery-name">{photo?.User?.firstName} {photo?.User?.lastName}</p>
         <p className="gallery-description">{photo?.description}</p>
         
         <div className="update-delete"> 
@@ -49,8 +49,8 @@ const Photos = ({ user }) => {
         {currentUser?.id === photo?.userId ? <OpenModalMenuItem itemText="Update" modalComponent={<UpdatePhoto photo={photo}/>}/>:<></>}
         </div>
       </div>
-    ))
-  )}
+    
+  
   
 </div>
 
