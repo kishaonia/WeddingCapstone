@@ -1,7 +1,7 @@
 # Wedding Website Clone
 This website clone is a platform dedicated to weddings, providing functionality for managing various aspects of wedding planning such as guestlists, registries, comments, song requests, and photo uploads. Users can register, log in, and update their profiles. 
 
-# Live Website <br></br>
+# Live Website 
 The live version of the wedding website clone can be accessed at: https://kk-em38.onrender.com/weddingdetails
 
 # Installation
@@ -9,7 +9,7 @@ To install the backend and frontend components, follow these steps:
 
 Clone the repository: git clone https://github.com/kishaonia/WeddingCapstone
 
-<h4> Navigate to the backend directory: </h4> 
+<h1> Navigate to the backend directory: </h1> 
 
 <h6> cd backend </h6>
 
