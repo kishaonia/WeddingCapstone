@@ -44,4 +44,6 @@ Clone the repository: git clone https://github.com/kishaonia/WeddingCapstone
 
 <img width="1667" alt="Screenshot 2023-05-29 at 10 59 58 PM" src="https://github.com/kishaonia/WeddingCapstone/assets/110861069/7f89cd66-bcac-4e6f-8c07-f49a973ce869">
 <br>
+
+<br>
 # This project showcases my skills and serves as the culmination of my studies in the form of a capstone project.
