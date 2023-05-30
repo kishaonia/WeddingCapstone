@@ -2,8 +2,7 @@
 This website clone is a platform dedicated to weddings, providing functionality for managing various aspects of wedding planning such as guestlists, registries, comments, song requests, and photo uploads. Users can register, log in, and update their profiles. 
 
 
-This project, which I consider as the culmination of my studies, represents an opportunity for me to showcase my skills and expertise through a capstone project. Over a period of six months, I encountered a few bumps along the way, but these challenges have contributed to my growth and development. Throughout this journey, I conducted extensive research, analyzed data, and undertook various tasks specific to my field of study. This could involve conducting experiments, surveys, or developing prototypes or solutions. The completion of this project demonstrates my ability to apply the knowledge and skills acquired during my academic journey, serving as a testament to my dedication, problem-solving abilities, and perseverance.
-
+This project, which I consider as the culmination of my studies, represents an opportunity for me to showcase my skills and expertise through a capstone project. Over a period of six months, I encountered a few bumps along the way, but these challenges have contributed to my growth and development. Throughout this journey, The (almost!) completion of this project demonstrates my ability to apply the knowledge and skills acquired during my academic journey.
 
 # Live Website 
 The live version of the wedding website clone can be accessed at: <br>  https://kk-em38.onrender.com/weddingdetails
