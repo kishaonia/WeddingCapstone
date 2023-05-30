@@ -4,7 +4,7 @@ This website clone is a platform dedicated to weddings, providing functionality 
 # Installation
 To install the backend and frontend components, follow these steps:
 
-Clone the repository: git clone https://github.com/your-repository.git
+Clone the repository: git clone https://github.com/kishaonia/WeddingCapstone
 Navigate to the backend directory: cd backend
 Install backend dependencies: npm install
 Start the backend server: npm start
