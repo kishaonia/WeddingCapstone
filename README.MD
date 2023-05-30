@@ -9,7 +9,7 @@ To install the backend and frontend components, follow these steps:
 
 Clone the repository: git clone https://github.com/kishaonia/WeddingCapstone
 
-<h1> Navigate to the backend directory: </h1> 
+<h2> Navigate to the backend directory: </h2> 
 
 <h6> cd backend </h6>
 
