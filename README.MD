@@ -9,24 +9,24 @@ To install the backend and frontend components, follow these steps:
 
 Clone the repository: git clone https://github.com/kishaonia/WeddingCapstone
 
-<h3> Navigate to the backend directory: </h3> <br>
+<h3> Navigate to the backend directory: </h3> 
 
 cd backend 
 
-<h3>Install backend dependencies:</h3> <br>
+<h3>Install backend dependencies:</h3> 
 npm install 
 
 <h3>Start the backend server:</h3> npm start 
 
 <h3>Open a new terminal window/tab.</h3> 
 
-<h3>Navigate to the frontend directory: </h3> <br> cd frontend 
+<h3>Navigate to the frontend directory: </h3>  cd frontend 
 
-<h3>Install frontend dependencies:</h3> <br>
+<h3>Install frontend dependencies:</h3> 
 
 npm install
 
-<h3>Start the frontend development server:</h3> <br> npm start
+<h3>Start the frontend development server:</h3>  npm start
 
 
 
