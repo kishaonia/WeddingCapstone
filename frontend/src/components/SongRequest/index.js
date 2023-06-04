@@ -10,7 +10,7 @@ const SongRequest = ({ songRequest }) => {
 
   return (
     <div className="song-request-container" id={songRequest?.id}>
-      <div className="song-request-slideshow">
+      {/* <div className="song-request-slideshow"> */}
         <h4 className="song-request-name">
           {songRequest?.User?.firstName} {songRequest?.User?.lastName}
         </h4>
@@ -21,7 +21,7 @@ const SongRequest = ({ songRequest }) => {
         {currentUser?.id === songRequest?.User?.id ? <OpenModalMenuItem itemText="Delete" modalComponent={<DeleteSongRequest songRequestId={songRequest?.id}/>}/>:<></>}
       {currentUser?.id === songRequest?.User?.id ? <OpenModalMenuItem itemText="Update" modalComponent={<UpdateSongRequest songRequest={songRequest}/>}/>:<></>}
         </div>
-      </div>
+      {/* </div> */}
     </div>
   );
 };

@@ -55,7 +55,7 @@ router.put('/:id', requireAuth, async(req, res, next) => {
 
   if (!registry){
        return res.json({
-         message: "Review couldn't be found",
+         message: "Registry couldn't be found",
          statusCode: 404,
        });
   }
@@ -84,7 +84,7 @@ router.delete("/:id", requireAuth, async (req, res, next) => {
 
   if (!registry) {
     return res.json({
-      message: "Review couldn't be found",
+      message: "Registry couldn't be found",
       statusCode: 404,
     });
   }
@@ -103,5 +103,58 @@ router.delete("/:id", requireAuth, async (req, res, next) => {
    });
 })
 
+//get comment for registry
 
+router.get('/:id/comments', requireAuth, async(req, res, next) => {
+  let findRegistry = await Registry.findOne({
+    where: {
+      id: req.params.id
+    }
+   
+  })
+
+  if (!findRegistry){
+     return res.json({
+       message: "Registry couldn't be found",
+       statusCode: 404,
+     });
+  }
+  let findComment = await Comment.findAll({
+    where: {
+      registryId: findRegistry.id
+    }
+  })
+  let Comments = []
+  findComment.forEach(comment => {
+    Comments.push(comment.toJSON())
+  })
+ res.json({Comments})
+ 
+  
+ 
+})
+
+//Create comment for Registry
+router.post('/:id/comments', requireAuth, async(req, res, next) => {
+  const {comment} = req.body
+  let registry = await Registry.findOne({
+    where: {
+      id: req.params.id
+    }
+  })
+  if (!registry){
+      return res.json({
+        message: "Comment couldn't be found",
+        statusCode: 404,
+      });
+  }
+
+
+  const newComment = await registry.createComment({
+    userId: req.user.id,
+    registryId: req.params.id,
+    comment: comment
+  })
+  res.json(newComment)
+})
 module.exports = router;

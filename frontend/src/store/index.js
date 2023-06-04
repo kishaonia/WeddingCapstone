@@ -5,13 +5,15 @@ import userReducer from "./users";
 import registryReducer from "./registries";
 import photoReducer from './photos.js'
 import songRequestReducer from "./songrequest";
+import commentReducer from "./comments";
 
 const rootReducer = combineReducers({
     session: sessionReducer,
     users: userReducer,
     registries: registryReducer,
     photos: photoReducer,
-    songrequest:songRequestReducer
+    songrequest:songRequestReducer,
+    comments:commentReducer
 });
 
 let enhancer;

@@ -14,6 +14,7 @@ import CreatePhoto from "../Photo/PhotoForm";
 import { fetchPhotos } from "../../store/photos";
 import CreateSongRequest from "../SongRequest/CreateSongRequest";
 import { getSongRequests } from "../../store/songrequest";
+import { getComments } from "../../store/comments";
 import SongRequest from "../SongRequest";
 
 
@@ -24,6 +25,7 @@ const WeddingDetails = () => {
   const [isRegistriesOpen, setIsRegistriesOpen] = useState(false);
   const [isGalleriesOpen, setIsGalleriesOpen] = useState(false);
   const [isSongRequestOpen, setIsSongRequestOpen] = useState(false);
+  const [isGuestlistOpen, setIsGuestlistOpen] = useState(false);
   const users = useSelector((state) => state?.users);
 
   const registries = useSelector((state) => state?.registries);
@@ -64,6 +66,7 @@ const WeddingDetails = () => {
     dispatch(getRegstries());
     dispatch(fetchPhotos());
     dispatch(getSongRequests()); 
+ 
   }, [
     dispatch,
     JSON.stringify(currentUser),
@@ -87,6 +90,9 @@ const WeddingDetails = () => {
   const toggleSongRequestDropdown = () => {
     setIsSongRequestOpen(!isSongRequestOpen);
   };
+  const toggleGuestlistDropdown = () => {
+    setIsGuestlistOpen(!isGuestlistOpen);
+  };
 
   return (
     <div className="wedding-details">
@@ -101,7 +107,7 @@ const WeddingDetails = () => {
         </div>
       </div>
 
-      <div className="dropdown-big-title-wedding-details">
+      <div id="wedding-details-section" className="dropdown-big-title-wedding-details">
         <div
           className="big-title-header-wedding-details"
           onClick={toggleDetailsDropdown}
@@ -115,7 +121,7 @@ const WeddingDetails = () => {
         )}
       </div>
 
-      <div className="dropdown-big-title-wedding-details">
+      <div id="registries-section" className="dropdown-big-title-wedding-details">
         <div
           className="big-title-header-wedding-details"
           onClick={toggleRegistriesDropdown}
@@ -134,7 +140,7 @@ const WeddingDetails = () => {
         )}
       </div>
 
-      <div className="dropdown-big-title-wedding-details">
+      <div id="gallery-section" className="dropdown-big-title-wedding-details">
         <div
           className="big-title-header-wedding-details"
           onClick={toggleGalleriesDropdown}
@@ -155,7 +161,7 @@ const WeddingDetails = () => {
         )}
       </div>
 
-      <div className="dropdown-big-title-wedding-details">
+      <div id="song-request-section" className="dropdown-big-title-wedding-details">
         <div
           className="big-title-header-wedding-details"
           onClick={toggleSongRequestDropdown}
@@ -172,6 +178,25 @@ const WeddingDetails = () => {
            {!findSongRequests ? <CreateSongRequest/> : <></>}
             </div>
         )}
+        </div>
+
+        <div id="guestlist-section" className="dropdown-big-title-wedding-details">
+        <div
+          className="big-title-header-wedding-details"
+          onClick={toggleGuestlistDropdown}
+        >
+          Guestlist
+        </div>
+        {/* {isSongRequestOpen && (
+          <div className="song-request">
+            {songRequestsVal?.map((songrequest) => (
+            <div className="song-request-2" key={songrequest?.id}>
+              <SongRequest songRequest={songrequest} />
+              </div>
+              ))}
+           {!findSongRequests ? <CreateSongRequest/> : <></>}
+            </div>
+        )} */}
         </div>
 
 

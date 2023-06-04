@@ -1,76 +1,113 @@
-const express = require('express');
-const router = express.Router();
-const db = require("../../db/models");
+import { csrfFetch } from "./csrf";
 
-// GET /comments
-router.get('/comments', async (req, res) => {
-  try {
-    const comments = await db.Comment.findAll();
-    res.json(comments);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Server error' });
-  }
-});
+const CREATE_COMMENT = "comments/createcomment";
+const UPDATE_COMMENT = "comments/updatecomment";
+const DELETE_COMMENT = "comments/deletecomment";
+const GET_COMMENTS = "comments/getcomments";
 
-// POST /comments
-router.post('/comments', async (req, res) => {
-  try {
-    const { userId, registryId, comment } = req.body;
-    const newComment = await db.Comment.create({ userId, registryId, comment });
-    res.status(201).json(newComment);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Server error' });
-  }
-});
+const getComment = (comments) => {
+  return {
+    type: GET_COMMENTS,
+    comments
+  };
+};
+const createComment = (comment) => {
+  return {
+    type: CREATE_COMMENT,
+    comment,
+  };
+};
 
-// GET /comments/:id
-router.get('/comments/:id', async (req, res) => {
-  try {
-    const comment = await db.Comment.findByPk(req.params.id);
-    if (comment) {
-      res.json(comment);
-    } else {
-      res.status(404).json({ message: 'Comment not found' });
+const updateComment = (comment) => {
+  return {
+    type: UPDATE_COMMENT,
+    comment,
+  };
+};
+
+const deleteComment = (commentId) => {
+  return {
+    type: DELETE_COMMENT,
+    commentId,
+  };
+};
+
+
+// Thunks
+export const getComments = (registryId) => async (dispatch) => {
+    const res = await fetch(`/api/registries/${registryId}/comments`);
+    if (res.ok) {
+      const comment = await res.json();
+      dispatch(getComment(comment));
     }
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Server error' });
-  }
-});
-
-// PUT /comments/:id
-router.put('/comments/:id', async (req, res) => {
-  try {
-    const { userId, registryId, comment } = req.body;
-    const commentToUpdate = await db.Comment.findByPk(req.params.id);
-    if (commentToUpdate) {
-      await commentToUpdate.update({ userId, registryId, comment });
-      res.json(commentToUpdate);
-    } else {
-      res.status(404).json({ message: 'Comment not found' });
+  };
+  
+  export const createOneComment = (comment, registryId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/registries/${registryId}/comments`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(comment),
+    });
+  
+    if (response.ok) {
+      const success = await response.json();
+      dispatch(createComment(success));
+      return success;
     }
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Server error' });
-  }
-});
-
-// DELETE /comments/:id
-router.delete('/comments/:id', async (req, res) => {
-  try {
-    const commentToDelete = await db.Comment.findByPk(req.params.id);
-    if (commentToDelete) {
-      await commentToDelete.destroy();
-      res.sendStatus(204);
-    } else {
-      res.status(404).json({ message: 'Comment not found' });
+  };
+  
+  export const updateOneComment = (comment, commentId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/comments/${commentId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(comment),
+    });
+  
+    if (response.ok) {
+      const updated = await response.json();
+      dispatch(updateComment(updated));
+      return updated;
     }
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Server error' });
-  }
-});
+  };
+  
+  export const deleteOneComment = (commentId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/comments/${commentId}`, {
+      method: 'DELETE',
+    });
+  
+    if (response.ok) {
+      dispatch(deleteComment(commentId));
+    }
+  };
 
-module.exports = router;
+const commentReducer = (prevState = {}, action) => {
+  let nextState;
+  switch (action.type) {
+    case GET_COMMENTS:
+      nextState = {};
+    action.comments.Comments.forEach(comment => {
+      nextState[comment.id] = comment
+    })
+    return nextState
+    case CREATE_COMMENT:
+      nextState = { ...prevState };
+      nextState[action.comment.id] = action.comment;
+      return nextState;
+    case UPDATE_COMMENT:
+      nextState = { ...prevState };
+      nextState[action.comment.id] = action.comment;
+      return nextState;
+    case DELETE_COMMENT:
+      nextState = { ...prevState };
+      delete nextState[action.commentId];
+      return nextState;
+    default:
+      return prevState;
+  }
+};
+
+export default commentReducer;
