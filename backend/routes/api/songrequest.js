@@ -46,10 +46,11 @@ router.get("/", requireAuth, async (req, res, next) => {
     res.json({
       songRequests: songRequests.map((songRequest) => ({
         ...songRequest.toJSON(),
-        numLikes: songRequest.likes
+        // numLikes: songRequest.likes
       })),
     });
-  } catch (error) {
+  } 
+  catch (error) {
     next(error);
   }
 });

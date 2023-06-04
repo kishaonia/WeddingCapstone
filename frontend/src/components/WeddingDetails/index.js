@@ -170,12 +170,13 @@ const WeddingDetails = () => {
         </div>
         {isSongRequestOpen && (
           <div className="song-request">
+             {!findSongRequests ? <CreateSongRequest/> : <></>}
             {songRequestsVal?.map((songrequest) => (
             <div className="song-request-2" key={songrequest?.id}>
               <SongRequest songRequest={songrequest} />
               </div>
               ))}
-           {!findSongRequests ? <CreateSongRequest/> : <></>}
+          
             </div>
         )}
         </div>

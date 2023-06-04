@@ -33,8 +33,10 @@ const CreateSongRequest = () => {
   };
 
   return (
-    <div className="song-request-pop-up">
+    <div className="song-request-pop-up" >
     <form onSubmit={onSubmit} className="create-song-request-form">
+      Maybe add a song request?
+      <br></br>
       <input
         type="text"
         value={songName}
@@ -42,6 +44,7 @@ const CreateSongRequest = () => {
         className="song-name-input"
         placeholder="Song Name"
       />
+      <br></br>
       <input
         type="text"
         value={artist}
@@ -56,6 +59,7 @@ const CreateSongRequest = () => {
         className="like-input"
         placeholder="Like"
       /> */}
+      <br></br>
       <button type="submit" className="submit-button">
         Submit
       </button>
