@@ -18,6 +18,7 @@ import SongRequest from "../SongRequest";
 
 
 
+
 const WeddingDetails = () => {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
   const [isRegistriesOpen, setIsRegistriesOpen] = useState(false);
@@ -164,7 +165,7 @@ const WeddingDetails = () => {
         {isSongRequestOpen && (
           <div className="song-request">
             {songRequestsVal?.map((songrequest) => (
-            <div className="create-list" key={songrequest?.id}>
+            <div className="song-request-2" key={songrequest?.id}>
               <SongRequest songRequest={songrequest} />
               </div>
               ))}
@@ -173,31 +174,7 @@ const WeddingDetails = () => {
         )}
         </div>
 
-{/* <div className="dropdown-big-title-wedding-details">
-  <div
-    className="big-title-header-wedding-details"
-    onClick={toggleSongRequestDropdown}
-  >
-    Song Request
-  </div>
 
-  
-  {isSongRequestOpen && (
-    <div className="song-request">
-    {songRequestsVal?.map && songRequestsVal.map((songRequests) => (
-      <div className="create-list" key={songRequests?.id}>
-        <SongRequest key={songRequests?.id} songRequests={songRequests} />
-      </div>
-    ))}
-    {!findSongRequests ? (
-      <CreateSongRequest onCreate={CreateSongRequest} />
-    ) : (
-      <></>
-    )}
-  </div>
-  
-  )}
-</div> */}
 
 
 

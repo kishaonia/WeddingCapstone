@@ -59,7 +59,23 @@ export const createOneSongRequest = (songRequest, userId) => async dispatch => {
     }
 }
 
-export const updateOneSongRequest = (songRequest, songRequestId) => async dispatch => {
+// export const updateOneSongRequest = (songRequest, songRequestId) => async dispatch => {
+//     const response = await csrfFetch(`/api/songRequests/${songRequestId}`, {
+//       method: "PUT",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(songRequest),
+//     });
+
+//     if (response.ok) {
+//         const updated = await response.json()
+//         dispatch(updateSongRequest(updated))
+//         return updated
+//     }
+// }
+
+export const updateOneSongRequest = (songRequest, songRequestId) => async (dispatch) => {
     const response = await csrfFetch(`/api/songRequests/${songRequestId}`, {
       method: "PUT",
       headers: {
@@ -69,11 +85,12 @@ export const updateOneSongRequest = (songRequest, songRequestId) => async dispat
     });
 
     if (response.ok) {
-        const updated = await response.json()
-        dispatch(updateSongRequest(updated))
-        return updated
+      const updated = await response.json();
+      dispatch(updateSongRequest(updated));
+      return updated;
     }
-}
+  }
+
 
 export const deleteOneSongRequest = (songRequestId) => async dispatch => {
     const response = await csrfFetch(`/api/songRequests/${songRequestId}`, {

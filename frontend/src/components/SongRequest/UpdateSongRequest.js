@@ -47,9 +47,9 @@ const UpdateSongRequest = ({ songRequest }) => {
 
   return (
     <>
-      <div className="song-request-form-pop-up">
-        <form className="song-request-form" onSubmit={onSubmit}>
-          <label className="song-request-title">Editing a Song Request?</label>
+      <div className="registry-form-pop-up">
+        <form className="registry-form" onSubmit={onSubmit}>
+          <label className="registry-item-item">Editing a Song Request?</label>
           <input
             type="text"
             placeholder="Song Title"
@@ -70,7 +70,7 @@ const UpdateSongRequest = ({ songRequest }) => {
           {error.artist && <span className="error">{error.artist}</span>}
           <br />
 
-          <label className="song-request-like">Like</label>
+          {/* <label className="song-request-like">Like</label>
           <input
             type="text"
             placeholder="Like"
@@ -79,7 +79,7 @@ const UpdateSongRequest = ({ songRequest }) => {
             required
           />
           {error.like && <span className="error">{error.like}</span>}
-          <br />
+          <br /> */}
 
 
           <button className="submit-song-request" type="submit">

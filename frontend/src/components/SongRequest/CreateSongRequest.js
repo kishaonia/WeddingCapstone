@@ -33,6 +33,7 @@ const CreateSongRequest = () => {
   };
 
   return (
+    <div className="song-request-pop-up">
     <form onSubmit={onSubmit} className="create-song-request-form">
       <input
         type="text"
@@ -48,17 +49,18 @@ const CreateSongRequest = () => {
         className="artist-input"
         placeholder="Artist"
       />
-       <input
+       {/* <input
         type="text"
         value={like}
         onChange={(e) => setLike(e.target.value)}
         className="like-input"
         placeholder="Like"
-      />
+      /> */}
       <button type="submit" className="submit-button">
         Submit
       </button>
     </form>
+    </div>
   );
 };
 
