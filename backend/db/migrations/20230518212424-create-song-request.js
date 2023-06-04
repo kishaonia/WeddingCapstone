@@ -30,6 +30,10 @@ module.exports = {
         artist: {
           type: Sequelize.STRING,
         },
+       like: {
+          type: Sequelize.INTEGER,
+          allowNull: false
+        },
         createdAt: {
           allowNull: false,
           type: Sequelize.DATE,

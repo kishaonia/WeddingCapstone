@@ -1,5 +1,4 @@
-                                                                        import { csrfFetch } from "./csrf";
-
+import { csrfFetch } from "./csrf";
 const CREATE_REGISTRY = 'registries/createRegistry'
 const UPDATE_REGISTRY = 'registries/updateRegistry'
 const DELETE_REGISTRY = 'registries/deleteRegistry'

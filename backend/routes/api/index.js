@@ -20,7 +20,7 @@ router.use('/users', usersRouter);
 router.use('/comments', commentsRouter)
 router.use('/registries', registryRouter)
 router.use('/photos',photoRouter)
-router.use('/songrequest',songrequestRouter)
+router.use('/songRequests',songrequestRouter)
 
 router.post('/test', (req, res) => {
     res.json({ requestBody: req.body });

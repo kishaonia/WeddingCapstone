@@ -6,7 +6,8 @@ import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation"
 import LoginFormModal from "./components/LoginFormModal";
 import WeddingDetails from "./components/WeddingDetails";
-import ProfileButton from "./components/Navigation/ProfileButton";
+// import ProfileButton from "./components/Navigation/ProfileButton";
+import SongRequests from "./components/SongRequest";
 
 
 function App() {
@@ -29,6 +30,9 @@ function App() {
       <Route exact path="/weddingdetails">
       <WeddingDetails />
       </Route>
+      <Route exact path="/weddingdetails">
+      <SongRequests/>
+    </Route>
       
     </Switch>
    )}

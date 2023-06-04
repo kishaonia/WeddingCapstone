@@ -7,8 +7,8 @@ import { useModal } from "../../../context/Modal";
 import { useSelector } from "react-redux";
 
 const DeleteRegistry = ({registryId}) => {
-    const dispatch = useDispatch()
-const {closeModal} = useModal()
+    const dispatch = useDispatch();
+const {closeModal} = useModal();
 
 const onDelete = async(e) => {
     e.preventDefault()
@@ -32,4 +32,4 @@ const onCancel = (e) => {
     );
 }
 
-export default DeleteRegistry
+export default DeleteRegistry;

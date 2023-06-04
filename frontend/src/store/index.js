@@ -4,12 +4,14 @@ import sessionReducer from './session';
 import userReducer from "./users";
 import registryReducer from "./registries";
 import photoReducer from './photos.js'
+import songRequestReducer from "./songrequest";
 
 const rootReducer = combineReducers({
     session: sessionReducer,
     users: userReducer,
     registries: registryReducer,
-    photos: photoReducer
+    photos: photoReducer,
+    songrequest:songRequestReducer
 });
 
 let enhancer;

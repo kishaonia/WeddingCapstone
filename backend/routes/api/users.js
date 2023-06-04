@@ -38,7 +38,7 @@ router.get('/', requireAuth, async (req, res, next) => {
            
             {
                 model: songRequest,
-                attributes:['id', 'artist', 'songName']
+                attributes:['id', 'artist', 'songName', 'like']
              
             },
             {
@@ -147,6 +147,41 @@ router.post('/:id/photos', requireAuth, async(req, res, next) => {
   });
 
   res.json(newPhoto);
+}
+)
+//Creating Photo for Logged in User
+router.post('/:id/songrequests', requireAuth, async(req, res, next) => {
+  let newSongRequest;
+  const { songName, artist, like } = req.body;
+
+  let findUser = await User.findByPk(req.user.id);
+
+  if (!findUser) {
+    return res.json({
+      message: "User couldn't be found",
+    });
+  }
+
+  let findSongRequest= await songRequest.findOne({
+    where: {
+      userId: req.user.id,
+    },
+  });
+
+  if (findSongRequest) {
+    return res.json({
+      message: "User already created a request",
+    });
+  }
+
+  newSongRequest = await findUser.createSongRequest({
+    userId: req.user.id,
+    songName,
+    artist,
+    like
+  });
+
+  res.json(newSongRequest);
 }
 )
 

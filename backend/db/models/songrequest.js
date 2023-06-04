@@ -20,7 +20,8 @@ module.exports = (sequelize, DataTypes) => {
   songRequest.init({
     userId: DataTypes.INTEGER,
     songName: DataTypes.STRING,
-    artist: DataTypes.STRING
+    artist: DataTypes.STRING,
+    like: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'songRequest',
