@@ -17,6 +17,7 @@ import { getSongRequests } from "../../store/songrequest";
 import SongRequest from "../SongRequest";
 
 
+
 const WeddingDetails = () => {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
   const [isRegistriesOpen, setIsRegistriesOpen] = useState(false);

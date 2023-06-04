@@ -54,7 +54,7 @@
   
   
   .big-title-header-wedding-details {
-   
+    cursor: pointer;
     font-weight: bold;
     text-align: center;
     font-family: 'Constantine', sans-serif;

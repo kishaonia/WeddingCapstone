@@ -54,30 +54,27 @@ router.get("/", requireAuth, async (req, res, next) => {
   }
 });
 
-// POST /songRequests
+// Edit /songRequests
 router.put("/:id", requireAuth, async (req, res, next) => {
-  const { songName, artist
-    // , like 
-  } = req.body;
-  try {
-    let songRequest = await songRequest.findOne({
+  const { songName, artist, like  } = req.body;
+    let updateSongRequest = await songRequest.findOne({
       where: {
         id: req.params.id,
       },
     });
 
-    if (!songRequest) {
+    if (!updateSongRequest) {
       return res.json({
         message: "Song couldn't be found",
         statusCode: 404,
       });
     }
-    if (!artist) {
-      return res.json({
-        message: "Artist couldn't be found",
-        statusCode: 404,
-      });
-    }
+    // if (!artist) {
+    //   return res.json({
+    //     message: "Artist couldn't be found",
+    //     statusCode: 404,
+    //   });
+    // }
     // if (!like) {
     //   return res.json({
     //     message: "Invalid like",
@@ -85,21 +82,22 @@ router.put("/:id", requireAuth, async (req, res, next) => {
     //   });
     // }
 
-    if (songRequest.userId !== req.user.id) {
+    if (updateSongRequest.userId !== req.user.id) {
       return res.json({
         message: "Forbidden/not allowed",
         statusCode: 403,
       });
     }
 
-    let updateOneSongRequest = await songRequest.update({
+    let successUpdate = await updateSongRequest.update({
       songName,
       artist,
+      like
     });
-    res.json(updateOneSongRequest);
-  } catch (error) {
-    next(error);
-  }
+    res.json(successUpdate);
+  //  catch (error) {
+  //   next(error);
+  // }
 });
 
 // DELETE /songRequests/:id

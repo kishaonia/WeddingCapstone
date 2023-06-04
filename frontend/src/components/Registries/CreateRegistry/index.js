@@ -5,8 +5,6 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { createOneRegistry } from "../../../store/registries";
 
-
-
 const CreateRegistry = () => {
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)

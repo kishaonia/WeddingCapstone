@@ -38,7 +38,9 @@ router.get('/', requireAuth, async (req, res, next) => {
            
             {
                 model: songRequest,
-                attributes:['id', 'artist', 'songName', 'like']
+                attributes:['id', 'artist', 'songName'
+                , 'like'
+              ]
              
             },
             {
@@ -178,7 +180,7 @@ router.post('/:id/songrequests', requireAuth, async(req, res, next) => {
     userId: req.user.id,
     songName,
     artist,
-    like
+    like,
   });
 
   res.json(newSongRequest);

@@ -10,9 +10,10 @@ const CreateSongRequest = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.session.user);
   const userId = user?.id;
+  
   const [songName, setSongName] = useState("");
   const [artist, setArtist] = useState("");
-  // const [like, setLike] = useState("");
+  const [like, setLike] = useState("");
 
   
   const onSubmit = async (e) => {
@@ -21,13 +22,13 @@ const CreateSongRequest = () => {
     const newSongRequest = {
       songName: songName,
       artist: artist,
-      // like: like
+      like: like
     };
     const success = await dispatch(createOneSongRequest(newSongRequest, userId));
     if (success) {
       setSongName("");
       setArtist("");
-      // setLike("")
+      setLike("")
     }
   };
 
@@ -47,13 +48,13 @@ const CreateSongRequest = () => {
         className="artist-input"
         placeholder="Artist"
       />
-       {/* <input
+       <input
         type="text"
         value={like}
         onChange={(e) => setLike(e.target.value)}
         className="like-input"
         placeholder="Like"
-      /> */}
+      />
       <button type="submit" className="submit-button">
         Submit
       </button>

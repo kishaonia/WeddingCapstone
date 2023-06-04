@@ -14,9 +14,9 @@ const SongRequest = ({ songRequest }) => {
         <h4 className="song-request-name">
           {songRequest?.User?.firstName} {songRequest?.User?.lastName}
         </h4>
-        <p className="song-request-item-title">{songRequest?.title}</p>
-        {songRequest?.artist}
-        {/* {songRequest?.like} */}
+        <p className="song-request-item-title">{songRequest?.songName}</p>
+       <p>{songRequest?.artist}</p> 
+       <p>{songRequest?.like}</p> 
         <div className="update-delete">
         {currentUser?.id === songRequest?.User?.id ? <OpenModalMenuItem itemText="Delete" modalComponent={<DeleteSongRequest songRequestId={songRequest?.id}/>}/>:<></>}
       {currentUser?.id === songRequest?.User?.id ? <OpenModalMenuItem itemText="Update" modalComponent={<UpdateSongRequest songRequest={songRequest}/>}/>:<></>}

@@ -9,11 +9,12 @@ import { useSelector } from "react-redux";
 
 const UpdateRegistry = ({ registry }) => {
 const registryId = registry?.id
-
   const dispatch = useDispatch();
   const { closeModal } = useModal();
+
   const [registryItem, setRegistryItem] = useState(registry?.registryItem);
   const [url, setUrl] = useState(registry?.url);
+  
   const [error, setError] = useState({});
 
   

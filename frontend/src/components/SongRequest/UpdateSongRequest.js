@@ -8,17 +8,18 @@ import { useSelector } from "react-redux";
 
 const UpdateSongRequest = ({ songRequest }) => {
   const songRequestId = songRequest?.id;
-
   const dispatch = useDispatch();
   const { closeModal } = useModal();
-  const [songTitle, setSongTitle] = useState(songRequest?.songTitle);
+
+  const [songName, setSongName] = useState(songRequest?.songName);
   const [artist, setArtist] = useState(songRequest?.artist);
   const [like, setLike] = useState(songRequest?.like);
+
   const [error, setError] = useState({});
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    if (!songTitle) {
+    if (!songName) {
       setError({ songTitle: "Song title is required" });
       return;
     }
@@ -26,14 +27,17 @@ const UpdateSongRequest = ({ songRequest }) => {
       setError({ artist: "Artist name is required" });
       return;
     }
+
+     if (!like) {
+      setError({ like: "Like plz" });
+      return;
+    }
     const newSongRequest = {
-      songTitle,
+      songName,
       artist,
       like,
     };
-    dispatch(updateOneSongRequest(newSongRequest, songRequestId)).then(
-      closeModal
-    );
+    dispatch(updateOneSongRequest(newSongRequest, songRequestId)).then(closeModal);
   };
 
   const onCancel = (e) => {
@@ -49,11 +53,11 @@ const UpdateSongRequest = ({ songRequest }) => {
           <input
             type="text"
             placeholder="Song Title"
-            value={songTitle}
-            onChange={(e) => setSongTitle(e.target.value)}
+            value={songName}
+            onChange={(e) => setSongName(e.target.value)}
             required
           />
-          {error.songTitle && <span className="error">{error.songTitle}</span>}
+          {error.songName && <span className="error">{error.songName}</span>}
           <br />
           <label className="song-request-artist">Artist</label>
           <input
@@ -65,6 +69,19 @@ const UpdateSongRequest = ({ songRequest }) => {
           />
           {error.artist && <span className="error">{error.artist}</span>}
           <br />
+
+          <label className="song-request-like">Like</label>
+          <input
+            type="text"
+            placeholder="Like"
+            value={like}
+            onChange={(e) => setLike(e.target.value)}
+            required
+          />
+          {error.like && <span className="error">{error.like}</span>}
+          <br />
+
+
           <button className="submit-song-request" type="submit">
             Submit
           </button>
