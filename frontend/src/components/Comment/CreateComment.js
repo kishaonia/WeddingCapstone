@@ -5,6 +5,8 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { createOneComment } from "../../store/comments";
 
+
+
 const CreateComment = ({registryId}) => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
@@ -35,7 +37,7 @@ const CreateComment = ({registryId}) => {
         Leave a note? 
         {commentsVal?.map(comment => {
             return(
-            <div className="comment-in-reg"> {comment?.comment}</div>
+            <div className="comment-in-reg"> {comment?.comment}  </div>
             )
           })}
             <form className="comment-form" onSubmit={onSubmit}>
@@ -43,7 +45,7 @@ const CreateComment = ({registryId}) => {
                 <input
                     className="input-registry"
                     type="text"
-                    placeholder="enter your note!"
+                    placeholder="thank u so much!"
                     value={comment}
                     onChange={e => setComment(e.target.value)}
                     required

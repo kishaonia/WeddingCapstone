@@ -4,7 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import CreateComment from "../Comment/CreateComment";
 import DeleteComment from "./DeleteComment";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
-import UpdateComment from "./EditComment";
+
 
 const Comment = ({ comment }) => {
     const currentUser = useSelector((state) => state.session.user);

@@ -4,6 +4,7 @@
     height: 311px;
     width: auto;
     margin-right: -10px;
+    height: 340px;
 }
 
 .registry-slideshow {
@@ -27,6 +28,7 @@
 .registry-list-style {
   display: flex;
   overflow-x: auto;
+  height: 400px;
 }
 
 .registry-list-style::-webkit-scrollbar {
@@ -48,8 +50,6 @@
 }
 
 .registry-name{
-display: flex;
-margin: -13px;
 justify-content: center;
 color: rgb(127, 103, 107);
 font-family: 'Utendo', sans-serif;
@@ -228,3 +228,18 @@ border-radius: 20px;
   padding-top: 9px;
   padding-left: 49px;
 }
+.song-request-pop-up{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* .registry-photos{
+  max-height: 30px;
+  max-width: 50px;
+} */
+
+.name-and-registry{
+  display: flex;
+    justify-content: center;
+}
+

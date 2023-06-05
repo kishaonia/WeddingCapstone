@@ -7,7 +7,7 @@ import { useModal } from "../../../context/Modal";
 import { useSelector } from "react-redux";
 
 
-const UpdateComment = ({ comment }) => {
+const UpdateComment = ({ comments }) => {
     const commentId = comment?.id;
     const dispatch = useDispatch();
     const { closeModal } = useModal();

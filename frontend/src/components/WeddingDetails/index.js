@@ -131,11 +131,12 @@ const WeddingDetails = () => {
             {registriesVal?.map((registry) => (
               <div className="registry-list" key={registry?.id}>
                 <Registry registry={registry} />
+                {!findRegistry ? <CreateRegistry /> : <></>}
               </div>
             ))}
-            {!findRegistry ? <CreateRegistry /> : <></>}
+           
           </div>
-        )}
+        ) }
       </div>
 
       <div id="gallery-section" className="dropdown-big-title-wedding-details">
