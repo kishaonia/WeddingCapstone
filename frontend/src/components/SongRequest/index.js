@@ -10,21 +10,38 @@ const SongRequest = ({ songRequest }) => {
 
   return (
     <div className="song-request-container" id={songRequest?.id}>
-      {/* <div className="song-request-slideshow"> */}
+      <div className="song-request-header">
         <h4 className="song-request-name">
           {songRequest?.User?.firstName} {songRequest?.User?.lastName}
         </h4>
+      </div>
+      <div className="song-request-content">
         <p className="song-request-item-title">{songRequest?.songName}</p>
-       <p>{songRequest?.artist}</p> 
-       <p>{songRequest?.like}</p> 
-        <div className="update-delete">
-        {currentUser?.id === songRequest?.User?.id ? <OpenModalMenuItem itemText="Delete" modalComponent={<DeleteSongRequest songRequestId={songRequest?.id}/>}/>:<></>}
-      {currentUser?.id === songRequest?.User?.id ? <OpenModalMenuItem itemText="Update" modalComponent={<UpdateSongRequest songRequest={songRequest}/>}/>:<></>}
+        <div className="song-request-item-info">
+          <p>{songRequest?.artist}</p>
+          <p>{songRequest?.like}</p>
         </div>
-      {/* </div> */}
+      </div>
+      <div className="update-delete">
+        {currentUser?.id === songRequest?.User?.id ? (
+          <OpenModalMenuItem
+            itemText={<i className="fas fa-trash-alt"></i>}
+            modalComponent={<DeleteSongRequest songRequestId={songRequest?.id} />}
+          />
+        ) : (
+          <></>
+        )}
+        {currentUser?.id === songRequest?.User?.id ? (
+          <OpenModalMenuItem
+            itemText={<i className="fas fa-undo"></i>}
+            modalComponent={<UpdateSongRequest songRequest={songRequest} />}
+          />
+        ) : (
+          <></>
+        )}
+      </div>
     </div>
   );
 };
-
 export default SongRequest;
 

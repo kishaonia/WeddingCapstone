@@ -17,9 +17,6 @@ import { getSongRequests } from "../../store/songrequest";
 import { getComments } from "../../store/comments";
 import SongRequest from "../SongRequest";
 
-
-
-
 const WeddingDetails = () => {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
   const [isRegistriesOpen, setIsRegistriesOpen] = useState(false);
@@ -31,14 +28,13 @@ const WeddingDetails = () => {
   const registries = useSelector((state) => state?.registries);
   const photos = useSelector((state) => state?.photos);
   const songRequests = useSelector((state) => state?.songrequest);
-  const songRequestsVal = Object?.values(songRequests)
+  const songRequestsVal = Object?.values(songRequests);
   const currentUser = useSelector((state) => state?.session?.user);
   // const songRequestsVal = useSelector((state) => Object?.values(state?.songRequests));
   const currentUserId = currentUser?.id;
   const history = useHistory();
   const registriesVal = Object?.values(registries);
-  
-  
+
   const usersVal = Object?.values(users);
   const dispatch = useDispatch();
 
@@ -51,12 +47,9 @@ const WeddingDetails = () => {
   );
   const photosVal = Object?.values(photos);
 
- 
   const findSongRequests = songRequestsVal.find(
     ({ userId }) => userId === currentUser?.id
-    );
- 
- 
+  );
 
   if (!currentUser) {
     history.push("/");
@@ -65,8 +58,7 @@ const WeddingDetails = () => {
   useEffect(() => {
     dispatch(getRegstries());
     dispatch(fetchPhotos());
-    dispatch(getSongRequests()); 
- 
+    dispatch(getSongRequests());
   }, [
     dispatch,
     JSON.stringify(currentUser),
@@ -107,7 +99,10 @@ const WeddingDetails = () => {
         </div>
       </div>
 
-      <div id="wedding-details-section" className="dropdown-big-title-wedding-details">
+      <div
+        id="wedding-details-section"
+        className="dropdown-big-title-wedding-details"
+      >
         <div
           className="big-title-header-wedding-details"
           onClick={toggleDetailsDropdown}
@@ -121,7 +116,10 @@ const WeddingDetails = () => {
         )}
       </div>
 
-      <div id="registries-section" className="dropdown-big-title-wedding-details">
+      <div
+        id="registries-section"
+        className="dropdown-big-title-wedding-details"
+      >
         <div
           className="big-title-header-wedding-details"
           onClick={toggleRegistriesDropdown}
@@ -161,7 +159,10 @@ const WeddingDetails = () => {
         )}
       </div>
 
-      <div id="song-request-section" className="dropdown-big-title-wedding-details">
+      <div
+        id="song-request-section"
+        className="dropdown-big-title-wedding-details"
+      >
         <div
           className="big-title-header-wedding-details"
           onClick={toggleSongRequestDropdown}
@@ -170,18 +171,27 @@ const WeddingDetails = () => {
         </div>
         {isSongRequestOpen && (
           <div className="song-request">
-             {!findSongRequests ? <CreateSongRequest/> : <></>}
-            {songRequestsVal?.map((songrequest) => (
-            <div className="song-request-2" key={songrequest?.id}>
-              <SongRequest songRequest={songrequest} />
-              </div>
-              ))}
           
-            </div>
+            
+            <div className="song-req2">
+            {songRequestsVal?.map((songrequest) => (
+              <div className="song-request-2" key={songrequest?.id}>
+                <SongRequest songRequest={songrequest} />
+                
+               
+              </div>
+            ))}
+              {!findSongRequests ? <CreateSongRequest /> : <></>}
+             </div>
+          </div>
         )}
-        </div>
+        
+      </div>
 
-        <div id="guestlist-section" className="dropdown-big-title-wedding-details">
+      <div
+        id="guestlist-section"
+        className="dropdown-big-title-wedding-details"
+      >
         <div
           className="big-title-header-wedding-details"
           onClick={toggleGuestlistDropdown}
@@ -198,19 +208,9 @@ const WeddingDetails = () => {
            {!findSongRequests ? <CreateSongRequest/> : <></>}
             </div>
         )} */}
-        </div>
-
-
-
-
-
-
-
+      </div>
     </div>
   );
 };
 
 export default WeddingDetails;
-
-
- 

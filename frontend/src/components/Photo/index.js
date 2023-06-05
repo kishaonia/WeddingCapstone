@@ -38,15 +38,18 @@ if(!currentUser){
         <img
           className="photos"
           src={photo?.url}
-          style={{ maxHeight: '200px', maxWidth: '400px' }}
+          style={{ maxHeight: '200px', maxWidth: '350px' }}
         />
-     
+
+        <div className="gallery-info">
         <p className="gallery-name">{photo?.User?.firstName} {photo?.User?.lastName}</p>
-        <p className="gallery-description">{photo?.description}</p>
+        <p className="gallery-description">"{photo?.description}"</p>
+        </div>
+    
         
         <div className="update-delete"> 
-        {currentUser?.id === photo?.userId ? <OpenModalMenuItem itemText="Delete" modalComponent={<DeletePhoto photoId={photo?.id}/>}/>:<></>}
-        {currentUser?.id === photo?.userId ? <OpenModalMenuItem itemText="Update" modalComponent={<UpdatePhoto photo={photo}/>}/>:<></>}
+        {currentUser?.id === photo?.userId ? <OpenModalMenuItem itemText={<><i className="fas fa-trash-alt"></i></>} modalComponent={<DeletePhoto photoId={photo?.id}/>}/>:<></>}
+        {currentUser?.id === photo?.userId ? <OpenModalMenuItem  itemText={<><i class='fas fa-undo'></i></>} modalComponent={<UpdatePhoto photo={photo}/>}/>:<></>}
         </div>
       </div>
     

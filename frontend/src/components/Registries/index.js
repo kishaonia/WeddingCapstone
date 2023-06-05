@@ -10,6 +10,7 @@ import UpdateRegistry from "./EditRegistry";
 import CreateComment from "../Comment/CreateComment";
 
 
+
 const Registry = ({ registry }) => {
   const registryId = registry?.id
   const dispatch = useDispatch();
@@ -17,6 +18,9 @@ const Registry = ({ registry }) => {
   const commentsVal = Object?.values(comments)
   console.log('Comments', commentsVal)
  const currentUser = useSelector(state => state.session.user)
+ 
+ 
+   
  
  useEffect(() => {
   dispatch(getComments(registryId))
@@ -26,23 +30,43 @@ const Registry = ({ registry }) => {
             
 
     <div className="registry-container">
+      
       <div className="registry-slideshow">
-        <h4 className="registry-name">
-          {registry?.User?.firstName} {registry?.User?.lastName}
-        </h4>
-        <p className="registry-item-title">{registry?.registryItem}</p>
-        <img src={registry?.url} alt="User Registry" />
-        <div className="update-delete">
-      {currentUser?.id === registry?.User?.id ? <OpenModalMenuItem itemText="Delete" modalComponent={<DeleteRegistry registryId={registry?.id}/>}/>:<></>}
-      {currentUser?.id === registry?.User?.id ? <OpenModalMenuItem itemText="Update" modalComponent={<UpdateRegistry registry={registry}/>}/>:<></>}
-      <OpenModalMenuItem itemText='Create Comment' modalComponent={<CreateComment registryId={registry?.id}/>}/>
-      {commentsVal?.map(comment => {
-        return(
-        <div>{comment?.comment}</div>
-        )
-      })}
-      </div>
-      </div>
+ 
+
+  <h4 className="registry-name">
+    {registry?.User?.firstName} {registry?.User?.lastName} 
+  </h4>
+  
+  <p className="registry-item-title">{registry?.registryItem}</p>
+  <div className="registry-photos"><img src={registry?.url} alt="User Registry" /></div>
+
+  <OpenModalMenuItem
+    itemText={<> <i class='fas fa-comment-dots'></i></>}
+    id="notes-in-registries"
+    modalComponent={<CreateComment registryId={registry?.id} />}
+  />
+
+  
+   <div className="update-delete" >
+   
+   {currentUser?.id === registry?.User?.id && (
+     <OpenModalMenuItem
+     itemText={<><i className="fas fa-trash-alt"></i></>}
+     modalComponent={<DeleteRegistry registryId={registry?.id} />}
+   />
+
+   )}
+   {currentUser?.id === registry?.User?.id && (
+     <OpenModalMenuItem
+       itemText={<><i class='fas fa-undo'></i></>}
+       modalComponent={<UpdateRegistry registry={registry} />}
+     />
+   )}
+
+</div>
+</div>
+
     </div>
 
     

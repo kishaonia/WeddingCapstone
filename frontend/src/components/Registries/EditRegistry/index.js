@@ -49,6 +49,7 @@ const registryId = registry?.id
             type="text"
             placeholder="Registry Item"
             value={registryItem}
+            
             onChange={(e) => setRegistryItem(e.target.value)}
             required
           />
