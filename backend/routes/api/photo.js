@@ -36,7 +36,7 @@ router.get('/', requireAuth, async (req, res, next) => {
 });
 
 router.put('/:id', requireAuth, async (req, res, next) => {
-  const { description, url } = req.body;
+  const { description, url, like, file } = req.body;
   let photo = await Photo.findOne({
     where: {
       id: req.params.id,
@@ -60,6 +60,8 @@ router.put('/:id', requireAuth, async (req, res, next) => {
   let updatePhoto = await photo.update({
     description,
     url,
+    like,
+    file
   });
 
   res.json(updatePhoto);

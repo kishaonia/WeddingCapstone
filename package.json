@@ -1,4 +1,3 @@
-
 {
   "name": "weddingcapstone",
   "version": "1.0.0",
@@ -26,11 +25,8 @@
   },
   "homepage": "https://github.com/kishaonia/WeddingCapstone#readme",
   "dependencies": {
+    "aws-sdk": "^2.1391.0",
+    "buffer": "^6.0.3",
     "js-cookie": "^3.0.1"
   }
 }
-
-
-
-
-

@@ -26,7 +26,9 @@ module.exports = (sequelize, DataTypes) => {
   Registry.init({
     userId: DataTypes.INTEGER,
     registryItem: DataTypes.STRING,
-    url: DataTypes.STRING
+    url: DataTypes.STRING,
+    like:DataTypes.INTEGER,
+    file: DataTypes.BLOB
   }, {
     sequelize,
     modelName: 'Registry',

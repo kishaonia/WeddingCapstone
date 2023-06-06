@@ -29,6 +29,12 @@ module.exports = {
       description: {
         type: Sequelize.STRING,
       },
+      like: {
+        type: Sequelize.INTEGER,
+      },
+      file: {
+        type: Sequelize.BLOB,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

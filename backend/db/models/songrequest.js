@@ -21,7 +21,8 @@ module.exports = (sequelize, DataTypes) => {
     userId: DataTypes.INTEGER,
     songName: DataTypes.STRING,
     artist: DataTypes.STRING,
-    like: DataTypes.INTEGER
+    like:DataTypes.INTEGER,
+    file: DataTypes.BLOB
   }, {
     sequelize,
     modelName: 'songRequest',

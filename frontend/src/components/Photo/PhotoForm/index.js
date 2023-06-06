@@ -13,20 +13,34 @@ const CreatePhoto = () => {
     const userId = user?.id 
     const [description, setDescription] = useState("")
     const [url, setUrl] = useState("")
+    const [file, setFile] = useState(null)
+
+
+    
 
     const onSubmit = async(e) => {
         e.preventDefault()
 
     const newPhoto = {
         description: description,
-        url: url
+        url: url,
+        file:file,
+        
+     
     }
      const success = await dispatch(createPhotoRequest(newPhoto, userId))
         if (success) {
             setUrl('')
             setDescription('')
+            setFile()
+          
         }
     }
+
+    const handleFileChange = (e) => {
+      const selectedFile = e.target.files[0];
+      setFile(selectedFile);
+    };
 
   return (
     <div className="registry-form-pop-up">
@@ -48,6 +62,15 @@ const CreatePhoto = () => {
           onChange={(e) => setUrl(e.target.value)}
           required
         />
+
+          <input
+          type="file"
+          value={file}
+          onChange={handleFileChange}
+          required
+        />
+         
+
         <br />
         <button className="submit-registries">Submit</button>
       </form>

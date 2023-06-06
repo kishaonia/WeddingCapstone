@@ -108,7 +108,7 @@ const songRequestReducer = (prevState = {}, action) => {
   switch (action.type) {
     case GET_SONG_REQUESTS:
       nextState = {}
-      action.songRequests.SongRequests.forEach(songRequest => {
+      action?.songRequests?.SongRequests?.forEach(songRequest => {
         nextState[songRequest.id] = songRequest
       })
       return nextState

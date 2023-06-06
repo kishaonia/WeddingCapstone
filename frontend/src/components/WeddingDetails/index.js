@@ -16,6 +16,7 @@ import CreateSongRequest from "../SongRequest/CreateSongRequest";
 import { getSongRequests } from "../../store/songrequest";
 import { getComments } from "../../store/comments";
 import SongRequest from "../SongRequest";
+import File from "../Files/Files";
 
 const WeddingDetails = () => {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
@@ -87,6 +88,7 @@ const WeddingDetails = () => {
   };
 
   return (
+   
     <div className="wedding-details">
       <div className="wedding-details-header">
         <img src={weddingdetailsbg} alt="Wedding Details Background" />
@@ -98,7 +100,7 @@ const WeddingDetails = () => {
           </div>
         </div>
       </div>
-
+     
       <div
         id="wedding-details-section"
         className="dropdown-big-title-wedding-details"

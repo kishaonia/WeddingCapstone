@@ -14,6 +14,7 @@ const UpdatePhoto = ({ photo }) => {
   const { closeModal } = useModal();
   const [description, setDescription] = useState(photo?.description);
   const [url, setUrl] = useState(photo?.url);
+  const [file, setFile ]= useState(photo.file);
   const [error, setError] = useState({});
 
 
@@ -30,6 +31,7 @@ const UpdatePhoto = ({ photo }) => {
     const newPhoto = {
       description,
       url,
+      file
     };
     dispatch(updatePhotoRequest(newPhoto, photoId)).then(closeModal);
   };

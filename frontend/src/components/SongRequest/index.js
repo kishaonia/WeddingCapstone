@@ -4,12 +4,15 @@ import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import DeleteSongRequest from "./DeleteSongRequest";
 import CreateSongRequest from "./CreateSongRequest";
 import UpdateSongRequest from "./UpdateSongRequest";
+import LikeDislike from "../Likes";
+
+
 
 const SongRequest = ({ songRequest }) => {
   const currentUser = useSelector((state) => state.session.user);
 
   return (
-    <div className="song-request-container" id={songRequest?.id}>
+    <div className="song-request-container" id={songRequest?.id} > 
       <div className="song-request-header">
         <h4 className="song-request-name">
           {songRequest?.User?.firstName} {songRequest?.User?.lastName}
@@ -40,6 +43,8 @@ const SongRequest = ({ songRequest }) => {
           <></>
         )}
       </div>
+      {/* <LikeDislike/> */}
+
     </div>
   );
 };

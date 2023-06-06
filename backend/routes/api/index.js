@@ -8,6 +8,7 @@ const commentsRouter = require ('./comments.js')
 const registryRouter = require ("./registry.js")
 const photoRouter = require('./photo.js')
 const songrequestRouter = require('./songrequest.js')
+const likesRouter = require("./likes.js")
 
 
 // Connect restoreUser middleware to the API router
@@ -21,6 +22,8 @@ router.use('/comments', commentsRouter)
 router.use('/registries', registryRouter)
 router.use('/photos',photoRouter)
 router.use('/songRequests',songrequestRouter)
+router.use('/likes',likesRouter)
+
 
 router.post('/test', (req, res) => {
     res.json({ requestBody: req.body });

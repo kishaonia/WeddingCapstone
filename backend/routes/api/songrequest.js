@@ -45,7 +45,7 @@ router.get("/", requireAuth, async (req, res, next) => {
 
     res.json({
       songRequests: songRequests.map((songRequest) => ({
-        ...songRequest.toJSON(),
+        // ...songRequest.toJSON(),
         // numLikes: songRequest.likes
       })),
     });
@@ -53,13 +53,13 @@ router.get("/", requireAuth, async (req, res, next) => {
   catch (error) {
     next(error);
   }
-});
+})
 
 
 
 // Edit /songRequests
 router.put("/:id", requireAuth, async (req, res, next) => {
-  const { songName, artist, like  } = req.body;
+  const { songName, artist, like, file  } = req.body;
     let updateSongRequest = await songRequest.findOne({
       where: {
         id: req.params.id,
@@ -95,7 +95,8 @@ router.put("/:id", requireAuth, async (req, res, next) => {
     let successUpdate = await updateSongRequest.update({
       songName,
       artist,
-      like
+      like,
+      file
     });
     res.json(successUpdate);
   //  catch (error) {

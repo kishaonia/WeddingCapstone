@@ -15,7 +15,7 @@ router.get('/', requireAuth, async(req, res, next) => {
     include: [
       {
       model: Comment,
-      attributes: ["id", "comment"]
+      attributes: ["id", "comment", "file"]
       },
       {
         model: User,
@@ -46,7 +46,7 @@ router.get('/', requireAuth, async(req, res, next) => {
 
 
 router.put('/:id', requireAuth, async(req, res, next) => {
-  const {registryItem, url} = req.body
+  const {registryItem, url, like, file} = req.body
   let registry = await Registry.findOne({
     where: {
       id: req.params.id
@@ -69,7 +69,9 @@ router.put('/:id', requireAuth, async(req, res, next) => {
 
   let updateRegistry = await registry.update({
     registryItem,
-    url
+    url,
+    file,
+    like
   })
  res.json(updateRegistry)
 })
@@ -153,7 +155,7 @@ router.post('/:id/comments', requireAuth, async(req, res, next) => {
   const newComment = await registry.createComment({
     userId: req.user.id,
     registryId: req.params.id,
-    comment: comment
+    comment: comment,
   })
   res.json(newComment)
 })

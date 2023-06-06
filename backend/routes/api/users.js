@@ -4,7 +4,7 @@ const { check } = require('express-validator');
 const { sequelize, Op } = require("sequelize");
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User, Comment, songRequest, Registry, Photo  } = require('../../db/models');
+const { User, Comment, songRequest, Registry, Photo, Like } = require('../../db/models');
 const router = express.Router();
 
 const validateSignup = [
@@ -39,7 +39,7 @@ router.get('/', requireAuth, async (req, res, next) => {
             {
                 model: songRequest,
                 attributes:['id', 'artist', 'songName'
-                , 'like'
+                , 'like' ,'file'
               ]
              
             },
@@ -86,7 +86,7 @@ router.get('/', requireAuth, async (req, res, next) => {
 //Creating a registry for a logged in User
 router.post('/:id/registries', requireAuth, async(req, res, next) => {
   let newRegistry;
-  const { url, registryItem } = req.body;
+  const { url, registryItem, like, file } = req.body;
 
   let findUser = await User.findByPk(req.user.id);
 
@@ -111,6 +111,8 @@ router.post('/:id/registries', requireAuth, async(req, res, next) => {
   newRegistry = await findUser.createRegistry({
     userId: req.user.id,
     url,
+    like,
+    file,
     registryItem,
   });
 
@@ -120,7 +122,7 @@ router.post('/:id/registries', requireAuth, async(req, res, next) => {
 //Creating Photo for Logged in User
 router.post('/:id/photos', requireAuth, async(req, res, next) => {
   let newPhoto;
-  const { url, description } = req.body;
+  const { url, description, like, file } = req.body;
 
   let findUser = await User.findByPk(req.user.id);
 
@@ -146,15 +148,53 @@ router.post('/:id/photos', requireAuth, async(req, res, next) => {
     userId: req.user.id,
     url,
     description,
+    like,
+    file,
   });
 
   res.json(newPhoto);
 }
 )
+// Creating File 
+
+// router.post('/:id/files', requireAuth, async (req, res, next) => {
+//   let newFile;
+//   const { type, file } = req.body;
+
+//   let findUser = await db.User.findByPk(req.user.id);
+
+//   if (!findUser) {
+//     return res.json({
+//       message: "User couldn't be found",
+//     });
+//   }
+
+//   const findFile = await db.File.findOne({
+//     where: {
+//       userId: req.user.id,
+//     },
+//   });
+
+//   if (findFile) {
+//     return res.json({
+//       message: "User already created a file",
+//     });
+//   }
+
+//   newFile = await db.File.create({
+//     userId: req.user.id,
+//     type,
+//     file,
+//   });
+
+//   res.json(newFile);
+// });
+
+
 //Creating Photo for Logged in User
 router.post('/:id/songrequests', requireAuth, async(req, res, next) => {
   let newSongRequest;
-  const { songName, artist, like } = req.body;
+  const { songName, artist, like, file } = req.body;
 
   let findUser = await User.findByPk(req.user.id);
 
@@ -164,24 +204,43 @@ router.post('/:id/songrequests', requireAuth, async(req, res, next) => {
     });
   }
 
-  let findSongRequest= await songRequest.findOne({
-    where: {
-      userId: req.user.id,
-    },
-  });
+  router.post('/:id/songrequests', requireAuth, async (req, res, next) => {
+  try {
+    const { songName, artist, like, file } = req.body;
 
-  if (findSongRequest) {
-    return res.json({
-      message: "User already created a request",
+    const findUser = await User.findByPk(req.user.id);
+
+    if (!findUser) {
+      return res.status(404).json({
+        message: "User couldn't be found",
+      });
+    }
+
+    const findSongRequest = await songRequest.findOne({
+      where: {
+        userId: req.user.id,
+      },
     });
-  }
 
-  newSongRequest = await findUser.createSongRequest({
-    userId: req.user.id,
-    songName,
-    artist,
-    like,
-  });
+    if (findSongRequest) {
+      return res.status(400).json({
+        message: "User already created a request",
+      });
+    }
+
+    const newSongRequest = await findUser.createSongRequest({
+      userId: req.user.id,
+      songName,
+      artist,
+      like,
+      file
+    });
+
+    res.json(newSongRequest);
+  } catch (error) {
+    next(error);
+  }
+});
 
   res.json(newSongRequest);
 }
