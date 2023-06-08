@@ -27,6 +27,7 @@
   "dependencies": {
     "aws-sdk": "^2.1391.0",
     "buffer": "^6.0.3",
-    "js-cookie": "^3.0.1"
+    "js-cookie": "^3.0.1",
+    "swiper": "^9.3.2"
   }
 }

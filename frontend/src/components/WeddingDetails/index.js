@@ -12,11 +12,11 @@ import detailsforwedding from "../../assets/detailsforwedding.jpg";
 import Photos from "../Photo";
 import CreatePhoto from "../Photo/PhotoForm";
 import { fetchPhotos } from "../../store/photos";
-import CreateSongRequest from "../SongRequest/CreateSongRequest";
 import { getSongRequests } from "../../store/songrequest";
 import { getComments } from "../../store/comments";
 import SongRequest from "../SongRequest";
 import File from "../Files/Files";
+import CreateSongRequestForm from "../SongRequest/CreateSongRequest";
 
 const WeddingDetails = () => {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
@@ -28,7 +28,8 @@ const WeddingDetails = () => {
 
   const registries = useSelector((state) => state?.registries);
   const photos = useSelector((state) => state?.photos);
-  const songRequests = useSelector((state) => state?.songrequest);
+  const songRequests = useSelector((state) => state?.songRequests);
+
   const songRequestsVal = Object?.values(songRequests);
   const currentUser = useSelector((state) => state?.session?.user);
   // const songRequestsVal = useSelector((state) => Object?.values(state?.songRequests));
@@ -48,7 +49,7 @@ const WeddingDetails = () => {
   );
   const photosVal = Object?.values(photos);
 
-  const findSongRequests = songRequestsVal.find(
+  const findSongRequests = songRequestsVal?.find(
     ({ userId }) => userId === currentUser?.id
   );
 
@@ -132,11 +133,14 @@ const WeddingDetails = () => {
           <div className="registry-list-style">
             {registriesVal?.map((registry) => (
               <div className="registry-list" key={registry?.id}>
-                <Registry registry={registry} />
-                {!findRegistry ? <CreateRegistry /> : <></>}
+        
+                <Registry registry={registry}  />
+               
               </div>
             ))}
-           
+            <div className="registrycantfindpost">
+            {!findRegistry ? <CreateRegistry /> : <></>}
+            </div>
           </div>
         ) }
       </div>
@@ -172,23 +176,25 @@ const WeddingDetails = () => {
         >
           Song Request
         </div>
+
+
         {isSongRequestOpen && (
           <div className="song-request">
-          
+
+
             
-            <div className="song-req2">
             {songRequestsVal?.map((songrequest) => (
-              <div className="song-request-2" key={songrequest?.id}>
-                <SongRequest songRequest={songrequest} />
-                
-               
+            <div className="song-request-2">
+                <SongRequest key={songrequest?.id} songRequest={songrequest} />
               </div>
-            ))}
-              {!findSongRequests ? <CreateSongRequest /> : <></>}
-             </div>
+              ))}
+           {!findSongRequests ? <CreateSongRequestForm/> : <></>}
           </div>
         )}
         
+
+
+
       </div>
 
       <div
@@ -201,16 +207,7 @@ const WeddingDetails = () => {
         >
           Guestlist
         </div>
-        {/* {isSongRequestOpen && (
-          <div className="song-request">
-            {songRequestsVal?.map((songrequest) => (
-            <div className="song-request-2" key={songrequest?.id}>
-              <SongRequest songRequest={songrequest} />
-              </div>
-              ))}
-           {!findSongRequests ? <CreateSongRequest/> : <></>}
-            </div>
-        )} */}
+       
       </div>
     </div>
   );

@@ -94,6 +94,7 @@ router.delete("/:id", requireAuth, async (req, res, next) => {
     message: "Successfully deleted",
     statusCode: 200,
   });
-});
+}
+);
 
 module.exports = router;

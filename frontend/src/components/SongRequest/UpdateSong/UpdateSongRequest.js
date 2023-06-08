@@ -1,26 +1,26 @@
-import { updateOneSongRequest } from "../../store/songrequest";
+import { updateOneSongRequest } from "../../../store/songrequest";
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { useModal } from "../../context/Modal";
+import { useModal } from "../../../context/Modal";
 import { useSelector } from "react-redux";
 
-const UpdateSongRequest = ({ songRequest }) => {
-  const songRequestId = songRequest?.id;
+const UpdatedSongRequest = ({ updateSongRequest }) => {
+  const songRequestId = updateSongRequest?.id;
   const dispatch = useDispatch();
   const { closeModal } = useModal();
 
-  const [songName, setSongName] = useState(songRequest?.songName);
-  const [artist, setArtist] = useState(songRequest?.artist);
-  const [like, setLike] = useState(songRequest?.like);
+  const [songName, setSongName] = useState(updateSongRequest?.songName);
+  const [artist, setArtist] = useState(updateSongRequest?.artist);
+  // const [like, setLike] = useState(songRequest?.like);
 
   const [error, setError] = useState({});
 
   const onSubmit = async (e) => {
     e.preventDefault();
     if (!songName) {
-      setError({ songTitle: "Song title is required" });
+      setError({ songName: "Song title is required" });
       return;
     }
     if (!artist) {
@@ -28,16 +28,19 @@ const UpdateSongRequest = ({ songRequest }) => {
       return;
     }
 
-     if (!like) {
-      setError({ like: "Like plz" });
-      return;
-    }
+    //  if (!like) {
+    //   setError({ like: "Like plz" });
+    //   return;
+    // }
     const newSongRequest = {
       songName,
       artist,
-      like,
+      // like,
     };
-    dispatch(updateOneSongRequest(newSongRequest, songRequestId)).then(closeModal);
+    const success = await dispatch(updateOneSongRequest(newSongRequest, songRequestId))
+    if(success.ok){
+      closeModal()
+    }
   };
 
   const onCancel = (e) => {
@@ -91,4 +94,4 @@ const UpdateSongRequest = ({ songRequest }) => {
   );
 };
 
-export default UpdateSongRequest;
+export default UpdatedSongRequest;

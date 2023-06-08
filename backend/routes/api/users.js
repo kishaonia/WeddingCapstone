@@ -38,9 +38,8 @@ router.get('/', requireAuth, async (req, res, next) => {
            
             {
                 model: songRequest,
-                attributes:['id', 'artist', 'songName'
-                , 'like' ,'file'
-              ]
+                attributes:
+                ['id', 'artist', 'songName']
              
             },
             {
@@ -86,7 +85,7 @@ router.get('/', requireAuth, async (req, res, next) => {
 //Creating a registry for a logged in User
 router.post('/:id/registries', requireAuth, async(req, res, next) => {
   let newRegistry;
-  const { url, registryItem, like, file } = req.body;
+  const { url, registryItem, like} = req.body;
 
   let findUser = await User.findByPk(req.user.id);
 
@@ -191,24 +190,24 @@ router.post('/:id/photos', requireAuth, async(req, res, next) => {
 // });
 
 
-//Creating Photo for Logged in User
-router.post('/:id/songrequests', requireAuth, async(req, res, next) => {
-  let newSongRequest;
-  const { songName, artist, like, file } = req.body;
+// //Creating songRequest for Logged in User
+// router.post('/:id/songRequests', requireAuth, async(req, res, next) => {
+//   let newSongRequest;
+//   const { songName, artist, like } = req.body;
 
-  let findUser = await User.findByPk(req.user.id);
+//   let findUser = await User.findByPk(req.user.id);
 
-  if (!findUser) {
-    return res.json({
-      message: "User couldn't be found",
-    });
-  }
+//   if (!findUser) {
+//     return res.json({
+//       message: "User couldn't be found",
+//     });
+//   }
 
   router.post('/:id/songrequests', requireAuth, async (req, res, next) => {
-  try {
-    const { songName, artist, like, file } = req.body;
+ let newSongRequest;
+    const { songName, artist} = req.body;
 
-    const findUser = await User.findByPk(req.user.id);
+    let findUser = await User.findByPk(req.user.id);
 
     if (!findUser) {
       return res.status(404).json({
@@ -228,23 +227,25 @@ router.post('/:id/songrequests', requireAuth, async(req, res, next) => {
       });
     }
 
-    const newSongRequest = await findUser.createSongRequest({
+    newSongRequest = await findUser.createSongRequest({
       userId: req.user.id,
       songName,
-      artist,
-      like,
-      file
-    });
-
-    res.json(newSongRequest);
-  } catch (error) {
-    next(error);
-  }
+      artist
 });
-
   res.json(newSongRequest);
 }
 )
+
+
+//     res.json(newSongRequest);
+//   } catch (error) {
+//     next(error);
+//   }
+// });
+
+// res.json(newSongRequest);
+// }
+// )
 
 router.post(
     '/', validateSignup,

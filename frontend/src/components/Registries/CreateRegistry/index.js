@@ -27,8 +27,8 @@ const CreateRegistry = () => {
     }
 
     return (
-        <div className="registry-form-pop-up">
-            <form className="registry-form" onSubmit={onSubmit}>
+        <div className="registry-form-1">
+            <form className="registry-form-1" onSubmit={onSubmit}>
                 <label className="registry-item-item"></label>
                 Want to post a registry?
                 <input

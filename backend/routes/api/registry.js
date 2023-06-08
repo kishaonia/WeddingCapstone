@@ -46,7 +46,7 @@ router.get('/', requireAuth, async(req, res, next) => {
 
 
 router.put('/:id', requireAuth, async(req, res, next) => {
-  const {registryItem, url, like, file} = req.body
+  const {registryItem, url, like} = req.body
   let registry = await Registry.findOne({
     where: {
       id: req.params.id

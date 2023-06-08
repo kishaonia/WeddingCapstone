@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -6,30 +5,27 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import { createOneSongRequest } from "../../store/songrequest";
 
-const CreateSongRequest = () => {
-  const dispatch = useDispatch();
-  const user = useSelector((state) => state.session.user);
-  const userId = user?.id;
-  
-  const [songName, setSongName] = useState("");
-  const [artist, setArtist] = useState("");
-  const [like, setLike] = useState("");
+const CreateSongRequestForm = () => {
+    const dispatch = useDispatch();
+    const user = useSelector((state) => state.session.user);
+    const userId = user?.id;
+    const [songName, setSongName] = useState("");
+    const [artist, setArtist] = useState("");
+    const [like, setLike] = useState("");
 
-  
   const onSubmit = async (e) => {
     e.preventDefault();
-
+    
     const newSongRequest = {
       songName: songName,
-      artist: artist,
-      like: like
-    };
+      artist: artist
+
+    }
     const success = await dispatch(createOneSongRequest(newSongRequest, userId));
     if (success) {
-      setSongName("");
-      setArtist("");
-      setLike("")
-      
+      setSongName('');
+      setArtist('');
+    
     }
   };
 
@@ -69,6 +65,6 @@ const CreateSongRequest = () => {
   );
 };
 
-export default CreateSongRequest;
+export default CreateSongRequestForm;
 
 

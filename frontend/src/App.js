@@ -8,6 +8,7 @@ import LoginFormModal from "./components/LoginFormModal";
 import WeddingDetails from "./components/WeddingDetails";
 // import ProfileButton from "./components/Navigation/ProfileButton";
 import SongRequests from "./components/SongRequest";
+import Photos from "./components/Photo";
 
 
 function App() {
@@ -29,6 +30,9 @@ function App() {
     </Route>
       <Route exact path="/weddingdetails">
       <WeddingDetails />
+      </Route>
+      <Route exact path="/weddingdetails">
+      <Photos />
       </Route>
       <Route exact path="/weddingdetails">
       <SongRequests/>

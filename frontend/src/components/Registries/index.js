@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import "./Registries.css";
@@ -21,55 +21,85 @@ const Registry = ({ registry }) => {
     dispatch(getComments(registryId));
   }, [dispatch]);
 
+  const [isFlipped, setIsFlipped] = useState(false);
+
+  const handleClick = () => {
+    setIsFlipped(!isFlipped);
+  };
+
   return (
     <div className="registry-container">
-      <div className="registry-slideshow">
-        <OpenModalMenuItem
-          itemText={
-            <>
-              {" "}
-              <i class="fas fa-comment-dots"></i>
-            </>
-          }
-          id="notes-in-registries"
-          modalComponent={<CreateComment registryId={registry?.id} />}
-        />
-        {/* <div class="fas fa-wrench"> */}
-          <div className="update-delete">
-            {currentUser?.id === registry?.User?.id && (
-              <OpenModalMenuItem
-                itemText={
-                  <>
-                    <i className="fas fa-trash-alt"></i>
-                  </>
-                }
-                modalComponent={<DeleteRegistry registryId={registry?.id} />}
-              />
-            )}
-            {currentUser?.id === registry?.User?.id && (
-              <OpenModalMenuItem
-                itemText={
-                  <>
-                    <i class="fas fa-undo"></i>
-                  </>
-                }
-                modalComponent={<UpdateRegistry registry={registry} />}
-              />
-            )}
-          </div>
-        {/* </div> */}
-
-        <div className="registry-photos">
-          <img src={registry?.url} alt="User Registry" />
-        </div>
-        <div className="name-and-registry">
-          {" "}
+      <div className={`registry-slideshow ${isFlipped ? "flipped" : ""}`} onClick={handleClick}>
+      <div className="name-and-registry">
+         
           <h4 className="registry-name">
             {registry?.User?.firstName} {registry?.User?.lastName}
             <p className="registry-item-title">{registry?.registryItem}</p>
+
           </h4>
+{/*            
+          <OpenModalMenuItem
+              itemText={
+                <>
+               post
+                
+                </>
+              }
+              modalComponent={<CreateRegistry registry={registry} />}
+            /> */}
         </div>
+       
+
+        <div className="registry-photos">
+          <img src={registry?.url} alt="User Registry" />
+        
+       
+        </div>
+       
+        <div className="registry-when-flipped">
+         
+      <div className="update-delete">
+
+         {currentUser?.id === registry?.User?.id && (
+            <OpenModalMenuItem
+              itemText={
+                <>
+                del ete
+                </>
+              }
+              modalComponent={<DeleteRegistry registryId={registry?.id} />}
+            />
+          )}
+
+
+          {currentUser?.id === registry?.User?.id && (
+            <OpenModalMenuItem
+              itemText={
+                <>
+               edit
+                  {/* <i class="fas fa-undo"></i> */}
+                </>
+              }
+              modalComponent={<UpdateRegistry registry={registry} />}
+            />
+          )}
+
+
+
+          
+            {currentUser?.id === registry?.User?.id && (
+        <>
+  {/* <i class="fas fa-comment-dots"></i> */}
+  <CreateComment registryId={registry?.id} />
+</>
+        )}
+          
+        </div>
+   
       </div>
+      </div>
+
+      
     </div>
   );
 };

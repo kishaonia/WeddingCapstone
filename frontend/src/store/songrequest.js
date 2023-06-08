@@ -1,5 +1,4 @@
 import { csrfFetch } from "./csrf";
-
 const CREATE_SONG_REQUEST = 'songRequests/createSongRequest'
 const UPDATE_SONG_REQUEST = 'songRequests/updateSongRequest'
 const DELETE_SONG_REQUEST = 'songRequests/deleteSongRequest'
@@ -35,29 +34,52 @@ const deleteSongRequest = (songRequestId) => {
 }
 
 export const getSongRequests = () => async (dispatch) => {
-  const res = await fetch(`/api/songRequests`);
+  const res = await fetch('/api/songRequests');
   if (res.ok) {
     const list = await res.json();
     dispatch(getSongRequest(list));
   }
 };
 
-export const createOneSongRequest = (songRequest, userId) => async dispatch => {
-    const response = await csrfFetch(`/api/users/${userId}/songRequests`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(songRequest)
-    });
+// export const createOneSongRequest = (songRequest, userId) => async dispatch => {
+//     const response = await csrfFetch(`/api/users/${userId}/songRequests`, {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify(songRequest)
+//     });
 
-    if (response.ok) {
-     const success = await response.json()
-     success.userId = userId;
-     dispatch(createSongRequest(success))
-     return success
+//     if (response.ok) {
+//      const success = await response.json()
+//      success.userId = userId;
+//      dispatch(createSongRequest(success))
+//      return success
+//     }
+// }
+export const createOneSongRequest = (songRequest, userId) => async dispatch => {
+  const response = await csrfFetch(`/api/users/${userId}/songRequests`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(songRequest)
+  });
+
+  console.log(response); // Add this line for debugging
+
+  if (response.ok) {
+    try {
+      const success = await response.json();
+      success.userId = userId;
+      dispatch(createSongRequest(success));
+      return success;
+    } catch (error) {
+      console.error("Error parsing JSON:", error);
+      // Handle the error appropriately (e.g., display an error message)
     }
-}
+  }
+};
 
 // export const updateOneSongRequest = (songRequest, songRequestId) => async dispatch => {
 //     const response = await csrfFetch(`/api/songRequests/${songRequestId}`, {
@@ -83,11 +105,12 @@ export const updateOneSongRequest = (songRequest, songRequestId) => async (dispa
       },
       body: JSON.stringify(songRequest),
     });
-
+ 
     if (response.ok) {
-      const updated = await response.json();
-      dispatch(updateSongRequest(updated));
-      return updated;
+      const updatedSong = await response.json();
+      dispatch(updateSongRequest(updatedSong));
+      return updatedSong;
+      
     }
   }
 

@@ -16,9 +16,47 @@
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
 }
 
+.photos-slideshow:hover {
+  animation: shake 1s;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-2px);
+  }
+}
+  
+.registry-slideshow {
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.registry-slideshow.flipped {
+  transform: rotateY(180deg);
+}
+
+.registry-slideshow .update-delete,
+.registry-slideshow .registry-photos,
+.registry-slideshow .name-and-registry {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+.update-delete {
+  color: rgb(150, 126, 97);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
 
 .registry-slideshow img {
-  /* width: 100%; */
   max-width: 400px;
   max-height: 200px;
   object-fit: cover;
@@ -105,6 +143,21 @@ font-family: 'Utendo', sans-serif;
   display: flex;
  
 }
+.registry-form-1{
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  align-items: center;
+  justify-content: center;
+  width: 700px;
+  background-color: #ab9999;
+  border-radius: 10px;
+  color: #f4f2f2;
+  font-family: 'Constantine', sans-serif;
+  font-size: 30px;
+  
+}
+
 .registry-form{
   display: flex;
   flex-direction: column;
@@ -119,6 +172,7 @@ font-family: 'Utendo', sans-serif;
   font-size: 30px;
   
 }
+
 
 .submit-registries {
   background-color: transparent;
@@ -179,7 +233,7 @@ border-radius: 20px;
 
 .comment-form-pop-up{
   padding: 10px;
-  height: 300px;
+
   width: 300px;
   text-align: center;
   display: flex;
@@ -188,7 +242,6 @@ border-radius: 20px;
   align-items: stretch;
   color: #6e1e1e;
   font-family: 'Utendo', sans-serif;
-  background-color: #e9e8e1;
     border-radius: 10px;
     overflow-x: auto;
 }
@@ -212,15 +265,6 @@ border-radius: 20px;
   flex-direction: column;
 }
 
-
-.fas.fa-comment-dots{
-  color: #9d9ddb;
-  position: absolute;
-  left: 276px;
-  bottom: 290px;
-  font-size: 30px;
-
-}
 
 .input-registry{
   background-color: transparent;

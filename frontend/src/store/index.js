@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
     users: userReducer,
     registries: registryReducer,
     photos: photoReducer,
-    songrequest:songRequestReducer,
+    songRequests:songRequestReducer,
     comments:commentReducer
 });
 

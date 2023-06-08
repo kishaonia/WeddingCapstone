@@ -30,7 +30,7 @@ const Photos = ({ photo }) => {
     <>
     <div className="photos-slideshow">
     
-        <div className="update-delete">
+        <div className="update-delete-photo">
           {currentUser?.id === photo?.userId ? (
             <OpenModalMenuItem
               itemText={
