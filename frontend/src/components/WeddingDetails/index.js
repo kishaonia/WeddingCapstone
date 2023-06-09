@@ -16,6 +16,9 @@ import SongRequest from "../SongRequest";
 import CreateSongRequestForm from "../SongRequest/CreateSongRequest";
 // import Guestlist from "../Guestlist/Guestlist";
 
+
+
+
 const WeddingDetails = () => {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
   const [isRegistriesOpen, setIsRegistriesOpen] = useState(false);
@@ -26,13 +29,23 @@ const WeddingDetails = () => {
 
   const registries = useSelector((state) => state?.registries);
   const photos = useSelector((state) => state?.photos);
+<<<<<<< HEAD
   const songRequests = useSelector((state) => state?.songRequests);
 
   const songRequestsVal = Object?.values(songRequests);
+=======
+  const songRequests = useSelector((state) => state?.songrequest);
+  const songRequestsVal = Object?.values(songRequests)
+>>>>>>> parent of edfbe6e (did a lot of styling!)
   const currentUser = useSelector((state) => state?.session?.user);
   const currentUserId = currentUser?.id;
   const history = useHistory();
   const registriesVal = Object?.values(registries);
+<<<<<<< HEAD
+=======
+  
+  
+>>>>>>> parent of edfbe6e (did a lot of styling!)
   const usersVal = Object?.values(users);
   const dispatch = useDispatch();
 
@@ -45,9 +58,16 @@ const WeddingDetails = () => {
   );
   const photosVal = Object?.values(photos);
 
+<<<<<<< HEAD
   const findSongRequests = songRequestsVal?.find(
+=======
+ 
+  const findSongRequests = songRequestsVal.find(
+>>>>>>> parent of edfbe6e (did a lot of styling!)
     ({ userId }) => userId === currentUser?.id
-  );
+    );
+ 
+ 
 
   if (!currentUser) {
     history.push("/");
@@ -56,7 +76,8 @@ const WeddingDetails = () => {
   useEffect(() => {
     dispatch(getRegstries());
     dispatch(fetchPhotos());
-    dispatch(getSongRequests());
+    dispatch(getSongRequests()); 
+ 
   }, [
     dispatch,
     JSON.stringify(currentUser),
@@ -98,10 +119,7 @@ const WeddingDetails = () => {
         </div>
       </div>
 
-      <div
-        id="wedding-details-section"
-        className="dropdown-big-title-wedding-details"
-      >
+      <div id="wedding-details-section" className="dropdown-big-title-wedding-details">
         <div
           className="big-title-header-wedding-details"
           onClick={toggleDetailsDropdown}
@@ -115,10 +133,7 @@ const WeddingDetails = () => {
         )}
       </div>
 
-      <div
-        id="registries-section"
-        className="dropdown-big-title-wedding-details"
-      >
+      <div id="registries-section" className="dropdown-big-title-wedding-details">
         <div
           className="big-title-header-wedding-details"
           onClick={toggleRegistriesDropdown}
@@ -159,10 +174,7 @@ const WeddingDetails = () => {
         )}
       </div>
 
-      <div
-        id="song-request-section"
-        className="dropdown-big-title-wedding-details"
-      >
+      <div id="song-request-section" className="dropdown-big-title-wedding-details">
         <div
           className="big-title-header-wedding-details"
           onClick={toggleSongRequestDropdown}
@@ -172,6 +184,7 @@ const WeddingDetails = () => {
 
         {isSongRequestOpen && (
           <div className="song-request">
+<<<<<<< HEAD
             {songRequestsVal?.map((songrequest) => (
               <div className="song-request-2">
                 <SongRequest key={songrequest?.id} songRequest={songrequest} />
@@ -183,16 +196,54 @@ const WeddingDetails = () => {
       </div>
 
       {/* <div className="dropdown-big-title-wedding-details">
+=======
+             {!findSongRequests ? <CreateSongRequest/> : <></>}
+            {songRequestsVal?.map((songrequest) => (
+            <div className="song-request-2" key={songrequest?.id}>
+              <SongRequest songRequest={songrequest} />
+              </div>
+              ))}
+          
+            </div>
+        )}
+        </div>
+
+        <div id="guestlist-section" className="dropdown-big-title-wedding-details">
+>>>>>>> parent of edfbe6e (did a lot of styling!)
         <div
           className="big-title-header-wedding-details"
           onClick={toggleGuestlistDropdown}
         >
           Guestlist
         </div>
+<<<<<<< HEAD
         {isGuestlistOpen && <Guestlist />}
       </div> */}
+=======
+        {/* {isSongRequestOpen && (
+          <div className="song-request">
+            {songRequestsVal?.map((songrequest) => (
+            <div className="song-request-2" key={songrequest?.id}>
+              <SongRequest songRequest={songrequest} />
+              </div>
+              ))}
+           {!findSongRequests ? <CreateSongRequest/> : <></>}
+            </div>
+        )} */}
+        </div>
+
+
+
+
+
+
+
+>>>>>>> parent of edfbe6e (did a lot of styling!)
     </div>
   );
 };
 
 export default WeddingDetails;
+
+
+ 

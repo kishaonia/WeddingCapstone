@@ -30,7 +30,7 @@ const CreateSongRequestForm = () => {
   };
 
   return (
-    <div className="song-request-pop-up">
+    <div className="song-request-pop-up" >
     <form onSubmit={onSubmit} className="create-song-request-form">
       Maybe add a song request?
       <br></br>
@@ -65,6 +65,10 @@ const CreateSongRequestForm = () => {
   );
 };
 
+<<<<<<< HEAD
 export default CreateSongRequestForm;
 
 
+=======
+export default CreateSongRequest;
+>>>>>>> parent of edfbe6e (did a lot of styling!)

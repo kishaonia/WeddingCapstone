@@ -24,40 +24,26 @@ const handleClick = () => {
 
   return (
     <>
-      <div className="photos-slideshow">
-        <div className="update-delete-photo">
-          {currentUser?.id === photo?.userId ? (
-            <OpenModalMenuItem
-              itemText={<i className="fas fa-trash-alt"></i>}
-              modalComponent={<DeletePhoto photoId={photo?.id} />}
-            />
-          ) : (
-            <></>
-          )}
-          {currentUser?.id === photo?.userId ? (
-            <OpenModalMenuItem
-              itemText={<i className="fas fa-undo"></i>}
-              modalComponent={<UpdatePhoto photo={photo} />}
-            />
-          ) : (
-            <></>
-          )}
+  
+   
+  <div className="photos-slideshow">
+  
+      <div key={photo?.id}>
+        <img
+          className="photos"
+          src={photo?.url}
+          style={{ maxHeight: '200px', maxWidth: '350px' }}
+        />
+
+        <div className="gallery-info">
+        <p className="gallery-name">{photo?.User?.firstName} {photo?.User?.lastName}</p>
+        <p className="gallery-description">"{photo?.description}"</p>
         </div>
-
-        <div key={photo?.id}>
-          <img
-            className="photos"
-            src={photo?.url}
-            style={{ maxHeight: "200px", maxWidth: "350px" }}
-            alt={photo?.description}
-          />
-
-          <div className="gallery-info">
-            <p className="gallery-name">
-              {photo?.User?.firstName} {photo?.User?.lastName}
-            </p>
-            <p className="gallery-description">"{photo?.description}"</p>
-          </div>
+    
+        
+        <div className="update-delete"> 
+        {currentUser?.id === photo?.userId ? <OpenModalMenuItem itemText={<><i className="fas fa-trash-alt"></i></>} modalComponent={<DeletePhoto photoId={photo?.id}/>}/>:<></>}
+        {currentUser?.id === photo?.userId ? <OpenModalMenuItem  itemText={<><i class='fas fa-undo'></i></>} modalComponent={<UpdatePhoto photo={photo}/>}/>:<></>}
         </div>
         {/* <div className="heart-like" onClick={handleClick}>
   <i className="fa fa-heart-o"></i>
