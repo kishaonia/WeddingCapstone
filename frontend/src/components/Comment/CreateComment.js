@@ -31,24 +31,17 @@ const CreateComment = ({registryId}) => {
 
     return (
         <div className="comment-form-pop-up">
-<<<<<<< HEAD
         Leave a note? 
         {commentsVal?.map(comment => {
             return(
             <div className="comment-in-reg"> {comment?.comment}  </div>
             )
           })}
-=======
->>>>>>> parent of edfbe6e (did a lot of styling!)
             <form className="comment-form" onSubmit={onSubmit}>
                 <label className="comment-text-label">Comment:</label>
                 <input
                     type="text"
-<<<<<<< HEAD
                     placeholder="thank u so much!"
-=======
-                    placeholder="Enter your comment"
->>>>>>> parent of edfbe6e (did a lot of styling!)
                     value={comment}
                     onChange={e => setComment(e.target.value)}
                     required
