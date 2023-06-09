@@ -38,9 +38,7 @@ module.exports = {
         like: {
           type: Sequelize.INTEGER,
         },
-        file: {
-          type: Sequelize.BLOB,
-        },
+        
         createdAt: {
           allowNull: false,
           type: Sequelize.DATE,

@@ -12,7 +12,7 @@
   background-image: url('https://wallpaperaccess.com/full/828390.jpg');
   background-size: cover; 
   background-repeat: no-repeat;
-  padding: 20px;
+  /* padding: 20px; */
   border-radius: 6px;
 }
 
@@ -41,8 +41,8 @@
 .registry-slideshow.flipped {
   transform: rotateY(180deg);
 }
+/* .fas.fa-trash-alt .fas.fa-undo, */
 
-.registry-slideshow .update-delete,
 .registry-slideshow .registry-photos,
 .registry-slideshow .name-and-registry {
   backface-visibility: hidden;
@@ -52,9 +52,10 @@
 .update-delete {
   color: rgb(150, 126, 97);
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  flex-direction: row;
   align-items: flex-end;
+  width: 10px;
+  width: 10px;
 }
 
 .registry-slideshow img {
@@ -318,4 +319,8 @@ border-radius: 20px;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-align: center;
+}
+
+.please{
+  display: flex;
 }

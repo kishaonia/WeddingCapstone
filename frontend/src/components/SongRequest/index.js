@@ -50,9 +50,6 @@ const SongRequest = ({ songRequest }) => {
   <div className="song-request-item-info">
     {songRequest?.artist}
   </div>
-  <audio controls preload="metadata">
-    <source src="https://www.w3schools.com/html/horse.ogg" type="audio/ogg" />
-  </audio>
 </div>
 
                     </div>

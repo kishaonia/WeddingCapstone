@@ -28,6 +28,25 @@ const deleteLike = (likeId) => {
 };
 
 // Thunks
+// export const createLikeRequest = (like) => async (dispatch) => {
+//   try {
+//     const response = await csrfFetch('/api/likes', {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify(like),
+//     });
+
+//     if (response.ok) {
+//       const createdLike = await response.json();
+//       dispatch(createLike(createdLike));
+//       return createdLike;
+//     }
+//   } catch (error) {
+//     console.error('Failed to create like:', error);
+//   }
+// };
 export const createLikeRequest = (like) => async (dispatch) => {
   try {
     const response = await csrfFetch('/api/likes', {
@@ -40,13 +59,17 @@ export const createLikeRequest = (like) => async (dispatch) => {
 
     if (response.ok) {
       const createdLike = await response.json();
-      dispatch(createLike(createdLike));
-      return createdLike;
+      dispatch(createLike(createdLike.like));
+      return createdLike.like;
+    } else {
+      const errorData = await response.json();
+      throw new Error(errorData.error);
     }
   } catch (error) {
     console.error('Failed to create like:', error);
   }
 };
+
 
 export const updateLikeRequest = (like, likeId) => async (dispatch) => {
   try {

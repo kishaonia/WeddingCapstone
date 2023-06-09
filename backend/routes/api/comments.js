@@ -44,7 +44,7 @@ const db = require("../../db/models");
 // PUT /comments/:id
 router.put('/:id', async (req, res) => {
   try {
-    const { comment } = req.body;
+    const { comment, like } = req.body;
     const findComment = Comment.findOne({
       where:{
         id: req.params.id

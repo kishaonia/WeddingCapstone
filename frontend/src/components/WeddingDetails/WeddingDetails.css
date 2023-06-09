@@ -258,3 +258,17 @@
   font-family: 'Constantine', sans-serif;
   font-size: 30px;
 }
+
+.fa.fa-heart-o,
+.heart-like.clicked {
+  color: red;
+
+  display: flex;
+}
+
+.heart-like{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}

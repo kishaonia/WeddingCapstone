@@ -25,8 +25,7 @@ const CreatePhoto = () => {
         description: description,
         url: url,
         file:file,
-        
-     
+
     }
      const success = await dispatch(createPhotoRequest(newPhoto, userId))
         if (success) {
@@ -37,11 +36,7 @@ const CreatePhoto = () => {
         }
     }
 
-    const handleFileChange = (e) => {
-      const selectedFile = e.target.files[0];
-      setFile(selectedFile);
-    };
-
+    
   return (
     <div className="registry-form-pop-up">
       <form className="registry-form" onSubmit={onSubmit}>
@@ -56,19 +51,21 @@ const CreatePhoto = () => {
         <br />
         <label className="registry-item-url">Photo URL</label>
         <input
-          type="text"
-          placeholder="Photo URL"
-          value={url}
-          onChange={(e) => setUrl(e.target.value)}
-          required
-        />
+  id="photo-url"
+  type="url"
+  placeholder="Photo URL"
+  value={url}
+  onChange={(e) => setUrl(e.target.value)}
+  required
+/>
 
-          <input
+
+          {/* <input
           type="file"
           value={file}
           onChange={handleFileChange}
           required
-        />
+        /> */}
    
         <br />
         <button className="submit-registries">Submit</button>

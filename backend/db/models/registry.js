@@ -27,8 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     userId: DataTypes.INTEGER,
     registryItem: DataTypes.STRING,
     url: DataTypes.STRING,
-    like:DataTypes.INTEGER,
-    file: DataTypes.BLOB
+    like: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Registry',

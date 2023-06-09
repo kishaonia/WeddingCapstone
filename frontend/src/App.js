@@ -44,9 +44,8 @@
 //   );
 // }
 
-// export default App;
-import React from "react";
-import { useState, useEffect } from "react";
+// export default App;import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import * as sessionActions from "./store/session";
@@ -56,6 +55,9 @@ import SongRequests from "./components/SongRequest";
 import Photos from "./components/Photo";
 import Navigation from "./components/Navigation";
 import Loader from "./Loader";
+
+
+
 
 function App() {
   const dispatch = useDispatch();
@@ -67,7 +69,7 @@ function App() {
 
   return (
     <>
-      {!isLoaded && <Loader />} {/* Render Loader when isLoaded is false */}
+      {!isLoaded && <Loader />}
       <Switch>
         <Route exact path="/">
           <LoginFormModal />
@@ -79,8 +81,14 @@ function App() {
               <Route exact path="/weddingdetails">
                 <WeddingDetails />
               </Route>
+              
               <Route exact path="/photos">
                 <Photos />
+                
+              </Route>
+                
+              <Route exact path="/weddingdetails">
+             
               </Route>
               <Route exact path="/songrequests">
                 <SongRequests />
@@ -91,6 +99,5 @@ function App() {
       </Switch>
     </>
   );
-}
-
+          }
 export default App;
