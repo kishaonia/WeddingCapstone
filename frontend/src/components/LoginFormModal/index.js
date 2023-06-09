@@ -7,6 +7,9 @@ import { useHistory } from "react-router-dom";
 import "./LoginForm.css";
 import SignupFormModal from "../SignupFormModal";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
+import loginbg from "../../assets/loginbg.jpg";
+
+
 
 function LoginFormModal() {
   const currentUser = useSelector((state) => state?.session?.user);
@@ -54,6 +57,10 @@ function LoginFormModal() {
 
   return (
     <>
+    <div className="bglogin">
+    
+     <img className="happycouple-login" src={loginbg} /> </div>
+     <div className="overlay-login">
       <h1 className="login-h1">Log In</h1>
       <form className="login-form" onSubmit={handleSubmit}>
         {errors.length > 0 && (
@@ -68,7 +75,7 @@ function LoginFormModal() {
           <br></br>
           <input
           className="input-for-login"
-            type="text-login"
+            type="password"
             value={credential}
             onChange={(e) => setCredential(e.target.value)}
             required
@@ -102,6 +109,8 @@ function LoginFormModal() {
           modalComponent={<SignupFormModal />}
         />
       </form>
+    </div>
+     
     </>
   );
 }

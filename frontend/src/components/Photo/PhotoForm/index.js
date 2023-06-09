@@ -69,8 +69,7 @@ const CreatePhoto = () => {
           onChange={handleFileChange}
           required
         />
-         
-
+   
         <br />
         <button className="submit-registries">Submit</button>
       </form>

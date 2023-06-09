@@ -15,7 +15,7 @@ router.get('/', requireAuth, async(req, res, next) => {
     include: [
       {
       model: Comment,
-      attributes: ["id", "comment", "file"]
+      attributes: ["id", "comment"]
       },
       {
         model: User,
@@ -70,7 +70,6 @@ router.put('/:id', requireAuth, async(req, res, next) => {
   let updateRegistry = await registry.update({
     registryItem,
     url,
-    file,
     like
   })
  res.json(updateRegistry)

@@ -8,6 +8,7 @@ import DeletePhoto from "./DeletePhoto";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import UpdatePhoto from "./UpdatePhoto";
 
+
 const Photos = ({ photo }) => {
   const currentUser = useSelector((state) => state.session.user);
   const history = useHistory();

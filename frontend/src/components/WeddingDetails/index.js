@@ -15,8 +15,10 @@ import { fetchPhotos } from "../../store/photos";
 import { getSongRequests } from "../../store/songrequest";
 import { getComments } from "../../store/comments";
 import SongRequest from "../SongRequest";
-import File from "../Files/Files";
+
 import CreateSongRequestForm from "../SongRequest/CreateSongRequest";
+
+
 
 const WeddingDetails = () => {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
@@ -179,22 +181,16 @@ const WeddingDetails = () => {
 
 
         {isSongRequestOpen && (
-          <div className="song-request">
+          <div className="song-request">  
 
-
-            
-            {songRequestsVal?.map((songrequest) => (
-            <div className="song-request-2">
-                <SongRequest key={songrequest?.id} songRequest={songrequest} />
-              </div>
-              ))}
-           {!findSongRequests ? <CreateSongRequestForm/> : <></>}
-          </div>
+          {songRequestsVal?.map((songrequest) => (
+          <div className="song-request-2">
+              <SongRequest key={songrequest?.id} songRequest={songrequest} />
+            </div>
+            ))}   
+         {!findSongRequests ? <CreateSongRequestForm/> : <></>}
+        </div>
         )}
-        
-
-
-
       </div>
 
       <div

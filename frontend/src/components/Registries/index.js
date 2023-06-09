@@ -29,6 +29,7 @@ const Registry = ({ registry }) => {
 
   return (
     <div className="registry-container">
+     
       <div className={`registry-slideshow ${isFlipped ? "flipped" : ""}`} onClick={handleClick}>
       <div className="name-and-registry">
          
@@ -51,8 +52,12 @@ const Registry = ({ registry }) => {
        
 
         <div className="registry-photos">
-          <img src={registry?.url} alt="User Registry" />
-        
+          <img src={registry?.url} alt="User Registry" class="image-registry" />
+          <div className="overlay-for-registries">
+ 
+            <div className="overlay-text"> Hover to view! </div>
+          </div>
+            
        
         </div>
        
