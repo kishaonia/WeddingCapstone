@@ -29,23 +29,14 @@ const WeddingDetails = () => {
 
   const registries = useSelector((state) => state?.registries);
   const photos = useSelector((state) => state?.photos);
-<<<<<<< HEAD
-  const songRequests = useSelector((state) => state?.songRequests);
-
-  const songRequestsVal = Object?.values(songRequests);
-=======
   const songRequests = useSelector((state) => state?.songrequest);
   const songRequestsVal = Object?.values(songRequests)
->>>>>>> parent of edfbe6e (did a lot of styling!)
   const currentUser = useSelector((state) => state?.session?.user);
   const currentUserId = currentUser?.id;
   const history = useHistory();
   const registriesVal = Object?.values(registries);
-<<<<<<< HEAD
-=======
   
   
->>>>>>> parent of edfbe6e (did a lot of styling!)
   const usersVal = Object?.values(users);
   const dispatch = useDispatch();
 
@@ -58,12 +49,8 @@ const WeddingDetails = () => {
   );
   const photosVal = Object?.values(photos);
 
-<<<<<<< HEAD
-  const findSongRequests = songRequestsVal?.find(
-=======
  
   const findSongRequests = songRequestsVal.find(
->>>>>>> parent of edfbe6e (did a lot of styling!)
     ({ userId }) => userId === currentUser?.id
     );
  
@@ -184,20 +171,7 @@ const WeddingDetails = () => {
 
         {isSongRequestOpen && (
           <div className="song-request">
-<<<<<<< HEAD
-            {songRequestsVal?.map((songrequest) => (
-              <div className="song-request-2">
-                <SongRequest key={songrequest?.id} songRequest={songrequest} />
-              </div>
-            ))}
-            {!findSongRequests ? <CreateSongRequestForm /> : <></>}
-          </div>
-        )}
-      </div>
-
-      {/* <div className="dropdown-big-title-wedding-details">
-=======
-             {!findSongRequests ? <CreateSongRequest/> : <></>}
+             {!findSongRequests ? <CreateSongRequestForm/> : <></>}
             {songRequestsVal?.map((songrequest) => (
             <div className="song-request-2" key={songrequest?.id}>
               <SongRequest songRequest={songrequest} />
@@ -209,17 +183,12 @@ const WeddingDetails = () => {
         </div>
 
         <div id="guestlist-section" className="dropdown-big-title-wedding-details">
->>>>>>> parent of edfbe6e (did a lot of styling!)
         <div
           className="big-title-header-wedding-details"
-          onClick={toggleGuestlistDropdown}
+          // onClick={toggleGuestlistDropdown}
         >
           Guestlist
         </div>
-<<<<<<< HEAD
-        {isGuestlistOpen && <Guestlist />}
-      </div> */}
-=======
         {/* {isSongRequestOpen && (
           <div className="song-request">
             {songRequestsVal?.map((songrequest) => (
@@ -238,7 +207,6 @@ const WeddingDetails = () => {
 
 
 
->>>>>>> parent of edfbe6e (did a lot of styling!)
     </div>
   );
 };

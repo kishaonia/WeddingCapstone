@@ -45,11 +45,12 @@ const handleClick = () => {
         {currentUser?.id === photo?.userId ? <OpenModalMenuItem itemText={<><i className="fas fa-trash-alt"></i></>} modalComponent={<DeletePhoto photoId={photo?.id}/>}/>:<></>}
         {currentUser?.id === photo?.userId ? <OpenModalMenuItem  itemText={<><i class='fas fa-undo'></i></>} modalComponent={<UpdatePhoto photo={photo}/>}/>:<></>}
         </div>
-        {/* <div className="heart-like" onClick={handleClick}>
+        <div className="heart-like" onClick={handleClick}>
   <i className="fa fa-heart-o"></i>
   {like ? "Unlike" : "Like"}
-</div> */}
+</div>
 
+      </div>
       </div>
     </>
   );

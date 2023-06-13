@@ -11,14 +11,12 @@
   font-family: 'Constantine', sans-serif;
   font-size: 30px;
 }
-<<<<<<< HEAD
 .song-request {
   height: 300px;
   text-align: center;
   display: flex;
   overflow: scroll;
   justify-content: flex-start;
-=======
 
 .song-request-slideshow {
   border: 1px solid #000;
@@ -42,7 +40,6 @@
 .song-request-slideshow button {
   margin-right: 5px;
 }
->>>>>>> parent of edfbe6e (did a lot of styling!)
 
 }
 

@@ -1,6 +1,5 @@
 .registry-container {
   display: flex;
-<<<<<<< HEAD
     /* margin: 20px; */
     height: 311px;
     width: auto;
@@ -15,20 +14,6 @@
   background-repeat: no-repeat;
   /* padding: 20px; */
   border-radius: 6px;
-=======
-
-  margin: 20px;
-  height: 280px;
-  width: 300px;
-  margin-right: -3px;
-}
-
-.registry-slideshow {
-  margin-right: 20px; 
-  border: 2px solid #ab9999;
-  padding: 20px;
-  border-radius: 20px;
->>>>>>> parent of edfbe6e (did a lot of styling!)
 }
 
 .photos-slideshow:hover {
@@ -74,10 +59,7 @@
 }
 
 .registry-slideshow img {
-<<<<<<< HEAD
-=======
   width: 100%;
->>>>>>> parent of edfbe6e (did a lot of styling!)
   max-width: 400px;
   max-height: 200px;
   object-fit: cover;
@@ -251,7 +233,6 @@ border-radius: 20px;
 .cancel-form-button:hover {
   color: #333;
 }
-<<<<<<< HEAD
 
 
 .comment-form-pop-up{
@@ -344,5 +325,3 @@ border-radius: 20px;
 .please{
   display: flex;
 }
-=======
->>>>>>> parent of edfbe6e (did a lot of styling!)
