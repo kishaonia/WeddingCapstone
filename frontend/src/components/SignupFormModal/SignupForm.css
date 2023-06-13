@@ -19,6 +19,12 @@ form.signup-form{
 
 }
 
+.signup-form li {
+    color: red;
+    list-style-type: none;
+}
+
+
 .input-for-signup{
     border-radius: 10px;
     border-color: transparent;

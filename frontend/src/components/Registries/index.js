@@ -29,9 +29,41 @@ const Registry = ({ registry }) => {
 
   return (
     <div className="registry-container">
+<<<<<<< HEAD
       <div className={`registry-slideshow ${isFlipped ? "" : "flipped"}`} onClick={handleClick}>
 
       
+=======
+      <div className={`registry-slideshow ${isFlipped ? "flipped" : ""}`} onClick={handleClick}>
+      <div className="name-and-registry">
+         
+          <h4 className="registry-name">
+            {registry?.User?.firstName} {registry?.User?.lastName}
+            <p className="registry-item-title">{registry?.registryItem}</p>
+
+          </h4>
+{/*            
+          <OpenModalMenuItem
+              itemText={
+                <>
+               post
+                
+                </>
+              }
+              modalComponent={<CreateRegistry registry={registry} />}
+            /> */}
+        </div>
+       
+
+        <div className="registry-photos">
+          <img src={registry?.url} alt="User Registry" />
+        
+       
+        </div>
+       
+        <div className="registry-when-flipped">
+         
+>>>>>>> parent of f049dbd (1st big push of the night)
       <div className="update-delete">
           
           {currentUser?.id === registry?.User?.id && (

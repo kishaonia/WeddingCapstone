@@ -111,6 +111,7 @@ router.post('/:id/registries', requireAuth, async(req, res, next) => {
     userId: req.user.id,
     url,
     like,
+    file,
     registryItem,
   });
 

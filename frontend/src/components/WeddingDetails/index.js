@@ -13,10 +13,12 @@ import { fetchPhotos } from "../../store/photos";
 import { getSongRequests } from "../../store/songrequest";
 import { getComments } from "../../store/comments";
 import SongRequest from "../SongRequest";
+<<<<<<< HEAD
+=======
+import File from "../Files/Files";
+>>>>>>> parent of f049dbd (1st big push of the night)
 import CreateSongRequestForm from "../SongRequest/CreateSongRequest";
 // import Guestlist from "../Guestlist/Guestlist";
-
-
 
 
 const WeddingDetails = () => {
@@ -171,6 +173,7 @@ const WeddingDetails = () => {
 
         {isSongRequestOpen && (
           <div className="song-request">
+<<<<<<< HEAD
              {!findSongRequests ? <CreateSongRequestForm/> : <></>}
             {songRequestsVal?.map((songrequest) => (
             <div className="song-request-2" key={songrequest?.id}>
@@ -181,6 +184,24 @@ const WeddingDetails = () => {
             </div>
         )}
         </div>
+=======
+
+
+            
+            {songRequestsVal?.map((songrequest) => (
+            <div className="song-request-2">
+                <SongRequest key={songrequest?.id} songRequest={songrequest} />
+              </div>
+              ))}
+           {!findSongRequests ? <CreateSongRequestForm/> : <></>}
+          </div>
+        )}
+        
+
+
+
+      </div>
+>>>>>>> parent of f049dbd (1st big push of the night)
 
         <div id="guestlist-section" className="dropdown-big-title-wedding-details">
         <div
