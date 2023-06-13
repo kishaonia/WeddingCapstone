@@ -5,13 +5,13 @@ import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import DeleteSongRequest from "./DeleteSongRequest";
 import UpdatedSongRequest from "./UpdateSong/UpdateSongRequest";
 import LikeDislike from "../Likes";
-import MiniMusicPlayer from "./musicplayer";
 import { getSongRequests } from "../../store/songrequest";
 import { useState } from "react";
 import CreateSongRequestForm from "./CreateSongRequest";
 import { useHistory } from "react-router-dom";
+import "./SongRequest.css"
 
-const SongRequest = ({songRequest}) => {
+const SongRequest = ({ songRequest }) => {
   const songRequestId = songRequest?.id;
   const currentUser = useSelector((state) => state.session.user);
   // const songRequests = useSelector((state) => state.songRequests);
@@ -28,7 +28,7 @@ const SongRequest = ({songRequest}) => {
   if (!currentUser) {
     history.push("/");
   }
-  
+
   useEffect(() => {
     dispatch(getSongRequests());
   }, [
@@ -38,9 +38,7 @@ const SongRequest = ({songRequest}) => {
     JSON.stringify(songRequestId)
   ]);
 
- 
   return (
-<<<<<<< HEAD
     <div className="song-request-container" id="song-request-container">
        
       <div className="songreqid" key={songRequestId}>
@@ -56,54 +54,20 @@ const SongRequest = ({songRequest}) => {
 
                     </div>
         <div className="update-delete-song">
-=======
-    <div className="song-request-container">
-          <h1>hello!</h1>
-        
-          <div key={songRequestId}>
-            <div className="song-request-header">
-              <h4 className="song-request-name">{`${songRequest?.User?.firstName} ${songRequest?.User?.lastName}`}</h4>
-            </div>
-            <div className="song-request-content">
-              <p className="song-request-item-title">{songRequest?.songName}</p>
-              <div className="song-request-item-info">
-                <p>{songRequest?.artist}</p>
-           
-              </div>
-            </div>
-        
-            <div className="update-delete-song">
-         
->>>>>>> parent of f049dbd (1st big push of the night)
           {currentUser?.id === songRequest?.User?.id && (
             <OpenModalMenuItem
-              itemText={
-                <>
-                  del ete
-                </>
-              }
+              itemText="Delete"
               modalComponent={<DeleteSongRequest songRequestId={songRequest?.id} />}
             />
           )}
 
-
           {currentUser?.id === songRequest?.User?.id && (
             <OpenModalMenuItem
-              itemText={
-                <>
-                  edit
-                  {/* <i class="fas fa-undo"></i> */}
-                </>
-              }
+              itemText="Edit"
               modalComponent={<UpdatedSongRequest updateSongRequest={songRequest} />}
             />
           )}
-
-
-            </div>
-        
-          </div>
-      
+        </div>
    
     </div>
   );

@@ -31,7 +31,7 @@ const deleteRegistry = (registryId) => {
     }
 }
 
-export const getRegstries = () => async (dispatch) => {
+export const getRegistries = () => async (dispatch) => {
   const res = await fetch(`/api/registries`);
   if (res.ok) {
     const list = await res.json();

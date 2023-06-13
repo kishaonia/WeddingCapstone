@@ -11,38 +11,6 @@
   font-family: 'Constantine', sans-serif;
   font-size: 30px;
 }
-<<<<<<< HEAD
-.song-request {
-  height: 300px;
-  text-align: center;
-  display: flex;
-  overflow: scroll;
-  justify-content: flex-start;
-
-.song-request-slideshow {
-  border: 1px solid #000;
-  padding: 10px;
-}
-
-.song-request-slideshow .song-request-name {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.song-request-slideshow .song-request-item-title {
-  font-size: 16px;
-  font-weight: bold;
-}
-
-.song-request-slideshow p {
-  margin: 5px 0;
-}
-
-.song-request-slideshow button {
-  margin-right: 5px;
-}
-=======
->>>>>>> parent of f049dbd (1st big push of the night)
 
 
 .song-request {
@@ -93,7 +61,6 @@
 
 
 .song-request-container {
-<<<<<<< HEAD
   background-image: url("https://img.rawpixel.com/private/static/images/website/2022-05/v944-bb-16-job598.jpg?w=1200&h=1200&dpr=1&fit=clip&crop=default&fm=jpg&q=75&vib=3&con=3&usm=15&cs=srgb&bg=F4F4F3&ixlib=js-2.2.1&s=846eb3fbf937d787169767fd6a98a4b8");
   background-size: cover;
   background-position: center;
@@ -106,22 +73,7 @@
     align-content: space-between;
     justify-content: space-between;
     align-items: stretch;
-=======
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding-left: 50px;
-  margin-bottom: 10px;
-  background-color: #ffffff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  height: 160px;
 }
-
-.song-request-name {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
->>>>>>> parent of f049dbd (1st big push of the night)
-
 .song-request-item-title {
   margin-top: 0;
 }
@@ -137,8 +89,6 @@
 
 
 
- */
-
 
  .song-request-container {
   border: 1px solid #ccc;
@@ -146,10 +96,6 @@
   margin-bottom: 20px;
 }
 
-<<<<<<< HEAD
-.song-request-header{
-  font-weight: bolder;
-=======
 .song-request-header {
   margin-bottom: 10px;
 }
@@ -189,5 +135,5 @@
 
 .song-request-container{
   display: flex;
->>>>>>> parent of f049dbd (1st big push of the night)
 }
+

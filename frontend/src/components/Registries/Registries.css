@@ -8,21 +8,12 @@
 }
 
 .registry-slideshow {
-<<<<<<< HEAD
   /* margin-right: 20px; */
   background-image: url('https://wallpaperaccess.com/full/828390.jpg');
   background-size: cover; 
   background-repeat: no-repeat;
   /* padding: 20px; */
   border-radius: 6px;
-=======
-  margin-right: 20px;
-
-  background-color: #ede3e4;
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
->>>>>>> parent of f049dbd (1st big push of the night)
 }
 
 .photos-slideshow:hover {
@@ -115,7 +106,7 @@ font-family: 'Utendo', sans-serif;
                                                 
 }
 
-.big-title-header-regsitry-details{
+.big-title-header-regisitry-details{
   font-weight: bold;
     text-align: center;
     font-family: 'Constantine', sans-serif;
@@ -298,7 +289,6 @@ border-radius: 20px;
     justify-content: center;
 }
 
-<<<<<<< HEAD
 .image-registry {
   display: block;
 }
@@ -338,5 +328,3 @@ border-radius: 20px;
 .please{
   display: flex;
 }
-=======
->>>>>>> parent of f049dbd (1st big push of the night)

@@ -29,20 +29,16 @@ const Registry = ({ registry }) => {
 
   return (
     <div className="registry-container">
-<<<<<<< HEAD
-      <div className={`registry-slideshow ${isFlipped ? "" : "flipped"}`} onClick={handleClick}>
 
-      
-=======
       <div className={`registry-slideshow ${isFlipped ? "flipped" : ""}`} onClick={handleClick}>
-      <div className="name-and-registry">
-         
+        <div className="name-and-registry">
+
           <h4 className="registry-name">
             {registry?.User?.firstName} {registry?.User?.lastName}
             <p className="registry-item-title">{registry?.registryItem}</p>
 
           </h4>
-{/*            
+          {/*            
           <OpenModalMenuItem
               itemText={
                 <>
@@ -53,59 +49,62 @@ const Registry = ({ registry }) => {
               modalComponent={<CreateRegistry registry={registry} />}
             /> */}
         </div>
-       
+
 
         <div className="registry-photos">
-          <img src={registry?.url} alt="User Registry" />
-        
-       
+          <img src={registry?.url} alt="User Registry" class="image-registry" />
+          <div className="overlay-for-registries">
+
+            <div className="overlay-text"> Hover to view! </div>
+          </div>
+
+
         </div>
-       
+
         <div className="registry-when-flipped">
-         
->>>>>>> parent of f049dbd (1st big push of the night)
-      <div className="update-delete">
-          
-          {currentUser?.id === registry?.User?.id && (
-            <OpenModalMenuItem
-              itemText={
-                <>
-                  <i class="fas fa-undo"></i>
-                </>
-              }
-              modalComponent={<UpdateRegistry registry={registry} />}
-            />
-          )}
-          {currentUser?.id === registry?.User?.id && (
-            <OpenModalMenuItem
-              itemText={
-                <>
-                  <i className="fas fa-trash-alt"></i>
-                </>
-              }
-              modalComponent={<DeleteRegistry registryId={registry?.id} />}
-            />
-          )}
+
+          <div className="update-delete">
+
+            {currentUser?.id === registry?.User?.id && (
+              <OpenModalMenuItem
+                itemText={
+                  <>
+                    del ete
+                  </>
+                }
+                modalComponent={<DeleteRegistry registryId={registry?.id} />}
+              />
+            )}
+
+
+            {currentUser?.id === registry?.User?.id && (
+              <OpenModalMenuItem
+                itemText={
+                  <>
+                    edit
+                    {/* <i class="fas fa-undo"></i> */}
+                  </>
+                }
+                modalComponent={<UpdateRegistry registry={registry} />}
+              />
+            )}
+
+
+
+
+            {currentUser?.id === registry?.User?.id && (
+              <>
+                <i class="fas fa-comment-dots"></i>
+                <CreateComment registryId={registry?.id} />
+              </>
+            )}
+
+          </div>
+
         </div>
-        <div className="registry-photos">
-       
-          <img src={registry?.url} alt="User Registry" />
-        </div>
-        <div className="name-and-registry">
-          <h4 className="registry-name">
-            {registry?.User?.firstName} {registry?.User?.lastName}
-            <p className="registry-item-title">{registry?.registryItem}</p>
-          </h4>
-        </div>
-        {currentUser?.id === registry?.User?.id && (
-        <>
-  <i class="fas fa-comment-dots"></i>
- <div className="please"><CreateComment registryId={registry?.id} /></div> 
-</>
-        )}
       </div>
 
-      <div className="registry-when-flipped"></div>
+
     </div>
   );
 };
