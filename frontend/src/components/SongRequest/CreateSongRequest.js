@@ -65,6 +65,10 @@ const CreateSongRequestForm = () => {
   );
 };
 
+<<<<<<< HEAD
 export default CreateSongRequestForm;
 
 
+=======
+export default CreateSongRequest;
+>>>>>>> parent of edfbe6e (did a lot of styling!)
