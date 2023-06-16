@@ -65,14 +65,8 @@ const CreatePhoto = () => {
           value={file}
           onChange={handleFileChange}
           required
-<<<<<<< HEAD
         /> */}
    
-=======
-        />
-         
-
->>>>>>> parent of f049dbd (1st big push of the night)
         <br />
         <button className="submit-registries">Submit</button>
       </form>
