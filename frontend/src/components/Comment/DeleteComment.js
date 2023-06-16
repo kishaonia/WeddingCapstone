@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useModal } from "../../context/Modal";
 import { useSelector } from "react-redux";
 
-const DeleteComment = ({ commentId }) => {
+const DeleteComment = ({commentId }) => {
     const dispatch = useDispatch();
     const { closeModal } = useModal();
 

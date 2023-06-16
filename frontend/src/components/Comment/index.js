@@ -4,6 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import CreateComment from "../Comment/CreateComment";
 import DeleteComment from "./DeleteComment";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
+import UpdateComment from "./UpdateComment"
 
 
 const Comment = ({ comment }) => {
@@ -16,7 +17,7 @@ const Comment = ({ comment }) => {
                     {comment?.User?.firstName} {comment?.User?.lastName}
                 </h4>
                 <p className="comment-text">{comment?.commentText}</p>
-                <img src={comment?.url} alt="User Comment" />
+              {comment?.url}
                 <div className="update-delete">
                     {currentUser?.id === comment?.User?.id ? (
                         <OpenModalMenuItem

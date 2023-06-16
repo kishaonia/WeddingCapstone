@@ -125,26 +125,32 @@ const WeddingDetails = () => {
         id="registries-section"
         className="dropdown-big-title-wedding-details"
       >
-        <div
-          className="big-title-header-wedding-details"
-          onClick={toggleRegistriesDropdown}
-        >
+        <div className="big-title-header-wedding-details" onClick={toggleRegistriesDropdown}>
           Registries
         </div>
         {isRegistriesOpen && (
-          <div className="registry-list-style">
+          
+          <div className="registry-list-style" >  
+          
+           
+             
             {registriesVal?.map((registry) => (
-              <div className="registry-list" key={registry?.id}>
-        
-                <Registry registry={registry}  />
-               
-              </div>
-            ))}
-            <div className="registrycantfindpost">
-            {!findRegistry ? <CreateRegistry /> : <></>}
-            </div>
+              <div key={registry?.id}><Registry registry={registry}/>
+               </div>
+              
+            )
+            
+            )
+            }
+              {!findRegistry ? <CreateRegistry /> : <></>}
+         
+            
           </div>
-        ) }
+
+
+
+        ) 
+        }
       </div>
 
       <div id="gallery-section" className="dropdown-big-title-wedding-details">

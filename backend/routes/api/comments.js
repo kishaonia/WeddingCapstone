@@ -1,6 +1,11 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const db = require("../../db/models");
+const bcrypt = require("bcryptjs");
+const { check } = require("express-validator");
+const { sequelize, Op } = require("sequelize");
+const { handleValidationErrors } = require("../../utils/validation");
+const { setTokenCookie, requireAuth } = require("../../utils/auth");
+const { User, Comment, songRequest, Registry, Photo } = require("../../db/models");
 
 
 // GET /comments
@@ -72,6 +77,7 @@ router.put('/:id', async (req, res) => {
   }
 });
 
+
 // DELETE /comments/:id
 router.delete('/:id', async (req, res) => {
   try {
@@ -89,3 +95,5 @@ router.delete('/:id', async (req, res) => {
 });
 
 module.exports = router;
+
+

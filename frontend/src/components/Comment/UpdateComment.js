@@ -1,9 +1,9 @@
-import { updateOneComment } from "../../../store/comments";
+import { updateOneComment } from "../../store/comments";
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useState } from "react";
-import { useModal } from "../../../context/Modal";
+import { useModal } from "../../context/Modal";
 import { useSelector } from "react-redux";
 
 
