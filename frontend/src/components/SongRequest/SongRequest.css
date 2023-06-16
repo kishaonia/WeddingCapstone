@@ -19,28 +19,13 @@
   justify-content: flex-start;
   overflow-y: auto;
   padding-top: 30px;
-  flex-direction: column;
+  flex-direction: row;
   /* align-items: center; */
-  height: 100vh;
+  /* height: 100vh; */
   /* padding-bottom: 28px; */
   /* margin-bottom: 6px; */
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
-
-.song-request-2 {
-  width: 1000px;
-
-    border-radius: 5px;
-
-    height: 156px;
-    text-align: left;
-
-    height: 200px;
- display: flex;
-
-
-}
-
 
 
 
@@ -64,36 +49,25 @@
   background-image: url("https://img.rawpixel.com/private/static/images/website/2022-05/v944-bb-16-job598.jpg?w=1200&h=1200&dpr=1&fit=clip&crop=default&fm=jpg&q=75&vib=3&con=3&usm=15&cs=srgb&bg=F4F4F3&ixlib=js-2.2.1&s=846eb3fbf937d787169767fd6a98a4b8");
   background-size: cover;
   background-position: center;
-   /* height: 30vw;  */
+  border-radius: 20px;
+   /* height: 30vw; 
   margin: 2px;
-  width: 300px;
+  width: 20vw;
   padding: 10px; 
   display: flex;
     flex-direction: column;
     align-content: space-between;
     justify-content: space-between;
-    align-items: stretch;
+    align-items: stretch; */
 }
-.song-request-item-title {
-  margin-top: 0;
-}
-
-.song-request-item-info {
-  margin-bottom: 10px;
-}
-
-.song-request-item-info p {
-  margin: 0;
-}
-
-
-
 
 
  .song-request-container {
   border: 1px solid #ccc;
   padding: 20px;
   margin-bottom: 20px;
+  width: 30vw;
+  height: 17vh;
 }
 
 .song-request-header {
@@ -116,8 +90,9 @@
 
 .song-request-item-info {
   display: flex;
-  justify-content: space-between;
-  font-size: 14px;
+    font-size: 14px;
+    text-align: center;
+    flex-direction: column;
 }
 
 .update-delete {
@@ -133,7 +108,20 @@
 }
 
 
-.song-request-container{
+
+/* .song-request-2{
   display: flex;
+  flex-direction: row;
+  gap: 24px;
+  padding: 16px;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+} */
+
+.spotify-song-request{
+  padding-top: 10px;
 }
 
+.songreqid{
+  text-align: center;
+}

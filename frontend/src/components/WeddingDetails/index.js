@@ -187,17 +187,31 @@ const WeddingDetails = () => {
 
 
         {isSongRequestOpen && (
-          <div className="song-request">  
-
+          
+          <div className="spotify-song-request">  
+ <>
+      <iframe
+        title="Spotify Playlist"
+        src="https://open.spotify.com/embed/playlist/2bkceKUejPhJlzAHyAm1iS"
+        width="100%"
+        height="352"
+        frameBorder="0"
+        allow="encrypted-media"
+        loading="lazy"
+      ></iframe>
+    </>
+    <div className="song-request">
           {songRequestsVal?.map((songrequest) => (
           <div className="song-request-2">
               <SongRequest key={songrequest?.id} songRequest={songrequest} />
             </div>
             ))}   
          {!findSongRequests ? <CreateSongRequestForm/> : <></>}
+         </div>
         </div>
         )}
       </div>
+      
 
       <div
         id="guestlist-section"
