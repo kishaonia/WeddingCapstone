@@ -111,7 +111,7 @@ router.post('/:id/registries', requireAuth, async(req, res, next) => {
     userId: req.user.id,
     url,
     like,
-    // file,
+    file,
     registryItem,
   });
 
@@ -147,8 +147,8 @@ router.post('/:id/photos', requireAuth, async(req, res, next) => {
     userId: req.user.id,
     url,
     description,
-    like,
-    file,
+    // like,
+    // file,
   });
 
   res.json(newPhoto);
