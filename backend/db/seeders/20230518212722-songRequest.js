@@ -25,22 +25,24 @@ module.exports = {
      {
       userId:1,
       songName:"The 1",
-      artist:"Taylor Swift"
+      artist:"Taylor Swift",
+      like:"1"
      },
      {
 
 
        userId:2,
        songName:"Lover",
-      artist:"Taylor Swift"
+      artist:"Taylor Swift",
+      like:"1"
        },
      {
 
 
        userId:3,
        songName:"invisible string",
-       artist:"Taylor Swift"
-    
+       artist:"Taylor Swift",
+       like:"1"
      },
      {
 
@@ -48,6 +50,7 @@ module.exports = {
        userId:4,
        songName:"Make You Feel My Love",
       artist:"Adele",
+      like:"1"
     
      },
      {
@@ -56,6 +59,7 @@ module.exports = {
        userId:5,
        songName:"When We Were Young",
        artist:"Adele",
+       like:"1"
      }
    ], {});
  },

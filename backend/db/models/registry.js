@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
           foreignKey: 'userId',
         });
 
-        Registry.hasOne(models.Comment, {
+        Registry.hasMany(models.Comment, {
           foreignKey: "registryId",
           onDelete: "CASCADE",
           hooks: true,
