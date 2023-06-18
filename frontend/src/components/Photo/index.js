@@ -63,7 +63,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { createLikeRequest, deleteLikeRequest } from "../../store/likes";
 import DeletePhoto from "./DeletePhoto";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import UpdatePhoto from "./UpdatePhoto";
@@ -74,16 +73,12 @@ const Photos = ({ photo }) => {
   const currentUser = useSelector((state) => state.session.user);
   const history = useHistory();
   const dispatch = useDispatch();
-  const [like, setLike] = useState(false);
   const files = []; // Replace with your file array
 
   if (!currentUser) {
     history.push("/");
   }
 
-  const handleClick = () => {
-    setLike(!like);
-  };
 
   return (
     <>

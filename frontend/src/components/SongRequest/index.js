@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import DeleteSongRequest from "./DeleteSongRequest";
 import UpdatedSongRequest from "./UpdateSong/UpdateSongRequest";
-import LikeDislike from "../Likes";
 import { getSongRequests } from "../../store/songrequest";
 import { useState } from "react";
 import CreateSongRequestForm from "./CreateSongRequest";
@@ -19,7 +18,6 @@ const SongRequest = ({ songRequest }) => {
   const history = useHistory();
   const [songName, setSongName] = useState(songRequest?.songName);
   const [artist, setArtist] = useState(songRequest?.artist);
-  const [like, setLike] = useState(songRequest?.like);
   const [error, setError] = useState({});
   const User = useSelector((state) => state?.users);
   const songRequests = useSelector((state) => state?.songRequests);

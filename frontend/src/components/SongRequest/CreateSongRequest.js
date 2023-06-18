@@ -11,7 +11,6 @@ const CreateSongRequestForm = () => {
     const userId = user?.id;
     const [songName, setSongName] = useState("");
     const [artist, setArtist] = useState("");
-    const [like, setLike] = useState("");
 
   const onSubmit = async (e) => {
     e.preventDefault();
