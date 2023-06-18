@@ -25,7 +25,6 @@ module.exports = (sequelize, DataTypes) => {
     userId: DataTypes.INTEGER,
     registryId: DataTypes.INTEGER,
     comment: DataTypes.STRING,
-    like:DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Comment',

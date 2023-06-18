@@ -4,7 +4,7 @@ const { check } = require('express-validator');
 const { sequelize, Op } = require("sequelize");
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User, Comment, songRequest, Registry, Photo, Like } = require('../../db/models');
+const { User, Comment, songRequest, Registry, Photo } = require('../../db/models');
 const router = express.Router();
 
 const validateSignup = [
@@ -85,7 +85,7 @@ router.get('/', requireAuth, async (req, res, next) => {
 //Creating a registry for a logged in User
 router.post('/:id/registries', requireAuth, async(req, res, next) => {
   let newRegistry;
-  const { url, registryItem, like} = req.body;
+  const { url, registryItem} = req.body;
 
   let findUser = await User.findByPk(req.user.id);
 
@@ -110,7 +110,6 @@ router.post('/:id/registries', requireAuth, async(req, res, next) => {
   newRegistry = await findUser.createRegistry({
     userId: req.user.id,
     url,
-    like,
     file,
     registryItem,
   });
@@ -121,7 +120,7 @@ router.post('/:id/registries', requireAuth, async(req, res, next) => {
 //Creating Photo for Logged in User
 router.post('/:id/photos', requireAuth, async(req, res, next) => {
   let newPhoto;
-  const { url, description, like, file } = req.body;
+  const { url, description } = req.body;
 
   let findUser = await User.findByPk(req.user.id);
 
@@ -146,9 +145,7 @@ router.post('/:id/photos', requireAuth, async(req, res, next) => {
   newPhoto = await findUser.createPhoto({
     userId: req.user.id,
     url,
-    description,
-    // like,
-    // file,
+    description
   });
 
   res.json(newPhoto);

@@ -35,9 +35,6 @@ module.exports = {
         comment: {
           type: Sequelize.STRING,
         },
-        like: {
-          type: Sequelize.INTEGER,
-        },
         
         createdAt: {
           allowNull: false,

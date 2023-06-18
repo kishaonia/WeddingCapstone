@@ -241,7 +241,7 @@ router.get('/:id', async (req, res, next) => {
 
 // PUT /songRequests
 router.put('/:id', requireAuth, async(req, res, next) => {
-  const {songName, artist, like} = req.body
+  const {songName, artist} = req.body
   let songRequest = await songRequest.findOne({
     where: {
       id: req.params.id
@@ -264,8 +264,7 @@ router.put('/:id', requireAuth, async(req, res, next) => {
 
   let updateSongRequest = await songRequest.update({
     songName,
-    artist,
-    like
+    artist
   })
   
  res.json(updateSongRequest)

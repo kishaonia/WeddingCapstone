@@ -46,7 +46,7 @@ router.get('/', requireAuth, async(req, res, next) => {
 
 
 router.put('/:id', requireAuth, async(req, res, next) => {
-  const {registryItem, url, like} = req.body
+  const {registryItem, url} = req.body
   let registry = await Registry.findOne({
     where: {
       id: req.params.id
@@ -69,9 +69,8 @@ router.put('/:id', requireAuth, async(req, res, next) => {
 
   let updateRegistry = await registry.update({
     registryItem,
-    url,
-    like
-  })
+    url
+    })
  res.json(updateRegistry)
 })
 

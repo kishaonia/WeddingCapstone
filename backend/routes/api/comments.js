@@ -49,7 +49,7 @@ const { User, Comment, songRequest, Registry, Photo } = require("../../db/models
 // PUT /comments/:id
 router.put('/:id', async (req, res) => {
   try {
-    const { comment, like } = req.body;
+    const { comment } = req.body;
     const findComment = Comment.findOne({
       where:{
         id: req.params.id

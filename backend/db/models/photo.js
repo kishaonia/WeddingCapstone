@@ -20,7 +20,6 @@ module.exports = (sequelize, DataTypes) => {
     userId: DataTypes.INTEGER,
     url: DataTypes.STRING,
     description: DataTypes.STRING,
-    like: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Photo',
