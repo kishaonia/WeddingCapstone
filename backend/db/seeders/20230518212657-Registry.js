@@ -25,28 +25,37 @@ module.exports = {
      {
       userId:1,
       registryItem:"Dog1",
-      url:"https://iheartdogs.com/wp-content/uploads/2023/03/rottweiler-g54bbf41ab_1280.jpg"
+      url:"https://iheartdogs.com/wp-content/uploads/2023/03/rottweiler-g54bbf41ab_1280.jpg",
+      like:"1"
      },
      {
        userId:2,
        registryItem:"Dog2",
-       url:"https://1.bp.blogspot.com/-J0Fhz8cbrJU/VjWHoWn5b9I/AAAAAAAABSw/cm4E9aY8lhc/s1600/rottweiler-dog-close-up.jpg"
+       url:"https://1.bp.blogspot.com/-J0Fhz8cbrJU/VjWHoWn5b9I/AAAAAAAABSw/cm4E9aY8lhc/s1600/rottweiler-dog-close-up.jpg",
+       like:"1"
+
    },
      {
        userId:3,
        registryItem:"Dog3",
-       url:"https://www.akc.org/wp-content/uploads/2017/11/Rottweiler-puppy-6-weeks-old-sitting-on-a-white-background.jpg"
+       url:"https://www.akc.org/wp-content/uploads/2017/11/Rottweiler-puppy-6-weeks-old-sitting-on-a-white-background.jpg",
+       like:"1"
+
     
      },
      {
        userId:4,
        registryItem:"Dog4",
-       url:"https://cdn.britannica.com/70/234470-050-F25D5205/Rottweiler-dog.jpg"
+       url:"https://cdn.britannica.com/70/234470-050-F25D5205/Rottweiler-dog.jpg",
+       like:"1"
+
      },
      {
        userId:5,
        registryItem:"Dog5",
-       url:"https://usserviceanimals.org/blog/wp-content/uploads/2021/06/an-obedient-rottweiler.jpg"
+       url:"https://usserviceanimals.org/blog/wp-content/uploads/2021/06/an-obedient-rottweiler.jpg",
+       like:"1"
+
      }
    ], {});
  },
