@@ -13,11 +13,6 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: "CASCADE",
         hooks: true,
       });
-      User.hasMany(models.Like, {
-        foreignKey: "userId",
-        onDelete: "CASCADE",
-        hooks: true,
-      });
       User.hasMany(models.Registry, {
         foreignKey: "userId",
         onDelete: "CASCADE",
