@@ -142,9 +142,11 @@ const WeddingDetails = () => {
             
             )
             }
-              {!findRegistry ? <CreateRegistry /> : <></>}
+              {/* {!findRegistry ? */}
+               {/* <CreateRegistry />  */}
+               {/* : <></>} */}
          
-            
+            <CreateRegistry/>
           </div>
 
 
@@ -168,7 +170,9 @@ const WeddingDetails = () => {
                 <Photos key={photo?.id} photo={photo} />
               ))}
             <div className="create-list">
-              {!findPhoto ? <CreatePhoto /> : <></>}
+              {/* {!findPhoto ?  */}
+              <CreatePhoto /> 
+              {/* // : <></>} */}
             </div>
           </div>
         )}
@@ -206,7 +210,10 @@ const WeddingDetails = () => {
               <SongRequest key={songrequest?.id} songRequest={songrequest} />
             </div>
             ))}   
-         {!findSongRequests ? <CreateSongRequestForm/> : <></>}
+         {/* {!findSongRequests ?  */}
+         <CreateSongRequestForm/> 
+         {/* : <></>
+         } */}
          </div>
         </div>
         )}
