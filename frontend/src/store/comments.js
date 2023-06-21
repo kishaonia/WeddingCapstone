@@ -34,16 +34,16 @@ const deleteComment = (commentId) => {
 
 
 // Thunks
-export const getComments = (registryId) => async (dispatch) => {
-    const res = await fetch(`/api/registries/${registryId}/comments`);
+export const getComments = () => async (dispatch) => {
+    const res = await fetch(`/api/comment`);
     if (res.ok) {
-      const comment = await res.json();
-      dispatch(getComment(comment));
+      const listed = await res.json();
+      dispatch(getComment(listed));
     }
   };
   
-  export const createOneComment = (comment, registryId) => async (dispatch) => {
-    const response = await csrfFetch(`/api/registries/${registryId}/comments`, {
+  export const createOneComment = (comment, userId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/users/${userId}/comments`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -53,6 +53,7 @@ export const getComments = (registryId) => async (dispatch) => {
   
     if (response.ok) {
       const success = await response.json();
+      success.userId = userId;
       dispatch(createComment(success));
       return success;
     }

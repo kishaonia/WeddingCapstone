@@ -131,6 +131,8 @@
 //           <div className="reg-right">
 //           <div className="update-delete-reg">
 //               <>
+
+
 //               {/* <OpenModalMenuItem
 //                 itemText={<><i class='far fa-comment-dots'></i>
 //                 </>}
@@ -270,12 +272,12 @@ const Registry = ({ registry }) => {
   const dispatch = useDispatch();
   const comments = useSelector((state) => state?.comments);
   const commentsVal = Object?.values(comments);
-  console.log("Comments", commentsVal);
+  // console.log("Comments", commentsVal);
   const currentUser = useSelector((state) => state.session.user);
 
-  useEffect(() => {
-    dispatch(getComments(registryId));
-  }, [dispatch]);
+  // useEffect(() => {
+  //   dispatch(getComments(registryId));
+  // }, [dispatch]);
 
   return (
     <div className="registry-container">
@@ -321,7 +323,8 @@ const Registry = ({ registry }) => {
         {currentUser?.id === registry?.User?.id && (
         <>
   {/* <i class="fas fa-comment-dots"></i> */}
-  <CreateComment registryId={registry?.id} />
+  <Comment/>
+  {/* <CreateComment registryId={registry?.id} /> */}
   
 </>
         )}

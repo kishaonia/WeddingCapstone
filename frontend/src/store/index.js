@@ -6,6 +6,7 @@ import registryReducer from "./registries";
 import photoReducer from './photos.js'
 import songRequestReducer from "./songrequest";
 import commentReducer from "./comments";
+import guestlistReducer from "./guestlists";
 
 const rootReducer = combineReducers({
     session: sessionReducer,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
     registries: registryReducer,
     photos: photoReducer,
     songRequests:songRequestReducer,
-    comments:commentReducer
+    comments:commentReducer,
+    guestlists:guestlistReducer
 });
 
 let enhancer;

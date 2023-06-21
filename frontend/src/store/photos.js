@@ -50,6 +50,7 @@ export const createPhotoRequest = (photo, userId) => async (dispatch) => {
 
   if (response.ok) {
     const success = await response.json();
+    success.userId = userId;
     dispatch(createPhoto(success));
     return success;
   }

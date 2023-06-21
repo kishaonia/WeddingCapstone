@@ -39,6 +39,8 @@ const CreatePhoto = () => {
     
   return (
     <div className="registry-form-pop-up">
+
+      
       <form className="registry-form" onSubmit={onSubmit}>
         <label className="registry-item-item">Post A Photo!</label>
         <input
@@ -51,13 +53,13 @@ const CreatePhoto = () => {
         <br />
         <label className="registry-item-url">Photo URL</label>
         <input
-  id="photo-url"
-  type="url"
-  placeholder="Photo URL"
-  value={url}
-  onChange={(e) => setUrl(e.target.value)}
-  required
-/>
+          id="photo-url"
+          type="url"
+          placeholder="Photo URL"
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+          required
+            />
 
 
           {/* <input

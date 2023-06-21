@@ -242,33 +242,33 @@ router.get('/:id', async (req, res, next) => {
 // PUT /songRequests
 router.put('/:id', requireAuth, async(req, res, next) => {
   const {songName, artist} = req.body
-  let songRequest = await songRequest.findOne({
+  let SongRequest = await songRequest.findOne({
     where: {
       id: req.params.id
     }
   })
 
-  if (!songRequest){
+  if (!SongRequest){
        return res.json({
          message: "Song couldn't be found",
          statusCode: 404,
        });
   }
 
-  if (songRequest.userId !== req.user.id) {
+  if (SongRequest.userId !== req.user.id) {
    return res.json({
      message: "Forbidden/not allowed",
      statusCode: 403,
    });
   }
 
-  let updateSongRequest = await songRequest.update({
+  let updateSongRequest = await SongRequest.update({
     songName,
     artist
-  })
+  });
   
  res.json(updateSongRequest)
-})
+});
 
 
 

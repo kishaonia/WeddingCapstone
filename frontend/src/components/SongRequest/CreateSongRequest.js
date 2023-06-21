@@ -17,7 +17,7 @@ const CreateSongRequestForm = () => {
     
     const newSongRequest = {
       songName: songName,
-      artist: artist
+      artist: artist,
 
     }
     const success = await dispatch(createOneSongRequest(newSongRequest, userId));

@@ -4,7 +4,7 @@ const { check } = require('express-validator');
 const { sequelize, Op } = require("sequelize");
 const { handleValidationErrors } = require('../../utils/validation');
 const { setTokenCookie, requireAuth } = require('../../utils/auth');
-const { User, Comment, songRequest, Registry, Photo } = require('../../db/models');
+const { User, Comment, songRequest, Registry, Photo, Guestlist } = require('../../db/models');
 const router = express.Router();
 
 const validateSignup = [
@@ -117,6 +117,43 @@ router.post('/:id/registries', requireAuth, async(req, res, next) => {
   res.json(newRegistry);
 }
 )
+
+
+//Creating Comment for Logged in User
+router.post('/:id/comments', requireAuth, async(req, res, next) => {
+  let newComment;
+  const { comment } = req.body;
+
+  let findUser = await User.findByPk(req.user.id);
+
+  if (!findUser) {
+    return res.json({
+      message: "User couldn't be found",
+    });
+  }
+
+  const findComment = await Comment.findOne({
+    where: {
+      userId: req.user.id,
+    },
+  });
+
+  if (findComment) {
+    return res.status(400).json({
+      message: "User already created a Comment",
+    });
+  }
+
+  newComment = await findUser.createComment({
+    userId: req.user.id,
+    comment
+  });
+
+  res.json(newComment);
+}
+)
+
+
 //Creating Photo for Logged in User
 router.post('/:id/photos', requireAuth, async(req, res, next) => {
   let newPhoto;
@@ -149,6 +186,43 @@ router.post('/:id/photos', requireAuth, async(req, res, next) => {
   });
 
   res.json(newPhoto);
+}
+)
+
+
+
+
+router.post('/:id/guestlists', requireAuth, async(req, res, next) => {
+  let newGuestlist;
+  const { guest, description } = req.body;
+
+  let findUser = await User.findByPk(req.user.id);
+
+  if (!findUser) {
+    return res.json({
+      message: "User couldn't be found",
+    });
+  }
+
+  let findGuestlist = await Guestlist.findOne({
+    where: {
+      userId: req.user.id,
+    },
+  });
+
+  if (findGuestlist) {
+    return res.json({
+      message: "User already created a Guestlist",
+    });
+  }
+
+  newGuestlist = await findUser.createGuestlist({
+    userId: req.user.id,
+    guest,
+    description
+  });
+
+  res.json(newGuestlist);
 }
 )
 // Creating File 

@@ -13,7 +13,6 @@ import "./SongRequest.css"
 const SongRequest = ({ songRequest }) => {
   const songRequestId = songRequest?.id;
   const currentUser = useSelector((state) => state.session.user);
-  // const songRequests = useSelector((state) => state.songRequests);
   const dispatch = useDispatch();
   const history = useHistory();
   const [songName, setSongName] = useState(songRequest?.songName);
@@ -22,7 +21,7 @@ const SongRequest = ({ songRequest }) => {
   const User = useSelector((state) => state?.users);
   const songRequests = useSelector((state) => state?.songRequests);
 
-  // const songRequestsVal = Object?.values(songRequests);
+  const songRequestsVal = Object?.values(songRequests);
   if (!currentUser) {
     history.push("/");
   }

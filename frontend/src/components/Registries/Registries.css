@@ -324,3 +324,11 @@ input{
 
   }
 
+.comment-container{
+  display: flex;
+    flex-direction: column;
+}
+
+.reg-right{
+  display: flex;
+}

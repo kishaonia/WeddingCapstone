@@ -69,17 +69,17 @@ export const createOneSongRequest = (songRequest, userId) => async dispatch => {
   console.log(response); // Add this line for debugging
 
   if (response.ok) {
-    try {
+    // try {
       const success = await response.json();
-      success.userId = userId;
+      // success.userId = userId;
       dispatch(createSongRequest(success));
       return success;
-    } catch (error) {
-      console.error("Error parsing JSON:", error);
+    // } catch (error) {
+      // console.error("Error parsing JSON:", error);
       // Handle the error appropriately (e.g., display an error message)
     }
   }
-};
+// };
 
 // export const updateOneSongRequest = (songRequest, songRequestId) => async dispatch => {
 //     const response = await csrfFetch(`/api/songRequests/${songRequestId}`, {

@@ -28,6 +28,11 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: "CASCADE",
         hooks: true,
       });
+      User.hasOne(models.Guestlist, {
+        foreignKey: "userId",
+        onDelete: "CASCADE",
+        hooks: true,
+      });
       // define association here
     }
   }

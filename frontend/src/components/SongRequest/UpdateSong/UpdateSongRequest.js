@@ -37,10 +37,12 @@ const UpdatedSongRequest = ({ updateSongRequest }) => {
       artist,
       // like,
     };
-    const success = await dispatch(updateOneSongRequest(newSongRequest, songRequestId))
-    if(success.ok){
-      closeModal()
-    }
+    // const success = await
+     dispatch(updateOneSongRequest(newSongRequest, songRequestId))
+     .then(closeModal)
+    // if(success.ok){
+    //   closeModal()
+    // }
   };
 
   const onCancel = (e) => {

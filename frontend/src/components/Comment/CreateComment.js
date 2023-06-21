@@ -66,13 +66,14 @@ import { createOneComment } from "../../store/comments";
 
 
 
-const CreateComment = ({registryId}) => {
+const CreateComment = ({registriesId}) => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
-    const comments = useSelector(state => state?.comments)
+    const userId = user?.id;
+    // const comments = useSelector(state => state?.comments)
     const [comment, setComment] = useState("");
-    const commentsVal = Object?.values(comments)
-    console.log('Comments', commentsVal)
+    // const commentsVal = Object?.values(comments)
+    // console.log('Comment', commentsVal)
     // const usersVal = Object?.values(users);
 
     const onSubmit = async(e) => {
@@ -80,12 +81,11 @@ const CreateComment = ({registryId}) => {
 
         const newComment = {
             comment: comment
-         
+
         };
 
-        const success = await dispatch(createOneComment(newComment, registryId));
+        const success = await dispatch(createOneComment(newComment, registriesId));
         if (success) {
-          
             setComment('');
             
         }
@@ -93,11 +93,11 @@ const CreateComment = ({registryId}) => {
 
     return (
         <div className="comment-form-pop-up">
-        {commentsVal?.map(comment => {
+        {/* {commentsVal?.map(comment => {
             return(
             <div className="comment-in-reg"> {comment?.comment}  </div>
             )
-          })}
+          })} */}
             <form className="comment-form" onSubmit={onSubmit}>
                 <label className="comment-text-label"></label>
                 <input
