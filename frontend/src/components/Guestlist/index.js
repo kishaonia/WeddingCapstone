@@ -177,62 +177,62 @@
 
 // export default Guestlist;
 
-// import React, { useEffect } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { useHistory } from "react-router-dom";
-// import { fetchGuestlists } from "../../store/guestlists";
-// import CreateGuestlist from "./CreateGuestlist";
-// import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
-// import DeleteGuestlist from "./DeleteGuestlist";
-// import UpdateGuestlist from "./UpdateGuestlist";
-// import "./Guestlist.css"
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { fetchGuestlists } from "../../store/guestlists";
+import CreateGuestlist from "./CreateGuestlist";
+import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
+import DeleteGuestlist from "./DeleteGuestlist";
+import UpdateGuestlist from "./UpdateGuestlist";
+import "./Guestlist.css"
 
-// const Guestlist = () => {
-//   const currentUser = useSelector((state) => state.session.user);
-//   const guestlists = useSelector((state) => state.guestlists);
-//   const history = useHistory();
-//   const dispatch = useDispatch();
+const Guestlist = () => {
+  const currentUser = useSelector((state) => state.session.user);
+  const guestlists = useSelector((state) => state.guestlists);
+  const history = useHistory();
+  const dispatch = useDispatch();
 
-//   const guestlistArray = guestlists ? Object.values(guestlists) : [];
+  const guestlistArray = guestlists ? Object.values(guestlists) : [];
 
-//   if (!currentUser) {
-//     history.push("/");
-//   }
+  if (!currentUser) {
+    history.push("/");
+  }
 
-//   useEffect(() => {
-//     dispatch(fetchGuestlists());
-//   }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchGuestlists());
+  }, [dispatch]);
 
-//   return (
-//     <div className="guestlist-container">
-//       <div className="guestlist-background"></div>
-//       <div className="guestlist-index">
-//         <CreateGuestlist />
+  return (
+    <div className="guestlist-container">
+      <div className="guestlist-background"></div>
+      <div className="guestlist-index">
+        <CreateGuestlist />
 
-//         {guestlistArray.map((guestlist) => (
-//           <div className="guestlist" key={guestlist?.id}>
-//             {`${guestlist?.User?.firstName} ${guestlist?.User?.lastName}`}
-//             <div className="guestlist-plus">{guestlist?.guest}</div>
-//             <div className="guestlist-description">{guestlist?.description}</div>
-//             <div className="update-delete">
-//               {currentUser?.id === guestlist?.userId && (
-//                 <OpenModalMenuItem
-//                   itemText={<><i className="fas fa-trash-alt"></i></>}
-//                   modalComponent={<DeleteGuestlist guestlistId={guestlist?.id} />}
-//                 />
-//               )}
-//               {/* {currentUser?.id === guestlist?.userId && (
-//                 <OpenModalMenuItem
-//                   itemText={<><i className='fas fa-undo'></i></>}
-//                   modalComponent={<UpdateGuestlist guestlist={guestlist} />}
-//                 />
-//               )} */}
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
+        {guestlistArray.map((guestlist) => (
+          <div className="guestlist" key={guestlist?.id}>
+            {`${guestlist?.User?.firstName} ${guestlist?.User?.lastName}`}
+            <div className="guestlist-plus">{guestlist?.guest}</div>
+            <div className="guestlist-description">{guestlist?.description}</div>
+            <div className="update-delete">
+              {currentUser?.id === guestlist?.userId && (
+                <OpenModalMenuItem
+                  itemText={<><i className="fas fa-trash-alt"></i></>}
+                  modalComponent={<DeleteGuestlist guestlistId={guestlist?.id} />}
+                />
+              )}
+              {/* {currentUser?.id === guestlist?.userId && (
+                <OpenModalMenuItem
+                  itemText={<><i className='fas fa-undo'></i></>}
+                  modalComponent={<UpdateGuestlist guestlist={guestlist} />}
+                />
+              )} */}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
-// export default Guestlist;
+export default Guestlist;
