@@ -48,7 +48,7 @@ function Navigation({ isLoaded }) {
             <li onClick={() => document.getElementById('registries-section').scrollIntoView({ behavior: 'smooth' })}> Registries</li>
             <li onClick={() => document.getElementById('gallery-section').scrollIntoView({ behavior: 'smooth' })}>Gallery </li>
             <li onClick={() => document.getElementById('song-request-section').scrollIntoView({ behavior: 'smooth' })}> Song Request</li>
-            <li onClick={() => document.getElementById('guestlist-section').scrollIntoView({ behavior: 'smooth' })}>Guestlist</li>
+            {/* <li onClick={() => document.getElementById('guestlist-section').scrollIntoView({ behavior: 'smooth' })}>Guestlist</li> */}
             <li>
               {/* {" "} */}
               <button className="button-logout" onClick={logout}>
