@@ -60,6 +60,9 @@
 // };
 
 // export default CreateGuestlist;
+
+
+
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -77,6 +80,7 @@ const CreateGuestlist = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    setSubmitted(true);
 
     const newGuestlist = {
       guest: guest,
@@ -111,7 +115,8 @@ const CreateGuestlist = () => {
 
           <input
             type="text"
-            placeholder="Any Allergies?"
+            className="allergies-create-guestlist"
+            placeholder="Dietary restrictions?"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             required
