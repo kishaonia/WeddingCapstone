@@ -120,3 +120,9 @@ h1 {
   /* .button-logout{
     color: transparent;
   } */
+
+  .button-logout{
+    border: transparent;
+    background-color: transparent;
+
+  }

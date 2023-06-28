@@ -22,15 +22,22 @@ form.signup-form{
 .signup-form li {
     color: red;
     list-style-type: none;
+    text-align: center;
+    font-size: 13px;
 }
 
 
 .input-for-signup{
     border-radius: 10px;
     border-color: transparent;
+    height: 20px;
 }
 
 .button-submit{
     border-radius: 10px;
     border-color: transparent;
+}
+
+.signup-h1{
+    font-size: 20px;
 }

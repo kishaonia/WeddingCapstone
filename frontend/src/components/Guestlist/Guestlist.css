@@ -3,6 +3,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-image: url('https://i.pinimg.com/originals/9a/95/e1/9a95e18dea584b94a6874957b9ec0c7d.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 5px;
+    text-align: center;
+    height: 41vh;
+    margin: 14px;
+
+
+
   }
   
   
@@ -11,22 +22,101 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 106px;
+
   }
   
   .guestlist {
     width: 300px;
-    padding: 10px;
-    margin: 10px;
-    background-color: #f2f2f2;
+    /* padding: 10px;
+    margin: 10px; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     border-radius: 5px;
-  }
+    text-align: center;
+    font-weight: bolder;
+
+}
+
   
   .guestlist-plus {
-    font-weight: bold;
     margin-top: 5px;
+    white-space: nowrap;
+    font-weight: bolder;
   }
   
   .guestlist-description {
     margin-top: 5px;
+    font-weight: bolder;
+
   }
   
+
+  .guestlist-form-pop-up{
+    display: flex;
+    flex-direction: column;
+    height: 45.5vh;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    background-color: #ab9999;
+    border-radius: 10px;
+    color: #f4f2f2;
+    font-family: 'Constantine', sans-serif;
+    font-size: 30px;
+  }
+  .guestlist-form{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    }
+
+    .guestlist-item{
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .allergies{
+      font-size: 18px;
+      text-align: center;
+    }
+
+    .guestlist-input{
+      width: 265px;
+      margin: 10px;
+        }
+
+        .guestlist-item-item{
+          padding-bottom: 40px;
+        }
+
+        .submit-guestlist{
+          border: transparent;
+          background-color: transparent;
+          margin: 10px;
+          padding-top: 23px;
+
+        }
+
+        select{
+          text-align: center;
+          border-color: transparent;
+          border-radius: 5px;
+        }
+
+        .guest-count{
+          text-decoration: underline;
+        }
+
+        .update-delete-guestlist{
+          display: flex;
+          justify-content: flex-end;
+          font-size: 13px;
+          margin-top: -160px;
+                }
+
+                .update-guestlist{
+                  margin-top: 195px;
+                }

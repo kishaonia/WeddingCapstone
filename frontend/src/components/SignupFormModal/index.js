@@ -39,7 +39,12 @@ function SignupFormModal() {
       setErrors(["Username should be longer than 4 characters."]);
       return;
     }
-    setErrors([]);
+
+    if (password !== confirmPassword) {
+      setErrors(["Confirm Password field must be the same as the Password field."]);
+      return;
+    }
+
     if (password === confirmPassword) {
       setErrors([]);
       return dispatch(
@@ -67,10 +72,11 @@ function SignupFormModal() {
     <>
      
       <form className="signup-form" onSubmit={handleSubmit}>
-        {errors?.map((error, idx) => (
+       
+         <h1 className="signup-h1">Sign Up</h1>
+         {errors?.map((error, idx) => (
           <li key={idx}>{error}</li>
         ))}
-         <h1 className="signup-h1">Sign Up</h1>
         <label>
           Email:
           <br />

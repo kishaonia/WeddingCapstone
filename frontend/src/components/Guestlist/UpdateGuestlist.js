@@ -111,7 +111,9 @@ const UpdateGuestlist = ({ guestlist }) => {
       <div className="guestlist-form-pop-up">
         <form className="guestlist-form" onSubmit={onSubmit}>
           <label className="guestlist-item-item">Editing A Guestlist?</label>
+          <label className="allergies">Any Allergies?</label>
           <input
+          className="guestlist-input"
             type="text"
             placeholder="Any allergies?"
             value={description}
@@ -119,18 +121,16 @@ const UpdateGuestlist = ({ guestlist }) => {
             required
           />
           {error?.description && <span className="error">{error.description}</span>}
-          <br />
-          <label className="guestlist-item-#">Guest/s</label>
+          <label className="guestlist-item">Guest</label>
           <select
             value={guest}
             onChange={(e) => setGuest(Number(e.target.value))}
             required
           >
             <option value={1}>Just Me</option>
-            <option value={2}>+1 </option>
+            <option value={2}>+1 guest </option>
           </select>
           {error?.guest && <span className="error">{guest?.url}</span>}
-          <br />
           <button className="submit-guestlist" type="submit">Submit</button>
         </form>
       </div>

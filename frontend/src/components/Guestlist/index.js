@@ -175,8 +175,67 @@
 //   );
 // };
 
-// export default Guestlist;
+// // export default Guestlist;
 
+// import React, { useEffect } from "react";
+// import { useDispatch, useSelector } from "react-redux";
+// import { useHistory } from "react-router-dom";
+// import { fetchGuestlists } from "../../store/guestlists";
+// import CreateGuestlist from "./CreateGuestlist";
+// import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
+// import DeleteGuestlist from "./DeleteGuestlist";
+// import UpdateGuestlist from "./UpdateGuestlist";
+// import "./Guestlist.css"
+
+// const Guestlist = () => {
+//   const currentUser = useSelector((state) => state.session.user);
+//   const guestlists = useSelector((state) => state.guestlists);
+//   const history = useHistory();
+//   const dispatch = useDispatch();
+
+//   const guestlistArray = guestlists ? Object.values(guestlists) : [];
+
+//   if (!currentUser) {
+//     history.push("/");
+//   }
+
+//   useEffect(() => {
+//     dispatch(fetchGuestlists());
+//   }, [dispatch]);
+
+//   return (
+//     <div className="guestlist-container">
+//       <div className="guestlist-background"></div>
+//       <div className="guestlist-index">
+//         <CreateGuestlist />
+
+//         {guestlistArray.map((guestlist) => (
+//           <div className="guestlist" key={guestlist?.id}>
+//             {`${guestlist?.User?.firstName} ${guestlist?.User?.lastName}`}
+//             <div className="guestlist-plus">{guestlist?.guest}</div>
+//             <div className="guestlist-description">{guestlist?.description}</div>
+//             <div className="update-delete">
+//               {currentUser?.id === guestlist?.userId && (
+//                 <OpenModalMenuItem
+//                   itemText={<><i className="fas fa-trash-alt"></i></>}
+//                   modalComponent={<DeleteGuestlist guestlistId={guestlist?.id} />}
+//                 />
+//               )}
+//               {currentUser?.id === guestlist?.userId && (
+//                 <OpenModalMenuItem
+//                   itemText={<><i className='fas fa-undo'></i></>}
+//                   modalComponent={<UpdateGuestlist guestlist={guestlist} />}
+//                 />
+//               )}
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Guestlist;
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -185,7 +244,7 @@ import CreateGuestlist from "./CreateGuestlist";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 import DeleteGuestlist from "./DeleteGuestlist";
 import UpdateGuestlist from "./UpdateGuestlist";
-import "./Guestlist.css"
+import "./Guestlist.css";
 
 const Guestlist = () => {
   const currentUser = useSelector((state) => state.session.user);
@@ -203,31 +262,38 @@ const Guestlist = () => {
     dispatch(fetchGuestlists());
   }, [dispatch]);
 
+  // Filter guestlists by the current user
+  const currentUserGuestlists = guestlistArray.filter(
+    (guestlist) => guestlist?.User?.id === currentUser?.id
+  );
+
+  // Check if the user has already posted a guestlist
+  const hasPostedGuestlist = currentUserGuestlists.length > 0;
+
   return (
     <div className="guestlist-container">
       <div className="guestlist-background"></div>
       <div className="guestlist-index">
-        <CreateGuestlist />
+        {!hasPostedGuestlist && <CreateGuestlist />}
 
-        {guestlistArray.map((guestlist) => (
+        {currentUserGuestlists.map((guestlist) => (
           <div className="guestlist" key={guestlist?.id}>
-            {`${guestlist?.User?.firstName} ${guestlist?.User?.lastName}`}
-            <div className="guestlist-plus">{guestlist?.guest}</div>
-            <div className="guestlist-description">{guestlist?.description}</div>
-            <div className="update-delete">
-              {currentUser?.id === guestlist?.userId && (
-                <OpenModalMenuItem
-                  itemText={<><i className="fas fa-trash-alt"></i></>}
-                  modalComponent={<DeleteGuestlist guestlistId={guestlist?.id} />}
-                />
-              )}
-              {currentUser?.id === guestlist?.userId && (
-                <OpenModalMenuItem
-                  itemText={<><i className='fas fa-undo'></i></>}
-                  modalComponent={<UpdateGuestlist guestlist={guestlist} />}
-                />
-              )}
+           I'm {`${guestlist?.User?.firstName} ${guestlist?.User?.lastName}`}
+            <div className="guestlist-plus">I am reserving for ( {guestlist?.guest} ) guest</div>
+            <div className="guestlist-description">and I have ({guestlist?.description}) dietary restrictions </div>
+            <div className="update-delete-guestlist">
+              <OpenModalMenuItem
+                itemText={<><i className="fas fa-trash-alt"></i></>}
+                modalComponent={<DeleteGuestlist guestlistId={guestlist?.id} />}
+              />
+             
             </div>
+            <div className="update-guestlist">
+            <OpenModalMenuItem
+                itemText="Update"
+                modalComponent={<UpdateGuestlist guestlist={guestlist} />}
+              />
+              </div>
           </div>
         ))}
       </div>
