@@ -1,58 +1,4 @@
-.photos-slideshow:hover {
-  animation: shake 1s;
-}
 
-@keyframes shake {
-  0% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(-2px);
-  }
-}
-  
-
-/* .registry-slideshow img {
-  width: 100%;
-  max-width: 400px;
-  max-height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-} */
-
-/* .registry-list-style {
-  display: flex;
-  overflow-x: scroll;
-  height: 400px;
-} */
-
-.registry-list-style::-webkit-scrollbar {
-  width: 10px; 
-}
-
-.registry-list-style::-webkit-scrollbar-track {
-  background-color: #f1f1f1; 
-  border-radius: 10px;
-}
-
-.registry-list-style::-webkit-scrollbar-thumb {
-  background-color: #c1a1a1; 
-  border-radius: 10px; 
-}
-
-.registry-name{
-justify-content: center;
-color: rgb(127, 103, 107);
-font-family: 'Utendo', sans-serif;
-}
-.registry-item-title{
-  display: flex;
-  margin-bottom: 2px;
-  justify-content: center;
-  color: #635f5f;
-  font-family: 'Utendo', sans-serif;
-                                                
-}
 
 .big-title-header-regisitry-details{
   font-weight: bold;
@@ -92,16 +38,16 @@ font-family: 'Utendo', sans-serif;
 }
 .registry-form-1{
   display: flex;
-  height: 38vh;
-  width: 97vw;
-  background-color: #ab9999;
-  border-radius: 10px;
-  color: #f4f2f2;
-  font-family: 'Constantine', sans-serif;
-  font-size: 30px;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    flex-direction: column;
+    height: 46.5vh;
+    align-items: center;
+    justify-content: center;
+    width: 700px;
+    background-color: #ab9999;
+    /* border-radius: 10px; */
+    color: #f4f2f2;
+    font-family: 'Constantine', sans-serif;
+    font-size: 30px;
 }
 
 .registry-form{
@@ -185,56 +131,6 @@ border-radius: 20px;
 }
 
 
-/* .overlay-for-registries {
-  width: 100%;
-  opacity: 1; 
-  transition: .5s ease;
-  background-image: url('https://static.vecteezy.com/system/resources/previews/003/525/648/original/simple-abstract-brown-aesthetic-pattern-background-free-vector.jpg');
-  background-size: cover; 
-  background-repeat: no-repeat;
-}
-
- */
- .registry-container {
-  /* margin-bottom: 20px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px; */
-  
-}
-
-
-.name-and-registry {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 10px;
-  align-items: flex-start;
-}
-
-.registry-name {
-  margin: 0;
-  font-size: 18px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.registry-item-title {
-  margin: 0;
-  font-size: 14px;
-  font-weight: normal;
-  color: #888;
-}
-
-.registry-photos {
-  margin-bottom: 10px;
-  display: flex;
-}
-
-.image-registry {
-  height: 50%;
-  width: 30vw;
-}
 
 .update-delete-reg {
   display: flex;
@@ -251,19 +147,6 @@ border-radius: 20px;
   font-size: 18px;
 }
 
-/* Add any additional styles or modifications as needed */
-
-
-
-.slider-container {
-  width: 100%;
-  overflow: hidden;
-}
-
-.slider-wrapper {
-  display: flex;
-  transition: transform 0.5s;
-}
 
  .comment-form-pop-up{
     display: flex;
@@ -275,15 +158,6 @@ border-radius: 20px;
 } 
 
 
-.reg-left{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-}
-/* .reg-right{
-  overflow-y: scroll;
-} */
 .comment-section{
   display: flex;
 }
@@ -318,17 +192,37 @@ input{
   border-color: transparent;
   }
 
-  .buttons-reg{
-    display: flex;
-    flex-direction: column;
 
+  .registry-container {
+    position: relative;
   }
+  
+  .registry-container .name-and-registry {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 10px;
+    box-sizing: border-box;
+    opacity: 0;
+    margin-bottom: 6px;
+  
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .registry-container:hover .name-and-registry,
+  .registry-container:hover .buttons-reg {
+    opacity: 1;
+    transform: translateY(0);  }
+  
 
-.comment-container{
-  display: flex;
-    flex-direction: column;
-}
+    .buttons-reg {
+      display: flex;
+      justify-content: space-around;
+    }
 
-.reg-right{
-  display: flex;
-}
+    .name-and-registry{
+      text-align: center;
+    }

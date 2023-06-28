@@ -87,11 +87,11 @@ export const getComments = () => async (dispatch) => {
 
 const commentReducer = (prevState = {}, action) => {
   let nextState;
-  switch (action.type) {
+  switch (action?.type) {
     case GET_COMMENTS:
       nextState = {};
-    action.comments.Comments.forEach(comment => {
-      nextState[comment.id] = comment
+    action?.comments?.Comments?.forEach(comment => {
+      nextState[comment?.id] = comment
     })
     return nextState
     case CREATE_COMMENT:

@@ -20,6 +20,7 @@ import Guestlist from "../Guestlist";
 import CreateComment from "../Comment/CreateComment";
 import CreateGuestlist from "../Guestlist/CreateGuestlist";
 import { fetchGuestlists } from "../../store/guestlists";
+import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
 
 
 
@@ -64,6 +65,7 @@ const WeddingDetails = () => {
     dispatch(getRegistries());
     dispatch(fetchPhotos());
     dispatch(fetchGuestlists());
+    
     dispatch(getSongRequests());
     
   }, [
@@ -170,14 +172,11 @@ const WeddingDetails = () => {
           <div className="photos5">
             {currentUser &&
               photosVal?.map((photo) => (
-                // const findPhoto = photo.find({userId} => userId === currentUserId)
                 <Photos key={photo?.id} photo={photo} />
               ))}
-            <div className="create-list">
-              {/* {!findPhoto ?  */}
-              <CreatePhoto /> 
-              {/* // : <></>} */}
-            </div>
+            
+              <CreatePhoto/>
+          
           </div>
         )}
       </div>
@@ -196,18 +195,18 @@ const WeddingDetails = () => {
 
         {isSongRequestOpen && (
           
-          <div className="spotify-song-request">  
- <>
-      <iframe
-        title="Spotify Playlist"
-        src="https://open.spotify.com/embed/playlist/2bkceKUejPhJlzAHyAm1iS"
-        width="100%"
-        height="352"
-        frameBorder="0"
-        allow="encrypted-media"
-        loading="lazy"
-      ></iframe>
-    </>
+//           <div className="spotify-song-request">  
+//  <>
+//       <iframe
+//         title="Spotify Playlist"
+//         src="https://open.spotify.com/embed/playlist/2bkceKUejPhJlzAHyAm1iS"
+//         width="100%"
+//         height="352"
+//         frameBorder="0"
+//         allow="encrypted-media"
+//         loading="lazy"
+//       ></iframe>
+//     </>
     <div className="song-request">
           {songRequestsVal?.map((songrequest) => (
           <div className="song-request-2">
@@ -218,7 +217,7 @@ const WeddingDetails = () => {
          <CreateSongRequestForm/> 
          {/* : <></>
          } */}
-         </div>
+         {/* </div> */}
         </div>
         )}
       </div>
@@ -230,8 +229,7 @@ const WeddingDetails = () => {
       >
         <div
           className="big-title-header-wedding-details"
-          onClick={toggleGuestlistDropdown}
-        >
+          onClick={toggleGuestlistDropdown} >
           Guestlist
         </div>
         {/* {currentUser &&
@@ -240,7 +238,12 @@ const WeddingDetails = () => {
                 <Guestlist key={guestlist?.id} guestlist={guestlist} />
               ))} */}
        {/* <CreateGuestlist/> */}
-       <Guestlist/>
+       {isGuestlistOpen && (
+
+
+<Guestlist/>
+       )}
+      
       </div>
     </div>
   );

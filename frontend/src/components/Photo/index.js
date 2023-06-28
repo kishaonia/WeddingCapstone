@@ -82,12 +82,12 @@ const Photos = ({ photo }) => {
 
   return (
     <>
-      <div className="photos-slideshow">
-        <div key={photo?.id}>
+      {/* <div className="photos-slideshow">
+        <div key={photo?.id} className="photo-container-1">
           <img
             className="photos"
             src={photo?.url}
-            style={{ maxHeight: '200px', maxWidth: '350px' }}
+            style={{ maxHeight: '350px', maxWidth: '550px' }}
             alt="Uploaded Photo"
           />
 
@@ -110,7 +110,6 @@ const Photos = ({ photo }) => {
           </div>
 
           <div>
-            {/* <h3>Uploaded Files:</h3> */}
             {files.map((url, index) => (
               <a key={index} href={url} target="_blank" rel="noopener noreferrer">
                 {url}
@@ -118,7 +117,48 @@ const Photos = ({ photo }) => {
             ))}
           </div>
         </div>
-      </div>
+        
+      </div> */}
+      
+      <div className="photos-slideshow">
+  <div key={photo?.id} className="photo-container-1">
+    <img
+      className="photos"
+      src={photo?.url}
+      style={{ height: '350px', maxwidth: '550px' }}
+      alt="Uploaded Photo"
+    />
+
+    <div className="gallery-info">
+      <p className="gallery-name">{photo?.User?.firstName} {photo?.User?.lastName}</p>
+      <p className="gallery-description">"{photo?.description}"</p>
+      <div className="update-delete">
+      {currentUser?.id === photo?.userId ? (
+        <OpenModalMenuItem itemText={<><i className="fas fa-trash-alt"></i></>} modalComponent={<DeletePhoto photoId={photo?.id} />} />
+      ) : (
+        <></>
+      )}
+      {currentUser?.id === photo?.userId ? (
+        <OpenModalMenuItem itemText={<><i className='fas fa-undo'></i></>} modalComponent={<UpdatePhoto photo={photo} />} />
+      ) : (
+        <></>
+      )}
+    </div>
+    </div>
+
+   
+
+    <div>
+      {/* <h3>Uploaded Files:</h3> */}
+      {files.map((url, index) => (
+        <a key={index} href={url} target="_blank" rel="noopener noreferrer">
+          {url}
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
+
     </>
   );
 };

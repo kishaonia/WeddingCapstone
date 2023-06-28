@@ -1,6 +1,7 @@
 *{
   font-family: 'Manrope', sans-serif;
 font-family: 'Poppins', sans-serif;
+/* border: solid 2px black; */
 
 }
 .wedding-details-header {
@@ -131,45 +132,20 @@ font-family: 'Poppins', sans-serif;
 
 
   .registry-list-style {
-    animation: slideDownAnimation 0.5s;
-    animation-fill-mode: both;
-    /* width: 90vw; */
-    height: 90vh;
-    scroll-snap-type: y mandatory;
-    overflow: auto;
-    text-align: center;
-    margin-bottom: 10px;
-
-  }
-  
-  @keyframes slideDownAnimation {
-    0% {
-      opacity: 0;
-      transform: translateY(-50px);
-    }
-    100% {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-
-.registry-container{
-     /* width: 100vw; */
-    /* height: 50vh; */
-    scroll-snap-align: start;
-    /* margin: 127px; */
-    border: solid 2px rgb(213, 182, 182);
-    padding: 30px;
-    background-image: url(https://static.vecteezy.com/system/resources/previews/009/924/607/original/cute-brown-aesthetic-abstract-minimal-background-perfect-for-wallpaper-backdrop-postcard-background-vector.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    height: 47vh;
+  }
+.registry-list-style::-webkit-scrollbar {
+  display: none; /* Hide the scrollbar */
 }
+
+.registry-list-style > div {
+  scroll-snap-align: start;
+}
+
+
   .big-title-header-gallery{
     font-weight: bold;
     text-align: center;
@@ -188,125 +164,66 @@ font-family: 'Poppins', sans-serif;
   }
 
 
-  .photos-slideshow {
-    border: 1px solid black;
-    padding: 20px;
-    border-radius: 10px;
-    display: flex;
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-  }
-  
-  @keyframes shake {
-    0% {
-      transform: translateX(0);
-    }
-    50% {
-      transform: translateX(-2px);
-    }
-    
-    
-  }
-  
-  .photos5 {
-    display: flex;
-    gap: 10px;
-    justify-content: flex-start;
-    overflow-x: auto;
-    padding-top: 30px;
-    padding-bottom: 10px;
-   
-  }
-
-  .photos5::-webkit-scrollbar {
-    width: 10px; 
-  }
-  
-  .photos5::-webkit-scrollbar-track {
-    background-color: #f1f1f1; 
-    border-radius: 10px;
-  }
-  
-  .photos5::-webkit-scrollbar-thumb {
-    background-color: #c1a1a1; 
-    border-radius: 10px; 
-  }
-  
-  .photos5::-webkit-scrollbar-thumb:hover {
-    background-color: #7b5c5c; 
-  }
-  
-  
-  .photos {
-    max-height: 300px;
-    max-width: 500px;
-    scroll-snap-align: start;
-  }
-  
 .update-delete{
   display: flex;
   justify-content: space-around;
   color: rgb(150, 126, 97);
+  color: white;
 }
 
-.gallery-name {
-  color: black;
-  font-size: 15px;
-  margin-bottom: -10px;
-  font-weight: bold;
-  font-family: 'Utendo', sans-serif;
-                                                
-}
-
-.gallery-description{
-  color: black;
-  font-size: 13px;
-  font-family: 'Utendo', sans-serif;
-                                                
-}
 
 .photo-form{
   display: flex;
   flex-direction: column;
-  height: 300px;
+  height: 46.5vh;
   align-items: center;
   justify-content: center;
   width: 700px;
   background-color: #ab9999;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   color: #f4f2f2;
   font-family: 'Constantine', sans-serif;
   font-size: 30px;
 }
 
-.fa.fa-heart-o,
-.heart-like.clicked {
-  color: red;
 
+
+.photos5 {
   display: flex;
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+  height: 47vh;
 }
 
-.heart-like{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
+.photos5::-webkit-scrollbar {
+  display: none; /* Hide the scrollbar */
+}
+
+.photos5 > div {
+  scroll-snap-align: start;
 }
 
 
+.photo-container-1 {
+  position: relative;
+}
 
-/* .create-song-request-form{
-  display: flex;
-    flex-direction: column;
-    height: 23vh;
-    align-items: center;
-    justify-content: center;
-    width: 700px;
-    background-color: #ab9999;
-    border-radius: 10px;
-    color: #f4f2f2;
-    font-family: 'Constantine', sans-serif;
-    font-size: 30px;
-} */
+.gallery-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 10px;
+  box-sizing: border-box;
+  opacity: 0;
+  margin-bottom: 6px;
 
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.photo-container-1:hover .gallery-info {
+  opacity: 1;
+  transform: translateY(0);
+}

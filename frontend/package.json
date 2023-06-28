@@ -24,6 +24,7 @@
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
     "stream-browserify": "^3.0.0",
+    "swiper": "^9.4.1",
     "timers-browserify": "^2.0.12"
   },
   "scripts": {

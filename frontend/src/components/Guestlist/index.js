@@ -221,12 +221,12 @@ const Guestlist = () => {
                   modalComponent={<DeleteGuestlist guestlistId={guestlist?.id} />}
                 />
               )}
-              {/* {currentUser?.id === guestlist?.userId && (
+              {currentUser?.id === guestlist?.userId && (
                 <OpenModalMenuItem
                   itemText={<><i className='fas fa-undo'></i></>}
                   modalComponent={<UpdateGuestlist guestlist={guestlist} />}
                 />
-              )} */}
+              )}
             </div>
           </div>
         ))}
