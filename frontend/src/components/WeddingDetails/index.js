@@ -207,18 +207,19 @@ const WeddingDetails = () => {
 //         loading="lazy"
 //       ></iframe>
 //     </>
-    <div className="song-request">
-          {songRequestsVal?.map((songrequest) => (
-          <div className="song-request-2">
-              <SongRequest key={songrequest?.id} songRequest={songrequest} />
-            </div>
-            ))}   
-         {/* {!findSongRequests ?  */}
-         <CreateSongRequestForm/> 
-         {/* : <></>
-         } */}
-         {/* </div> */}
-        </div>
+<div className="song-request">
+{songRequestsVal?.map((songrequest) => (
+  <div className="song-request-2">
+    <SongRequest key={songrequest?.id} songRequest={songrequest} />
+  </div>
+))}   
+{!findSongRequests ? (
+  <CreateSongRequestForm/> 
+) : (
+  <></>
+)}
+</div>
+
         )}
       </div>
       
