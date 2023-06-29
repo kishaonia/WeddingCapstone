@@ -1,18 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Coming+Soon&display=swap');
+
+
+
 .guestlist-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url('https://i.pinimg.com/originals/9a/95/e1/9a95e18dea584b94a6874957b9ec0c7d.jpg');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  border-radius: 5px;
-  text-align: center;
-  height: 41vh;
-  margin: 14px;
-
-
-
+  background-image: url('https://img.freepik.com/free-vector/paper-note-memphis-brown-background_53876-99277.jpg');
+  background-size: auto;
+    background-repeat: unset;
+    background-position: center;
+    border-radius: 5px;
+    text-align: center;
+    height: 41vh;
+    
 }
 
 
@@ -21,7 +22,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 80px;
+  padding-top: 100px;
+  font-size: 18px;
 
 }
 
@@ -35,20 +37,19 @@
   border-radius: 5px;
   text-align: center;
   font-weight: bolder;
-
-}
+  font-family: 'Coming Soon', cursive;}
 
 
 .guestlist-plus {
   margin-top: 5px;
   white-space: nowrap;
   font-weight: bolder;
-}
+  font-family: 'Coming Soon', cursive;}
 
 .guestlist-description {
   margin-top: 20px;
   font-weight: bolder;
-}
+  font-family: 'Coming Soon', cursive;}
 
 
 .guestlist-form-pop-up {
@@ -113,7 +114,7 @@ select {
 
 .update-delete-guestlist {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   font-size: 13px;
   margin-top: -160px;
 }

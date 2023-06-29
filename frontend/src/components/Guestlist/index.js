@@ -286,14 +286,11 @@ const Guestlist = () => {
                 itemText={<><i className="fas fa-trash-alt"></i></>}
                 modalComponent={<DeleteGuestlist guestlistId={guestlist?.id} />}
               />
-             
-            </div>
-            <div className="update-guestlist">
-            <OpenModalMenuItem
-                itemText="Update"
+              <OpenModalMenuItem
+                itemText={<><i className='fas fa-undo'></i></>}
                 modalComponent={<UpdateGuestlist guestlist={guestlist} />}
               />
-              </div>
+            </div>
           </div>
         ))}
       </div>
