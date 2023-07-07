@@ -175,7 +175,7 @@ font-family: 'Poppins', sans-serif;
 .photo-form{
   display: flex;
   flex-direction: column;
-  height: 46.5vh;
+  height: 350px;
   align-items: center;
   justify-content: center;
   width: 700px;
@@ -192,7 +192,6 @@ font-family: 'Poppins', sans-serif;
   display: flex;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
-  height: 47vh;
 }
 
 .photos5::-webkit-scrollbar {
