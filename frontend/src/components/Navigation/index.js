@@ -46,7 +46,7 @@ function Navigation({ isLoaded }) {
             </div> */}
             <li onClick={() => document .getElementById("wedding-details-section").scrollIntoView({ behavior: "smooth" }) } > Wedding Details </li>
             <li onClick={() => document.getElementById('registries-section').scrollIntoView({ behavior: 'smooth' })}> Registries</li>
-            <li onClick={() => document.getElementById('gallery-section').scrollIntoView({ behavior: 'smooth' })}>Gallery </li>
+            <li onClick={() => document.getElementById('gallery-section').scrollIntoView({ behavior: 'smooth' }) }>Gallery </li>
             <li onClick={() => document.getElementById('song-request-section').scrollIntoView({ behavior: 'smooth' })}> Song Request</li>
             <li onClick={() => document.getElementById('guestlist-section').scrollIntoView({ behavior: 'smooth' })}>Guestlist</li>
             <li>

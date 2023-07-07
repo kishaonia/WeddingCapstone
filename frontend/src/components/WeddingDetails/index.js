@@ -131,7 +131,11 @@ const WeddingDetails = () => {
         id="registries-section"
         className="dropdown-big-title-wedding-details"
       >
-        <div className="big-title-header-wedding-details" onClick={toggleRegistriesDropdown}>
+        <div className="big-title-header-wedding-details" 
+  onClick={() => {
+    alert('use left and right buttons or scroll to navigate photos');
+    toggleRegistriesDropdown();
+  }}        >
           Registries
         </div>
         {isRegistriesOpen && (
@@ -148,11 +152,11 @@ const WeddingDetails = () => {
             
             )
             }
-              {/* {!findRegistry ? */}
-               {/* <CreateRegistry />  */}
-               {/* : <></>} */}
+              {!findRegistry ?
+               <CreateRegistry /> 
+               : <></>}
          
-               <CreateRegistry/>:<></>
+               {/* <CreateRegistry/>:<></> */}
           </div>
 
 
@@ -164,7 +168,11 @@ const WeddingDetails = () => {
       <div id="gallery-section" className="dropdown-big-title-wedding-details">
         <div
           className="big-title-header-wedding-details"
-          onClick={toggleGalleriesDropdown}
+          onClick={() => {
+            alert('use left and right buttons or scroll to navigate photos');
+            toggleGalleriesDropdown();
+          }}
+
         >
           Gallery
         </div>
@@ -230,7 +238,8 @@ const WeddingDetails = () => {
       >
         <div
           className="big-title-header-wedding-details"
-          onClick={toggleGuestlistDropdown} >
+          onClick={toggleGuestlistDropdown}
+           >
           Guestlist
         </div>
         {/* {currentUser &&

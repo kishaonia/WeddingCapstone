@@ -135,7 +135,6 @@ font-family: 'Poppins', sans-serif;
     display: flex;
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
-    height: 47vh;
   }
 .registry-list-style::-webkit-scrollbar {
   display: none; /* Hide the scrollbar */
