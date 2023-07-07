@@ -152,7 +152,7 @@ const WeddingDetails = () => {
                {/* <CreateRegistry />  */}
                {/* : <></>} */}
          
-               {!findPhoto ? <CreateRegistry/>:<></>}
+               <CreateRegistry/>:<></>
           </div>
 
 
@@ -175,7 +175,7 @@ const WeddingDetails = () => {
                 <Photos key={photo?.id} photo={photo} />
               ))}
             
-              <CreatePhoto/>
+              {!findPhoto ? <CreatePhoto/>:<></>}
           
           </div>
         )}
