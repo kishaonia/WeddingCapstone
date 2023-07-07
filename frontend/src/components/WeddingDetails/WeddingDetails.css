@@ -225,3 +225,28 @@ text-align: center;
   opacity: 1;
   transform: translateY(0);
 }
+
+
+.info-p{
+  margin: 10px
+}
+
+.fa.fa-info-circle{
+  position: absolute;
+    /* top: 50%; */
+    right: 1%;
+    /* transform: translate(-50%, -50%); */
+    z-index: 2;
+    color: black;
+    text-align: center;
+    height: 30px;
+    background-color: #e5dbdbd6;
+    width: 4vw;
+    text-align: center;
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 35px;
+}

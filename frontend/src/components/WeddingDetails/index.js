@@ -21,6 +21,7 @@ import CreateComment from "../Comment/CreateComment";
 import CreateGuestlist from "../Guestlist/CreateGuestlist";
 import { fetchGuestlists } from "../../store/guestlists";
 import OpenModalMenuItem from "../Navigation/OpenModalMenuItem";
+import InformationPhotos from "./information";
 
 
 
@@ -133,13 +134,19 @@ const WeddingDetails = () => {
       >
         <div className="big-title-header-wedding-details" 
   onClick={() => {
-    alert('use left and right buttons or scroll to navigate photos');
     toggleRegistriesDropdown();
   }}        >
           Registries
         </div>
         {isRegistriesOpen && (
-          
+          <>
+           <OpenModalMenuItem
+             modalComponent={<InformationPhotos/>}
+             className="info-4-photos"
+             itemText={<><i class="fa fa-info-circle"></i>
+             </>}
+             
+             />
           <div className="registry-list-style" >  
           
            
@@ -160,7 +167,7 @@ const WeddingDetails = () => {
           </div>
 
 
-
+          </>
         ) 
         }
       </div>
@@ -169,15 +176,24 @@ const WeddingDetails = () => {
         <div
           className="big-title-header-wedding-details"
           onClick={() => {
-            alert('use left and right buttons or scroll to navigate photos');
             toggleGalleriesDropdown();
           }}
 
         >
           Gallery
         </div>
+     
         {isGalleriesOpen && (
+          <>
+             <OpenModalMenuItem
+             modalComponent={<InformationPhotos/>}
+             className="info-4-photos"
+             itemText={<><i class="fa fa-info-circle"></i>
+             </>}
+             
+             />
           <div className="photos5">
+             
             {currentUser &&
               photosVal?.map((photo) => (
                 <Photos key={photo?.id} photo={photo} />
@@ -186,7 +202,9 @@ const WeddingDetails = () => {
               {!findPhoto ? <CreatePhoto/>:<></>}
           
           </div>
+          </>
         )}
+        
       </div>
 
       <div

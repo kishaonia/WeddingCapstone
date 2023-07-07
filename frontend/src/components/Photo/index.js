@@ -121,6 +121,7 @@ const Photos = ({ photo }) => {
       </div> */}
       
       <div className="photos-slideshow">
+        
   <div key={photo?.id} className="photo-container-1">
     <img
       className="photos"
